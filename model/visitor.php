@@ -12,6 +12,8 @@ class visitor
 
     private $bdd;
     private $sql;
+    private $userList;
+    private $eventList;
 
 
     public function __construct()
@@ -24,11 +26,12 @@ class visitor
         }
     }
 
-    public function getUser()
+    public function getEvent()
     {
-        $this->userList = $this->bdd->query("select * from users")->fetchAll(PDO::FETCH_OBJ);
-        return $this->userList;
+        $this->eventList = $this->bdd->query("select * from events")->fetchAll(PDO::FETCH_OBJ);
+        return $this->eventList;
     }
+
 
     public function set_inscription($name, $surname, $mail, $age, $city, $pseudo, $about, $password)
     {
@@ -55,9 +58,14 @@ class visitor
         {
             session_start();
 
+            $_SESSION['id_user'] = $this->sql['id_user'];
             $_SESSION['name'] = $this->sql['name'];
             $_SESSION['surname'] = $this->sql['surname'];
+            $_SESSION['mail'] = $this->sql['mail'];
+            $_SESSION['age'] = $this->sql['age'];
+            $_SESSION['city'] = $this->sql['city'];
             $_SESSION['pseudo'] = $this->sql['pseudo'];
+            $_SESSION['about'] = $this->sql['about'];
             $_SESSION['password'] = $this->sql['password'];
             $_SESSION['rank'] = $this->sql['rank'];
         } else {

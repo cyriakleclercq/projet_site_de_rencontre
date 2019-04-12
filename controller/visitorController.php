@@ -26,11 +26,11 @@ class visitorController
         $this->model = new visitor();
     }
 
-    public function affichageUser ()
+    public function affichageEvent ()
     {
-        $listeUsers = $this->model->getUser();
+        $listeEvents = $this->model->getEvent();
 
-        include "vu/users.php";
+        include "vu/homePage.php";
     }
 
 
@@ -63,7 +63,7 @@ class visitorController
 
         $this->add_user = $this->model->set_inscription($this->name, $this->surname, $this->mail, $this->age, $this->city, $this->pseudo, $this->about, $this->password);
 
-        $this->affichageUser();
+        $this->affichageEvent();
     }
 
     public function login ()
@@ -77,7 +77,7 @@ class visitorController
 
         $this->check_user =$this->model->check_login($this->pseudo, $this->password);
 
-        $this->affichageUser();
+        $this->affichageEvent();
     }
 
 }

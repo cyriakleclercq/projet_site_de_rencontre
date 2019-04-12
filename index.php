@@ -8,7 +8,6 @@ if (isset($_GET['controller'])) {
             require "model/visitor.php";
             require "controller/visitorController.php";
 
-
             switch ($_GET['action']) {
 
                 case "inscription":
@@ -25,8 +24,11 @@ if (isset($_GET['controller'])) {
 
 
             }
-
+        break;
         case "user":
+
+            session_start();
+
             require "model/user.php";
             require "controller/userController.php";
 
@@ -36,15 +38,30 @@ if (isset($_GET['controller'])) {
 
                     $logout = new \App\Controller\userController();
                     $logout->logout();
-            }
+                    break;
 
+
+                case "affichage":
+
+                    $affichage = new \App\controller\userController();
+                    $affichage->affichageUser();
+                    break;
+
+                case "create":
+
+                    $create = new \App\controller\userController();
+                    $create->createEvent();
+                    break;
         }
+        break;
+    }
+
 
 } else {
 
-    require "model/user.php";
-    require "controller/userController.php";
+    require "model/visitor.php";
+    require "controller/visitorController.php";
 
-    $accueil = new \App\Controller\userController();
-    $accueil->affichageUser();
+    $accueil = new \App\Controller\visitorController();
+    $accueil-> affichageEvent();
 }
