@@ -33,7 +33,7 @@
             <label for="inp_place"> Adresse de votre event  </label>
             <input type="text" name="place" id="inp_place">
 
-            <label for="inp_city"> Ville acueillant de votre event  </label>
+            <label for="inp_city"> Ville de votre event  </label>
             <input type="text" name="city" id="inp_city">
 
             <label for="inp_event_describe"> Description de votre event  </label>

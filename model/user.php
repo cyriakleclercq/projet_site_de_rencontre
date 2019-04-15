@@ -45,6 +45,18 @@ class user
         session_destroy();
     }
 
+    function deleteUser($id)
+    {
+        $this->sql = $this->bdd->query("delete from users where id_user = $id ");
+        $this->sql->execute();
+    }
+
+    function deleteEvent($id)
+    {
+        $this->sql = $this->bdd->query("delete from events where id_event = $id ");
+        $this->sql->execute();
+    }
+
     public function setEvent ($title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user)
     {
         $this->sql = $this->bdd->prepare("INSERT INTO `events` (`title`,`place`,`city`,`event_describe`,`number_of_places`,`date`,`hours`,`id_user`) VALUE (?,?,?,?,?,?,?,?)");
@@ -58,5 +70,15 @@ class user
         $this->sql->bindParam(8, $id_user);
         $this->sql->execute();
 
+    }
+
+    function setEditUser ($id, $name, $surname, $mail, $age, $city, $pseudo, $password, $about, $rank) {
+        $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `mail` = ?, `age` = ?, `city` = ?, `pseudo` = ?, `password` = ?, `about` = ?, `rank` = ?  WHERE id_user = ?";
+        $this->bdd->prepare($this->sql)->execute([$name, $surname, $mail, $age, $city, $pseudo, $password, $about, $rank, $id]);
+    }
+
+    function setEditEvent ($id, $title, $place, $city, $event_describe, $nbr, $date, $hours) {
+        $this->sql = "UPDATE `events` SET `title` = ?,`place` = ?, `city` = ?, `event_describe` = ?, `number_of_places` = ?, `date` = ?, `hours` = ? WHERE id_event = ?";
+        $this->bdd->prepare($this->sql)->execute([$title, $place, $city, $event_describe, $nbr, $date, $hours, $id]);
     }
 }

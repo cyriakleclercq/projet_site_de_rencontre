@@ -46,8 +46,8 @@
 
                         <td><?= $event->title ?></td>
                         <td><?= $event->event_describe ?></td>
-                        <td> <a href=""> delete </a> </td>
-                        <td> <a href=""> edit </a> </td>
+                        <td> <a href="../index.php?controller=user&action=deleteEvent&id=<?=$event->id_event ?>"> delete </a> </td>
+                        <td> <a href="vu/editEvent.php?id=<?= $event->id_event ?>&title=<?= $event->title ?>&place=<?=$event->place ?>&city=<?=$event->city ?>&description=<?=$event->event_describe ?>&nbr=<?=$event->number_of_places ?>&date=<?=$event->date ?>&hours=<?=$event->hours ?>"> edit </a> </td>
 
 
                     </tr>

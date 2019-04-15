@@ -66,8 +66,8 @@ session_start();
                                 <td><?= $user->password ?></td>
                                 <td><?= $user->about ?></td>
                                 <td> <?= $user->rank ?></td>
-                                <td> <a href=""> delete </a> </td>
-                                <td> <a href=""> edit </a> </td>
+                                <td> <a href="../index.php?controller=user&action=deleteUser&id=<?= $user->id_user ?>"> delete </a> </td>
+                                <td> <a href="vu/editUser.php?id=<?=$user->id_user ?>&name=<?=$user->name ?>&surname=<?=$user->surname ?>&age=<?=$user->age ?>&mail=<?=$user->mail ?>&city=<?=$user->city ?>&pseudo=<?=$user->pseudo ?>&password=<?=$user->password ?>&about=<?=$user->about ?>&rank=<?=$user->rank ?>"> edit </a> </td>
 
 
                             </tr>

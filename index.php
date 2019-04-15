@@ -64,6 +64,30 @@ if (isset($_GET['controller'])) {
                     $affichageEvent = new \App\controller\userController();
                     $affichageEvent->affichageEvent();
                     break;
+
+                case "deleteUser":
+
+                    $deleteUser = new \App\controller\userController();
+                    $deleteUser->deleteUser();
+                    break;
+
+                case "editUser":
+
+                    $editUser = new \App\controller\userController();
+                    $editUser->editUser();
+                    break;
+
+                case "deleteEvent":
+
+                    $deleteEvent = new \App\controller\userController();
+                    $deleteEvent->deleteEvent();
+                    break;
+
+                case "editEvent":
+
+                    $editEvent = new \App\controller\userController();
+                    $editEvent->editEvent();
+                    break;
         }
         break;
     }
