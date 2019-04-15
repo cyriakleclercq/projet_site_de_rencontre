@@ -14,12 +14,10 @@
     <header>
 
         <a href="../index.php"> page d'accueil </a>
-        <a href="../index.php?controller=user&action=affichage"> table des utilisateurs </a>
-        <a href="connexion.php"> connexion </a>
-        <a href="inscription.php"> inscription </a>
+        <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
         <a href="../index.php?controller=user&action=logout"> logout </a>
         <a href="create.php"> créer un évènement </a>
-        <a href="affichageEvent.php"> afficher les évènements </a>
+        <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
 
     </header>
 

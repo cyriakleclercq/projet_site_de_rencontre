@@ -37,11 +37,18 @@ class userController
     }
 
 
-    public function affichageEvent ()
+    public function affichage ()
     {
         $listeEvents = $this->model->getEvent();
 
         include "vu/homePage.php";
+    }
+
+    public function affichageEvent ()
+    {
+        $listeEvents = $this->model->getEvent();
+
+        include "vu/affichageEvent.php";
     }
 
     public function logout ()

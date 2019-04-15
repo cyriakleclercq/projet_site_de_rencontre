@@ -41,7 +41,7 @@ if (isset($_GET['controller'])) {
                     break;
 
 
-                case "affichage":
+                case "affichageUser":
 
                     $affichage = new \App\controller\userController();
                     $affichage->affichageUser();
@@ -51,6 +51,18 @@ if (isset($_GET['controller'])) {
 
                     $create = new \App\controller\userController();
                     $create->createEvent();
+                    break;
+
+                case "affichage":
+
+                    $affichage = new \App\controller\userController();
+                    $affichage->affichageEvent();
+                    break;
+
+                case "affichageEvent":
+
+                    $affichageEvent = new \App\controller\userController();
+                    $affichageEvent->affichageEvent();
                     break;
         }
         break;

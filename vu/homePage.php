@@ -14,13 +14,22 @@
         <header>
 
             <a href="../index.php"> page d'accueil </a>
-            <a href="../index.php?controller=user&action=affichage"> table des utilisateurs </a>
+
+            <?php session_start(); if(!isset($_SESSION['rank'])) { ?>
+
             <a href="vu/connexion.php"> connexion </a>
             <a href="vu/inscription.php"> inscription </a>
+
+ <?php } ?>
+
+            <?php if (isset($_SESSION['rank'])) { ?>
+
+                <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
             <a href="../index.php?controller=user&action=logout"> logout </a>
             <a href="vu/create.php"> créer un évènement </a>
-            <a href="affichageEvent.php"> afficher les évènements </a>
+            <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
 
+            <?php } ?>
         </header>
 
 
@@ -36,17 +45,11 @@
 
                         <th> Titre </th>
                         <th> description </th>
-                        <th> delete </th>
-                        <th> edit </th>
-
 
                         <tr>
 
                             <td><?= $event->title ?></td>
                             <td><?= $event->event_describe ?></td>
-
-                            <td> <a href=""> delete </a> </td>
-                            <td> <a href=""> edit </a> </td>
 
 
                         </tr>
