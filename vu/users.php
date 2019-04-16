@@ -24,6 +24,8 @@ session_start();
         <a href="../index.php?controller=user&action=logout"> logout </a>
         <a href="vu/create.php"> créer un évènement </a>
         <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
+        <a href="../index.php?controller=user&action=vosEvent"> afficher vos évènements </a>
+
 
     </header>
 

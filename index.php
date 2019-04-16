@@ -88,6 +88,30 @@ if (isset($_GET['controller'])) {
                     $editEvent = new \App\controller\userController();
                     $editEvent->editEvent();
                     break;
+
+                case "vosEvent":
+
+                    $vosEvent = new \App\controller\userController();
+                    $vosEvent->vosEvent();
+                    break;
+
+                case "editVosEvent":
+
+                    $editVosEvent = new \App\controller\userController();
+                    $editVosEvent->editVosEvent();
+                    break;
+
+                case "commentaire":
+
+                    $commentaire = new \App\controller\userController();
+                    $commentaire->commentaire();
+                    break;
+
+                case "details":
+
+                    $detail = new \App\controller\userController();
+                    $detail->details();
+                    break;
         }
         break;
     }

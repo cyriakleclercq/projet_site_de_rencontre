@@ -28,6 +28,8 @@
             <a href="../index.php?controller=user&action=logout"> logout </a>
             <a href="vu/create.php"> créer un évènement </a>
             <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
+            <a href="../index.php?controller=user&action=vosEvent"> afficher vos évènements </a>
+
 
             <?php } ?>
         </header>
@@ -41,7 +43,7 @@
 
                 <?php foreach ($listeEvents as $event ) { ?>
 
-                    <table>
+                    <table id="table">
 
                         <th> Titre </th>
                         <th> description </th>
@@ -51,14 +53,22 @@
                             <td><?= $event->title ?></td>
                             <td><?= $event->event_describe ?></td>
 
-
                         </tr>
+
 
                     </table>
 
+                    <?php if (!isset($_SESSION['name'])) { ?>
 
+                        <p class="comm" > pour voir les commentaires vous devez être connecté </p >
 
-                <?php } ?>
+                        <?php } else {
+
+                        ?> <div class="comm"> <a href="index.php?controller=user&action=details&id=<?=$event->id_event?>"> Plus d'infos </a> </div>
+                    <?php }
+
+                 } ?>
+
 
             </div>
 

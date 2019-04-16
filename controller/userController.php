@@ -33,6 +33,9 @@ class userController
     private $about;
     private $edit_user;
     private $rank;
+    private $id_event;
+    private $add_comment;
+    private $comment;
 
 
     public function __construct()
@@ -60,6 +63,13 @@ class userController
         $listeEvents = $this->model->getEvent();
 
         include "vu/affichageEvent.php";
+    }
+
+    public function vosEvent ()
+    {
+        $listeEvents = $this->model->getEvent();
+
+        include "vu/vosEvent.php";
     }
 
     public function logout ()
@@ -191,4 +201,64 @@ class userController
     }
 
 
+    public function editVosEvent ()
+    {
+        session_start();
+
+
+        $this->id = $_REQUEST['id'];
+        filter_var($this->id, FILTER_SANITIZE_NUMBER_INT);
+
+        $this->title = $_REQUEST['title'];
+        filter_var($this->title,FILTER_SANITIZE_STRING);
+
+        $this->place = $_REQUEST['place'];
+        filter_var($this->place,FILTER_SANITIZE_STRING);
+
+        $this->city = $_REQUEST['city'];
+        filter_var($this->city,FILTER_SANITIZE_STRING);
+
+        $this->event_describe = $_REQUEST['event_describe'];
+        filter_var($this->event_describe,FILTER_SANITIZE_STRING);
+
+        $this->number_of_places = $_REQUEST['number_of_places'];
+        filter_var($this->number_of_places,FILTER_SANITIZE_NUMBER_INT);
+
+        $this->date = $_REQUEST['date'];
+        filter_var($this->date_event,FILTER_SANITIZE_STRING);
+
+        $this->hours = $_REQUEST['hours'];
+        filter_var($this->hours_event, FILTER_SANITIZE_STRING);
+
+        $this->id_user = $_SESSION['id_user'];
+
+        $this->add_event = $this->model->setEditVosEvent($this->id, $this->title, $this->place, $this->city, $this->event_describe, $this->number_of_places, $this->date, $this->hours, $this->id_user);
+
+        $this->affichageEvent();
+    }
+
+    public function commentaire ()
+    {
+
+        session_start();
+
+
+        $this->id_event = $_REQUEST['id'];
+        $this->id_user = $_SESSION['id_user'];
+        $this->comment = $_REQUEST['comment'];
+        $this->date = $_REQUEST['date'];
+        $this->hours = $_REQUEST['hours'];
+
+        $this->add_comment = $this->model->setComment($this->comment,$this->date,$this->hours,$this->id_event,$this->id_user);
+    }
+
+    public function details ()
+    {
+        $this->id_event = $_REQUEST['id'];
+
+        $details = $this->model->getDetail($this->id_event);
+
+        include "vu/thisEvent.php";
+
+    }
 }

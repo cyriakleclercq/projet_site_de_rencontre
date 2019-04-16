@@ -55,3 +55,11 @@ th {
 td >a {
     color: #06407b;
 }
+
+.comm {
+    margin-bottom: 5%;
+}
+
+#table {
+    margin-bottom: 0%;
+}

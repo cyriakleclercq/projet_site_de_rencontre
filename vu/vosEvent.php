@@ -5,6 +5,7 @@
     <title>page d'accueil </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+
 </head>
 
 <body>
@@ -13,10 +14,12 @@
 
     <header>
 
-        <a href="../index.php"> page d'accueil </a>
+        <a href="../index.php"> Page d'accueil </a>
 
 
-        <?php if (isset($_SESSION['rank'])) { ?>
+        <?php session_start();
+
+        if (isset($_SESSION['rank'])) { ?>
 
             <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
             <a href="../index.php?controller=user&action=logout"> logout </a>
@@ -31,11 +34,15 @@
 
     <section>
 
-        <h1> Liste des events :</h1>
+        <h2> bienvenue <?= $_SESSION['pseudo'] ?> </h2>
+
+        <h1> Liste de vos events :</h1>
 
         <div>
 
-            <?php foreach ($listeEvents as $event ) { ?>
+            <?php foreach ($listeEvents as $event ) {
+
+                if ( $event->id_user == $_SESSION['id_user'] ) {?>
 
                 <table>
 
@@ -61,7 +68,7 @@
                         <td><?= $event->hours ?></td>
 
                         <td> <a href="../index.php?controller=user&action=deleteEvent&id=<?=$event->id_event ?>"> delete </a> </td>
-                        <td> <a href="vu/editEvent.php?id=<?= $event->id_event ?>&title=<?= $event->title ?>&place=<?=$event->place ?>&city=<?=$event->city ?>&description=<?=$event->event_describe ?>&nbr=<?=$event->number_of_places ?>&date=<?=$event->date ?>&hours=<?=$event->hours ?>"> edit </a> </td>
+                        <td> <a href="vu/editVosEvent.php?id=<?= $event->id_event ?>&title=<?= $event->title ?>&place=<?=$event->place ?>&city=<?=$event->city ?>&description=<?=$event->event_describe ?>&nbr=<?=$event->number_of_places ?>&date=<?=$event->date ?>&hours=<?=$event->hours ?>"> edit </a> </td>
 
 
                     </tr>
@@ -70,7 +77,8 @@
 
 
 
-            <?php } ?>
+            <?php }
+            } ?>
 
         </div>
 

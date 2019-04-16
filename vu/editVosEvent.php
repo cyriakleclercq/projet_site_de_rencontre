@@ -27,7 +27,7 @@
 
     <section>
 
-        <form action="../index.php?controller=user&action=editEvent" method="post" class="form">
+        <form action="../index.php?controller=user&action=editVosEvent" method="post" class="form">
 
             <input type="text" style="display: none" name="id" id="inp_id" value="<?= $_GET['id'] ?>">
 
