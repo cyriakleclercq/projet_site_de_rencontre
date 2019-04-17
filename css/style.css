@@ -63,3 +63,32 @@ td >a {
 #table {
     margin-bottom: 0%;
 }
+
+.div_comm {
+    border: solid;
+    margin-left: 20%;
+    clear: both;
+}
+
+.titleComm {
+    padding-left: 2%;
+}
+
+.comment{
+    padding: 3%;
+    padding-left: 3%;
+}
+
+.dateComm {
+    float: right;
+}
+
+#form_comm {
+    border: solid;
+    margin-top: 5%;
+}
+
+#form_comm > input {
+    width: 100%;
+}
+

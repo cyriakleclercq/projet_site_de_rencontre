@@ -93,7 +93,7 @@ class userController
     {
         $this->id = $_REQUEST['id'];
 
-        $this->supp_user = $this->model->deleteEvent($this->id);
+        $this->model->deleteEvent($this->id);
 
         $this->affichageEvent();
     }
@@ -237,7 +237,7 @@ class userController
         $this->affichageEvent();
     }
 
-    public function commentaire ()
+    public function comment ()
     {
 
         session_start();
@@ -251,6 +251,8 @@ class userController
 
         $this->add_comment = $this->model->setComment($this->comment,$this->date,$this->hours,$this->id_event,$this->id_user);
     }
+
+
 
     public function details ()
     {

@@ -101,10 +101,10 @@ if (isset($_GET['controller'])) {
                     $editVosEvent->editVosEvent();
                     break;
 
-                case "commentaire":
+                case "comment":
 
-                    $commentaire = new \App\controller\userController();
-                    $commentaire->commentaire();
+                    $comment = new \App\controller\userController();
+                    $comment->comment();
                     break;
 
                 case "details":
@@ -114,6 +114,22 @@ if (isset($_GET['controller'])) {
                     break;
         }
         break;
+
+        case "ajax":
+
+            require "model/ajax.php";
+            require "controller/ajaxController.php";
+
+            $commentaire = new \App\controller\ajaxController();
+            $commentaire->ajaxCommentaire();
+
+            if (isset($_GET['postTitle']) & isset($_GET['postCommentaire']))
+            {
+                $post = new \App\controller\ajaxController();
+                $post->ajaxPost();
+            }
+            break;
+
     }
 
 

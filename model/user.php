@@ -14,6 +14,7 @@ class user
     private $sql;
     private $eventList;
     private  $details;
+    private $event;
 
 
 
@@ -87,6 +88,7 @@ class user
         $this->sql->bindParam(5,$id_user);
         $this->sql->execute();
     }
+
 
     function setEditUser ($id, $name, $surname, $mail, $age, $city, $pseudo, $password, $about, $rank) {
         $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `mail` = ?, `age` = ?, `city` = ?, `pseudo` = ?, `password` = ?, `about` = ?, `rank` = ?  WHERE id_user = ?";

@@ -5,8 +5,6 @@
     <title>page d'accueil </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
-    <script src="../angular-route.min.js"></script>
 
 </head>
 
@@ -64,10 +62,11 @@
                             <td><?= $detail->date ?></td>
                             <td><?= $detail->hours ?></td>
 
-
                         </tr>
 
                     </table>
+
+                <input type="text" style="display: none" id="id_comm" value=" <?= $_GET['id'] ?>">
 
 
 
@@ -79,20 +78,32 @@
 
     <section>
 
-        <div id="commentaires" data-ng-app="commentaires"> </div>
+        <div id="commentaire"> </div>
 
+        <form action="" method="get" class="form">
 
+            <div>
+            <label for="titreComm"> titre : </label>
+            <input type="text" id="titreComm">
+
+            </div>
+
+            <div>
+            <label for="comm"> commentaire : </label>
+            <textarea id="comm"> </textarea>
+            </div>
+
+            <input type="submit" id="bt_post">
+
+        </form>
 
     </section>
 
     <footer>  </footer>
 
 
-
-
+    <script src="../script.js"></script>
 </div>
-
-<script src="../script.js"></script>
 
 </body>
 </html>
