@@ -14,7 +14,6 @@ class user
     private $sql;
     private $eventList;
     private  $details;
-    private $event;
 
 
 
@@ -90,9 +89,9 @@ class user
     }
 
 
-    function setEditUser ($id, $name, $surname, $mail, $age, $city, $pseudo, $password, $about, $rank) {
-        $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `mail` = ?, `age` = ?, `city` = ?, `pseudo` = ?, `password` = ?, `about` = ?, `rank` = ?  WHERE id_user = ?";
-        $this->bdd->prepare($this->sql)->execute([$name, $surname, $mail, $age, $city, $pseudo, $password, $about, $rank, $id]);
+    function setEditUser ($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank) {
+        $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `mail` = ?, `age` = ?, `city` = ?, `pseudo` = ?, `password` = ?, `about` = ?, `rank` = ?  WHERE id_user = ?";
+        $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank, $id]);
     }
 
     function setEditEvent ($id, $title, $place, $city, $event_describe, $nbr, $date, $hours) {

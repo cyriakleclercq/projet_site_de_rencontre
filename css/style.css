@@ -64,7 +64,7 @@ td >a {
     margin-bottom: 0%;
 }
 
-.div_comm {
+.div_comm, .pseudoComm {
     border: solid;
     margin-left: 20%;
     clear: both;
@@ -90,5 +90,9 @@ td >a {
 
 #form_comm > input {
     width: 100%;
+}
+
+.pseudoComm {
+    margin-top: 6%;
 }
 

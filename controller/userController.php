@@ -9,44 +9,27 @@ use App\model\user;
 class userController
 {
 
-    private $logout;
     private $model;
-    private $title;
-    private $place;
-    private $city;
-    private $event_describe;
-    private $number_of_places;
-    private $date_event;
-    private $id_user;
-    private $add_event;
-    private $hours_event;
-    private $date;
-    private $hours;
-    private $id;
-    private $supp_user;
-    private $name;
-    private $surname;
-    private $mail;
-    private $pseudo;
-    private $age;
-    private $password;
-    private $about;
-    private $edit_user;
-    private $rank;
     private $id_event;
-    private $add_comment;
-    private $comment;
-
 
     public function __construct()
     {
         $this->model = new user();
     }
 
+    public function homePage ()
+    {
+        include "vu/homePage.php";
+    }
+
+    public function createPage ()
+    {
+        include "vu/create.php";
+    }
+
     public function affichageUser ()
     {
         $listeUsers = $this->model->getUser();
-
         include "vu/users.php";
     }
 
@@ -55,7 +38,12 @@ class userController
     {
         $listeEvents = $this->model->getEvent();
 
-        include "vu/homePage.php";
+        include "index.php";
+    }
+
+    public function editUserPage ()
+    {
+        include "vu/editUser.php";
     }
 
     public function affichageEvent ()
@@ -74,7 +62,7 @@ class userController
 
     public function logout ()
     {
-        $this->logout = $this->model->logout();
+        $logout = $this->model->logout();
 
         include "vu/deco.php";
 
@@ -82,55 +70,58 @@ class userController
 
     public function deleteUser ()
     {
-        $this->id = $_REQUEST['id'];
+        $id = $_REQUEST['id'];
 
-        $this->supp_user = $this->model->deleteUser($this->id);
+        $supp_user = $this->model->deleteUser($id);
 
         $this->affichageUser();
     }
 
     public function deleteEvent ()
     {
-        $this->id = $_REQUEST['id'];
+        $id = $_REQUEST['id'];
 
-        $this->model->deleteEvent($this->id);
+        $this->model->deleteEvent($id);
 
-        $this->affichageEvent();
+        $this->vosEvent();
     }
 
     public function editUser ()
     {
-        $this->id = $_REQUEST['id'];
-        filter_var($this->id, FILTER_SANITIZE_NUMBER_INT);
+        $id = $_REQUEST['id'];
+        filter_var($id, FILTER_SANITIZE_NUMBER_INT);
 
-        $this->name = $_REQUEST['name'];
-        filter_var($this->name, FILTER_SANITIZE_STRING);
+        $name = $_REQUEST['name'];
+        filter_var($name, FILTER_SANITIZE_STRING);
 
-        $this->surname = $_REQUEST['surname'];
-        filter_var($this->surname, FILTER_SANITIZE_STRING);
+        $surname = $_REQUEST['surname'];
+        filter_var($surname, FILTER_SANITIZE_STRING);
 
-        $this->mail = $_REQUEST['mail'];
-        filter_var($this->mail, FILTER_SANITIZE_EMAIL);
+        $sexe = $_REQUEST['sexe'];
+        filter_var($sexe,FILTER_SANITIZE_STRING);
 
-        $this->age = $_REQUEST['age'];
-        filter_var($this->age, FILTER_SANITIZE_NUMBER_INT);
+        $mail = $_REQUEST['mail'];
+        filter_var($mail, FILTER_SANITIZE_EMAIL);
 
-        $this->city = $_REQUEST['city'];
-        filter_var($this->city, FILTER_SANITIZE_STRING);
+        $age = $_REQUEST['age'];
+        filter_var($age, FILTER_SANITIZE_NUMBER_INT);
 
-        $this->pseudo = $_REQUEST['pseudo'];
-        filter_var($this->pseudo, FILTER_SANITIZE_STRING);
+        $city = $_REQUEST['city'];
+        filter_var($city, FILTER_SANITIZE_STRING);
 
-        $this->password = $_REQUEST['password'];
-        filter_var($this->pseudo, FILTER_SANITIZE_STRING);
+        $pseudo = $_REQUEST['pseudo'];
+        filter_var($pseudo, FILTER_SANITIZE_STRING);
 
-        $this->about = $_REQUEST['about'];
-        filter_var($this->about, FILTER_SANITIZE_STRING);
+        $password = $_REQUEST['password'];
+        filter_var($password, FILTER_SANITIZE_STRING);
 
-        $this->rank = $_REQUEST['rank'];
-        filter_var($this->rank, FILTER_SANITIZE_NUMBER_INT);
+        $about = $_REQUEST['about'];
+        filter_var($about, FILTER_SANITIZE_STRING);
 
-        $this->edit_user = $this->model->setEditUser($this->id, $this->name, $this->surname, $this->mail, $this->age, $this->city, $this->pseudo, $this->password, $this->about, $this->rank);
+        $rank = $_REQUEST['rank'];
+        filter_var($rank, FILTER_SANITIZE_NUMBER_INT);
+
+        $edit_user = $this->model->setEditUser($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank);
 
         $this->affichageUser();
 
@@ -139,63 +130,63 @@ class userController
     public function createEvent ()
     {
 
-        $this->title = $_REQUEST['title'];
-        filter_var($this->title,FILTER_SANITIZE_STRING);
+        $title = $_REQUEST['title'];
+        filter_var($title,FILTER_SANITIZE_STRING);
 
-        $this->place = $_REQUEST['place'];
-        filter_var($this->place,FILTER_SANITIZE_STRING);
+        $place = $_REQUEST['place'];
+        filter_var($place,FILTER_SANITIZE_STRING);
 
-        $this->city = $_REQUEST['city'];
-        filter_var($this->city,FILTER_SANITIZE_STRING);
+        $city = $_REQUEST['city'];
+        filter_var($city,FILTER_SANITIZE_STRING);
 
-        $this->event_describe = $_REQUEST['event_describe'];
-        filter_var($this->event_describe,FILTER_SANITIZE_STRING);
+        $event_describe = $_REQUEST['event_describe'];
+        filter_var($event_describe,FILTER_SANITIZE_STRING);
 
-        $this->number_of_places = $_REQUEST['number_of_places'];
-        filter_var($this->number_of_places,FILTER_SANITIZE_NUMBER_INT);
+        $number_of_places = $_REQUEST['number_of_places'];
+        filter_var($number_of_places,FILTER_SANITIZE_NUMBER_INT);
 
-        $this->date = $_REQUEST['date'];
-        filter_var($this->date_event,FILTER_SANITIZE_STRING);
+        $date = $_REQUEST['date'];
+        filter_var($date,FILTER_SANITIZE_STRING);
 
-        $this->hours = $_REQUEST['hours'];
-        filter_var($this->hours_event, FILTER_SANITIZE_STRING);
+        $hours = $_REQUEST['hours'];
+        filter_var($hours, FILTER_SANITIZE_STRING);
 
-        $this->id_user = $_SESSION['id_user'];
-        filter_var($this->id_user,FILTER_SANITIZE_NUMBER_INT);
+        $id_user = $_SESSION['id_user'];
+        filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
 
-        $this->add_event = $this->model->setEvent($this->title, $this->place, $this->city, $this->event_describe, $this->number_of_places, $this->date, $this->hours, $this->id_user);
+        $add_event = $this->model->setEvent($title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user);
 
-        $this->affichageEvent();
+        $this->vosEvent();
     }
 
     public function editEvent ()
     {
 
-        $this->id = $_REQUEST['id'];
-        filter_var($this->id, FILTER_SANITIZE_NUMBER_INT);
+        $id = $_REQUEST['id'];
+        filter_var($id, FILTER_SANITIZE_NUMBER_INT);
 
-        $this->title = $_REQUEST['title'];
-        filter_var($this->title,FILTER_SANITIZE_STRING);
+        $title = $_REQUEST['title'];
+        filter_var($title,FILTER_SANITIZE_STRING);
 
-        $this->place = $_REQUEST['place'];
-        filter_var($this->place,FILTER_SANITIZE_STRING);
+        $place = $_REQUEST['place'];
+        filter_var($place,FILTER_SANITIZE_STRING);
 
-        $this->city = $_REQUEST['city'];
-        filter_var($this->city,FILTER_SANITIZE_STRING);
+        $city = $_REQUEST['city'];
+        filter_var($city,FILTER_SANITIZE_STRING);
 
-        $this->event_describe = $_REQUEST['event_describe'];
-        filter_var($this->event_describe,FILTER_SANITIZE_STRING);
+        $event_describe = $_REQUEST['event_describe'];
+        filter_var($event_describe,FILTER_SANITIZE_STRING);
 
-        $this->number_of_places = $_REQUEST['number_of_places'];
-        filter_var($this->number_of_places,FILTER_SANITIZE_NUMBER_INT);
+        $number_of_places = $_REQUEST['number_of_places'];
+        filter_var($number_of_places,FILTER_SANITIZE_NUMBER_INT);
 
-        $this->date = $_REQUEST['date'];
-        filter_var($this->date_event,FILTER_SANITIZE_STRING);
+        $date = $_REQUEST['date'];
+        filter_var($date,FILTER_SANITIZE_STRING);
 
-        $this->hours = $_REQUEST['hours'];
-        filter_var($this->hours_event, FILTER_SANITIZE_STRING);
+        $hours = $_REQUEST['hours'];
+        filter_var($hours, FILTER_SANITIZE_STRING);
 
-        $this->add_event = $this->model->setEditEvent($this->id, $this->title, $this->place, $this->city, $this->event_describe, $this->number_of_places, $this->date, $this->hours);
+        $add_event = $this->model->setEditEvent($id, $title, $place, $city, $event_describe, $number_of_places, $date, $hours);
 
         $this->affichageEvent();
     }
@@ -203,53 +194,56 @@ class userController
 
     public function editVosEvent ()
     {
-        session_start();
 
+        $id = $_REQUEST['id'];
+        filter_var($id, FILTER_SANITIZE_NUMBER_INT);
 
-        $this->id = $_REQUEST['id'];
-        filter_var($this->id, FILTER_SANITIZE_NUMBER_INT);
+        $title = $_REQUEST['title'];
+        filter_var($title,FILTER_SANITIZE_STRING);
 
-        $this->title = $_REQUEST['title'];
-        filter_var($this->title,FILTER_SANITIZE_STRING);
+        $place = $_REQUEST['place'];
+        filter_var($place,FILTER_SANITIZE_STRING);
 
-        $this->place = $_REQUEST['place'];
-        filter_var($this->place,FILTER_SANITIZE_STRING);
+        $city = $_REQUEST['city'];
+        filter_var($city,FILTER_SANITIZE_STRING);
 
-        $this->city = $_REQUEST['city'];
-        filter_var($this->city,FILTER_SANITIZE_STRING);
+        $event_describe = $_REQUEST['event_describe'];
+        filter_var($event_describe,FILTER_SANITIZE_STRING);
 
-        $this->event_describe = $_REQUEST['event_describe'];
-        filter_var($this->event_describe,FILTER_SANITIZE_STRING);
+        $number_of_places = $_REQUEST['number_of_places'];
+        filter_var($number_of_places,FILTER_SANITIZE_NUMBER_INT);
 
-        $this->number_of_places = $_REQUEST['number_of_places'];
-        filter_var($this->number_of_places,FILTER_SANITIZE_NUMBER_INT);
+        $date = $_REQUEST['date'];
+        filter_var($date,FILTER_SANITIZE_STRING);
 
-        $this->date = $_REQUEST['date'];
-        filter_var($this->date_event,FILTER_SANITIZE_STRING);
+        $hours = $_REQUEST['hours'];
+        filter_var($hours, FILTER_SANITIZE_STRING);
 
-        $this->hours = $_REQUEST['hours'];
-        filter_var($this->hours_event, FILTER_SANITIZE_STRING);
+        $id_user = $_SESSION['id_user'];
 
-        $this->id_user = $_SESSION['id_user'];
+        $add_event = $this->model->setEditVosEvent($id, $title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user);
 
-        $this->add_event = $this->model->setEditVosEvent($this->id, $this->title, $this->place, $this->city, $this->event_describe, $this->number_of_places, $this->date, $this->hours, $this->id_user);
-
-        $this->affichageEvent();
+        $this->vosEvent();
     }
 
     public function comment ()
     {
 
-        session_start();
+        $id_event = $_REQUEST['id'];
+        filter_var($id_event,FILTER_SANITIZE_NUMBER_INT);
 
+        $id_user = $_SESSION['id_user'];
 
-        $this->id_event = $_REQUEST['id'];
-        $this->id_user = $_SESSION['id_user'];
-        $this->comment = $_REQUEST['comment'];
-        $this->date = $_REQUEST['date'];
-        $this->hours = $_REQUEST['hours'];
+        $comment = $_REQUEST['comment'];
+        filter_var($comment,FILTER_SANITIZE_STRING);
 
-        $this->add_comment = $this->model->setComment($this->comment,$this->date,$this->hours,$this->id_event,$this->id_user);
+        $date = $_REQUEST['date'];
+        filter_var($date,FILTER_SANITIZE_STRING);
+
+        $hours = $_REQUEST['hours'];
+        filter_var($hours,FILTER_SANITIZE_STRING);
+
+        $add_comment = $this->model->setComment($comment,$date,$hours,$id_event,$id_user);
     }
 
 

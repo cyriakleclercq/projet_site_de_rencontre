@@ -11,17 +11,8 @@
 
 <div class="container">
 
-    <header>
+    <?php include "header.php" ?>
 
-        <a href="../index.php"> page d'accueil </a>
-        <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
-        <a href="../index.php?controller=user&action=logout"> logout </a>
-        <a href="create.php"> créer un évènement </a>
-        <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
-        <a href="../index.php?controller=user&action=vosEvent"> afficher vos évènements </a>
-
-
-    </header>
 
     <h1> Créez votre event : </h1>
 
@@ -39,7 +30,7 @@
             <input type="text" name="city" id="inp_city">
 
             <label for="inp_event_describe"> Description de votre event  </label>
-            <input type="text" name="event_describe" id="inp_event_describe">
+            <textarea name="event_describe" id="inp_event_describe"> </textarea>
 
             <label for="inp_number_of_places"> Nombre de participant désiré </label>
             <input type="number" name="number_of_places" id="inp_number_of_places">

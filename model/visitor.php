@@ -33,17 +33,18 @@ class visitor
     }
 
 
-    public function set_inscription($name, $surname, $mail, $age, $city, $pseudo, $about, $password)
+    public function set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password)
     {
-        $this->sql = $this->bdd->prepare("INSERT INTO `users` (`name`,`surname`,`mail`,`age`,`city`,`pseudo`,`about`,`password`) VALUE (?,?,?,?,?,?,?,?)");
+        $this->sql = $this->bdd->prepare("INSERT INTO `users` (`name`,`surname`,`sexe`,`mail`,`age`,`city`,`pseudo`,`about`,`password`) VALUE (?,?,?,?,?,?,?,?,?)");
         $this->sql->bindParam(1, $name);
         $this->sql->bindParam(2, $surname);
-        $this->sql->bindParam(3, $mail);
-        $this->sql->bindParam(4, $age);
-        $this->sql->bindParam(5, $city);
-        $this->sql->bindParam(6, $pseudo);
-        $this->sql->bindParam(7, $about);
-        $this->sql->bindParam(8, sha1($password));
+        $this->sql->bindParam(3,$sexe);
+        $this->sql->bindParam(4, $mail);
+        $this->sql->bindParam(5, $age);
+        $this->sql->bindParam(6, $city);
+        $this->sql->bindParam(7, $pseudo);
+        $this->sql->bindParam(8, $about);
+        $this->sql->bindParam(9, sha1($password));
         $this->sql->execute();
     }
 
@@ -61,6 +62,7 @@ class visitor
             $_SESSION['id_user'] = $this->sql['id_user'];
             $_SESSION['name'] = $this->sql['name'];
             $_SESSION['surname'] = $this->sql['surname'];
+            $_SESSION['sexe'] = $this->sql['sexe'];
             $_SESSION['mail'] = $this->sql['mail'];
             $_SESSION['age'] = $this->sql['age'];
             $_SESSION['city'] = $this->sql['city'];

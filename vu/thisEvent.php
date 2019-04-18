@@ -12,24 +12,8 @@
 
 <div class="container">
 
-    <header>
+    <?php include "header.php" ?>
 
-        <a href="../index.php"> Page d'accueil </a>
-
-
-        <?php session_start();
-
-        if (isset($_SESSION['rank'])) { ?>
-
-            <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
-            <a href="../index.php?controller=user&action=logout"> logout </a>
-            <a href="vu/create.php"> créer un évènement </a>
-            <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
-            <a href="../index.php?controller=user&action=vosEvent"> afficher vos évènements </a>
-
-
-        <?php } ?>
-    </header>
 
 
     <section>
@@ -80,22 +64,18 @@
 
         <div id="commentaire"> </div>
 
-        <form action="" method="get" class="form">
+        <form action="" class="form">
 
-            <div>
             <label for="titreComm"> titre : </label>
             <input type="text" id="titreComm">
 
-            </div>
-
-            <div>
             <label for="comm"> commentaire : </label>
             <textarea id="comm"> </textarea>
-            </div>
 
-            <input type="submit" id="bt_post">
+            <input type="submit" id="bt_comm" value="valider">
 
         </form>
+
 
     </section>
 

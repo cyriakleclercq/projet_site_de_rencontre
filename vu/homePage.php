@@ -11,29 +11,7 @@
 
     <div class="container">
 
-        <header>
-
-            <a href="../index.php"> page d'accueil </a>
-
-            <?php session_start(); if(!isset($_SESSION['rank'])) { ?>
-
-            <a href="vu/connexion.php"> connexion </a>
-            <a href="vu/inscription.php"> inscription </a>
-
- <?php } ?>
-
-            <?php if (isset($_SESSION['rank'])) { ?>
-
-                <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
-            <a href="../index.php?controller=user&action=logout"> logout </a>
-            <a href="vu/create.php"> créer un évènement </a>
-            <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
-            <a href="../index.php?controller=user&action=vosEvent"> afficher vos évènements </a>
-
-
-            <?php } ?>
-        </header>
-
+        <?php include "header.php" ?>
 
         <section>
 

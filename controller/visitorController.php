@@ -9,15 +9,6 @@ use App\model\visitor;
 class visitorController
 {
     private $model;
-    private $name;
-    private $surname;
-    private $mail;
-    private $age;
-    private $city;
-    private $pseudo;
-    private $about;
-    private $password;
-    private $add_user;
     private $check_user;
 
 
@@ -26,56 +17,68 @@ class visitorController
         $this->model = new visitor();
     }
 
+    public function inscriptionPage ()
+    {
+        include "vu/inscription.php";
+    }
+
+    public function connexionPage ()
+    {
+        include "vu/connexion.php";
+    }
+
     public function affichageEvent ()
     {
         $listeEvents = $this->model->getEvent();
-
         include "vu/homePage.php";
-    }
 
+    }
 
     public function inscription ()
     {
 
-        $this->name = $_REQUEST['name'];
-        filter_var($this->name,FILTER_SANITIZE_STRING);
+        $name = $_REQUEST['name'];
+        filter_var($name,FILTER_SANITIZE_STRING);
 
-        $this->surname = $_REQUEST['surname'];
-        filter_var($this->surname,FILTER_SANITIZE_STRING);
+        $surname = $_REQUEST['surname'];
+        filter_var($surname,FILTER_SANITIZE_STRING);
 
-        $this->mail = $_REQUEST['mail'];
-        filter_var($this->mail,FILTER_SANITIZE_EMAIL);
+        $mail = $_REQUEST['mail'];
+        filter_var($mail,FILTER_SANITIZE_EMAIL);
 
-        $this->age = $_REQUEST['age'];
-        filter_var($this->age,FILTER_SANITIZE_NUMBER_INT);
+        $sexe = $_REQUEST['sexe'];
+        filter_var($sexe, FILTER_SANITIZE_STRING);
 
-        $this->city = $_REQUEST['city'];
-        filter_var($this->city,FILTER_SANITIZE_STRING);
+        $age = $_REQUEST['age'];
+        filter_var($age,FILTER_SANITIZE_NUMBER_INT);
 
-        $this->pseudo = $_REQUEST['pseudo'];
-        filter_var($this->pseudo,FILTER_SANITIZE_STRING);
+        $city = $_REQUEST['city'];
+        filter_var($city,FILTER_SANITIZE_STRING);
 
-        $this->about = $_REQUEST['about'];
-        filter_var($this->about,FILTER_SANITIZE_STRING);
+        $pseudo = $_REQUEST['pseudo'];
+        filter_var($pseudo,FILTER_SANITIZE_STRING);
 
-        $this->password = $_REQUEST['password'];
-        filter_var($this->name,FILTER_SANITIZE_STRING);
+        $about = $_REQUEST['about'];
+        filter_var($about,FILTER_SANITIZE_STRING);
 
-        $this->add_user = $this->model->set_inscription($this->name, $this->surname, $this->mail, $this->age, $this->city, $this->pseudo, $this->about, $this->password);
+        $password = $_REQUEST['password'];
+        filter_var($name,FILTER_SANITIZE_STRING);
 
-        $this->affichageEvent();
+        $add_user = $this->model->set_inscription($name, $surname,$sexe, $mail, $age, $city, $pseudo, $about, $password);
+
+        $this->connexionPage();
     }
 
     public function login ()
     {
-        $this->pseudo = $_REQUEST['pseudo'];
-        filter_var($this->pseudo, FILTER_SANITIZE_STRING);
+        $pseudo = $_REQUEST['pseudo'];
+        filter_var($pseudo, FILTER_SANITIZE_STRING);
 
         $password = $_REQUEST['password'];
         filter_var(password, FILTER_SANITIZE_STRING);
-        $this->password = sha1($password);
+        $pass = sha1($password);
 
-        $this->check_user =$this->model->check_login($this->pseudo, $this->password);
+        $this->check_user =$this->model->check_login($pseudo, $pass);
 
         $this->affichageEvent();
     }

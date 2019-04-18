@@ -3,12 +3,6 @@ var id = document.getElementById('id_comm').value;
 
 var commentary = document.getElementById('commentaire');
 
-var titre = document.getElementById("titreComm").value;
-
-console.log(titre);
-
-var comment = document.getElementById("comm").value;
-
 function ajaxRequest()
 {
 
@@ -27,10 +21,15 @@ function ajaxRequest()
 
         for (let i = 0; i< commentaire.length; i++)
         {
+
+            let pseudo = document.createElement("div");
+            pseudo.className = "pseudoComm";
+            commentary.appendChild(pseudo);
+            pseudo.innerHTML = commentaire[i].pseudo+" -"+commentaire[i].sexe;
+
             let div_comm = document.createElement("div");
             div_comm.className = "div_comm";
             commentary.appendChild(div_comm);
-
 
             let titre = document.createElement("h4");
             titre.className = "titleComm";
@@ -52,6 +51,13 @@ function ajaxRequest()
 
     };
 
+    var titre = document.getElementById("titreComm").value;
+
+
+
+    var comment = document.getElementById("comm").value;
+
+
     var RequestURL = "index.php?controller=ajax&id_event="+id+"&postTitle="+titre+"&postCommentaire="+comment;
 
 
@@ -60,9 +66,14 @@ function ajaxRequest()
     xhttp.send();
 }
 
-window.onload = function (){
-
 ajaxRequest();
 
-};
+
+    document.getElementById('bt_comm').addEventListener("click", function () {
+
+        ajaxRequest();
+
+    });
+
+
 

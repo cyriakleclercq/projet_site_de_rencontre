@@ -11,13 +11,8 @@
 
 <div class="container">
 
-    <header>
+    <?php include "header.php" ?>
 
-        <a href="../index.php"> page d'accueil </a>
-        <a href="connexion.php"> connexion </a>
-        <a href="inscription.php"> inscription </a>
-
-    </header>
 
     <h1> Page de connexion : </h1>
 

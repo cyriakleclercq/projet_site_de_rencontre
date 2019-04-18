@@ -11,17 +11,8 @@
 
 <div class="container">
 
-    <header>
+    <?php include "header.php" ?>
 
-        <a href="../index.php"> page d'accueil </a>
-        <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
-        <a href="../index.php?controller=user&action=logout"> logout </a>
-        <a href="create.php"> créer un évènement </a>
-        <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
-        <a href="../index.php?controller=user&action=vosEvent"> afficher vos évènements </a>
-
-
-    </header>
 
     <h1> edition de <?= $_GET['name'] ?> <?=$_GET['surname'] ?> : </h1>
 
@@ -36,6 +27,13 @@
 
             <label for="inp_surname"> surname : </label>
             <input type="text" id="inp_surname" name="surname" value="<?= $_GET['surname'] ?>">
+
+            <label for="inp_sexe"> sexe : </label>
+            <select name="sexe" id="inp_sexe">
+                <option value="<?= $_GET['sexe'] ?>" selected> <?= $_GET['sexe'] ?> </option>
+                <option value="femme"> femme </option>
+                <option value="homme"> homme </option>
+            </select>
 
             <label for="inp_mail"> adresse mail : </label>
             <input type="email" id="inp_mail" name="mail" value="<?= $_GET['mail'] ?>">
@@ -58,7 +56,7 @@
             <label for="inp_rank"> rank : </label>
 
             <select name="rank" id="inp_rank">
-                <option value="<?= $_GET['rank'] ?> selected"> <?php if( $_GET['rank'] == 1) { echo "user";  } else echo "admin"; ?> </option>
+                <option value="<?= $_GET['rank'] ?>" selected> <?php if( $_GET['rank'] == 1) { echo "user";  } else echo "admin"; ?> </option>
                 <option value="1"> user </option>
                 <option value="2"> admin </option>
             </select>

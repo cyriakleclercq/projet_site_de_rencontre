@@ -11,13 +11,8 @@
 
 <div class="container">
 
-    <header>
+    <?php include "header.php" ?>
 
-        <a href="../index.php"> page d'accueil </a>
-        <a href="connexion.php"> connexion </a>
-        <a href="inscription.php"> inscription </a>
-
-    </header>
 
     <h1> Page d'inscription : </h1>
 
@@ -30,6 +25,12 @@
 
             <label for="inp_surname"> surname : </label>
             <input type="text" id="inp_surname" name="surname">
+
+            <label for="inp_sexe"> sexe : </label>
+            <select name="sexe" id="inp_sexe">
+                <option value="homme" selected> homme </option>
+                <option value="femme"> femme </option>
+            </select>
 
             <label for="inp_mail"> adresse mail : </label>
             <input type="email" id="inp_mail" name="mail">

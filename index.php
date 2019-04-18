@@ -2,6 +2,8 @@
 
 if (isset($_GET['controller'])) {
 
+    session_start();
+
     switch ($_GET['controller']) {
 
         case "visitor":
@@ -9,6 +11,20 @@ if (isset($_GET['controller'])) {
             require "controller/visitorController.php";
 
             switch ($_GET['action']) {
+
+                case "inscriptionPage":
+
+                    $inscriptionPage = new \App\Controller\visitorController();
+                    $inscriptionPage->inscriptionPage();
+                    break;
+
+                case "connexionPage":
+
+                    $connexionPage = new \App\Controller\visitorController();
+                    $connexionPage->connexionPage();
+                    break;
+
+
 
                 case "inscription":
 
@@ -33,6 +49,30 @@ if (isset($_GET['controller'])) {
             require "controller/userController.php";
 
             switch ($_GET['action']) {
+
+                case "createPage":
+
+                    $createPage = new \App\controller\userController();
+                    $createPage->createPage();
+                    break;
+
+                case "editEventPage":
+
+                    $editEventPage = new \App\controller\userController();
+                    $editEventPage->editEvent();
+                    break;
+
+                case "editUserPage":
+
+                    $editUserPage = new \App\controller\userController();
+                    $editUserPage->editUserPage();
+                    break;
+
+                case "editVosEventPage":
+
+                    $editVosEventPage = new \App\controller\userController();
+                    $editVosEventPage->editVosEvent();
+                    break;
 
                 case "logout":
 
@@ -123,7 +163,7 @@ if (isset($_GET['controller'])) {
             $commentaire = new \App\controller\ajaxController();
             $commentaire->ajaxCommentaire();
 
-            if (isset($_GET['postTitle']) & isset($_GET['postCommentaire']))
+            if ($_GET['postTitle'] != null && $_GET['postCommentaire'] != null)
             {
                 $post = new \App\controller\ajaxController();
                 $post->ajaxPost();

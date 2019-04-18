@@ -16,7 +16,7 @@ class ajaxController
     public function __construct ()
     {
         $this->model = new ajax();
-    }
+}
 
     public function ajaxCommentaire ()
     {
@@ -26,7 +26,6 @@ class ajaxController
 
     public function ajaxPost ()
     {
-        session_start();
 
         $id_user = $_SESSION['id_user'];
         filter_var($id_user, FILTER_SANITIZE_NUMBER_INT);

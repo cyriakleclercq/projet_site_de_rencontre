@@ -1,8 +1,4 @@
-<?php
-
-session_start();
-
-?>
+<?php ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,17 +13,8 @@ session_start();
 <div class="container">
 
 
-    <header>
+    <?php include "header.php" ?>
 
-        <a href="../index.php"> page d'accueil </a>
-        <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
-        <a href="../index.php?controller=user&action=logout"> logout </a>
-        <a href="vu/create.php"> créer un évènement </a>
-        <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
-        <a href="../index.php?controller=user&action=vosEvent"> afficher vos évènements </a>
-
-
-    </header>
 
 
     <section>
@@ -47,6 +34,7 @@ session_start();
 
                             <th> name</th>
                             <th> surname</th>
+                            <th> sexe </th>
                             <th> age </th>
                             <th> mail </th>
                             <th> city </th>
@@ -61,6 +49,7 @@ session_start();
 
                                 <td><?= $user->name ?></td>
                                 <td><?= $user->surname ?></td>
+                                <td> <?= $user->sexe ?> </td>
                                 <td><?= $user->age ?></td>
                                 <td><?= $user->mail ?></td>
                                 <td><?= $user->city ?></td>
@@ -69,7 +58,7 @@ session_start();
                                 <td><?= $user->about ?></td>
                                 <td> <?= $user->rank ?></td>
                                 <td> <a href="../index.php?controller=user&action=deleteUser&id=<?= $user->id_user ?>"> delete </a> </td>
-                                <td> <a href="vu/editUser.php?id=<?=$user->id_user ?>&name=<?=$user->name ?>&surname=<?=$user->surname ?>&age=<?=$user->age ?>&mail=<?=$user->mail ?>&city=<?=$user->city ?>&pseudo=<?=$user->pseudo ?>&password=<?=$user->password ?>&about=<?=$user->about ?>&rank=<?=$user->rank ?>"> edit </a> </td>
+                                <td> <a href="../index.php?controller=user&action=editUserPage&id=<?=$user->id_user ?>&name=<?=$user->name ?>&sexe=<?=$user->sexe ?>&surname=<?=$user->surname ?>&age=<?=$user->age ?>&mail=<?=$user->mail ?>&city=<?=$user->city ?>&pseudo=<?=$user->pseudo ?>&password=<?=$user->password ?>&about=<?=$user->about ?>&rank=<?=$user->rank ?>"> edit </a> </td>
 
 
                             </tr>

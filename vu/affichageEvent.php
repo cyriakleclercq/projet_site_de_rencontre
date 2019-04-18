@@ -11,22 +11,8 @@
 
 <div class="container">
 
-    <header>
+   <?php include "header.php" ?>
 
-        <a href="../index.php"> page d'accueil </a>
-
-
-        <?php if (isset($_SESSION['rank'])) { ?>
-
-            <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
-            <a href="../index.php?controller=user&action=logout"> logout </a>
-            <a href="vu/create.php"> créer un évènement </a>
-            <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
-            <a href="../index.php?controller=user&action=vosEvent"> afficher vos évènements </a>
-
-
-        <?php } ?>
-    </header>
 
 
     <section>

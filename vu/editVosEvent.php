@@ -11,17 +11,8 @@
 
 <div class="container">
 
-    <header>
+    <?php include "header.php" ?>
 
-        <a href="../index.php"> page d'accueil </a>
-        <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
-        <a href="../index.php?controller=user&action=logout"> logout </a>
-        <a href="create.php"> créer un évènement </a>
-        <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
-        <a href="../index.php?controller=user&action=vosEvent"> afficher vos évènements </a>
-
-
-    </header>
 
     <h1> Editez l'event "<?= $_GET['title']  ?>" : </h1>
 
