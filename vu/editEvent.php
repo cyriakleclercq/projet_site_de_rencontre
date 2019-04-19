@@ -14,7 +14,7 @@
     <?php include "header.php" ?>
 
 
-    <h1> Editez l'event "<?= $_GET['title']  ?>" : </h1>
+    <h1> Editer l'event "<?= $_GET['title']  ?>" : </h1>
 
     <section>
 

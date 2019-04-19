@@ -51,7 +51,7 @@
                         <td><?= $event->date ?></td>
                         <td><?= $event->hours ?></td>
 
-                        <td> <a href="../index.php?controller=user&action=deleteEvent&id=<?=$event->id_event ?>"> delete </a> </td>
+                        <td> <a href="../index.php?controller=user&action=deleteEvent&id=<?=$event->id_event ?>" onclick="return confirm('êtes vous sûr de vouloir supprimer cet evenement ?')"> delete </a> </td>
                         <td> <a href="vu/editVosEvent.php?id=<?= $event->id_event ?>&title=<?= $event->title ?>&place=<?=$event->place ?>&city=<?=$event->city ?>&description=<?=$event->event_describe ?>&nbr=<?=$event->number_of_places ?>&date=<?=$event->date ?>&hours=<?=$event->hours ?>"> edit </a> </td>
 
 

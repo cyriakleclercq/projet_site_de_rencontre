@@ -54,9 +54,16 @@
 
 
 
+
                 <?php } ?>
 
         </div>
+
+    </section>
+
+    <section>
+
+        <a href="../index.php?controller=user&action=participation&id_event=<?=$_GET['id']?>"> participer à l'event </a>
 
     </section>
 

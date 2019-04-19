@@ -59,7 +59,7 @@ if (isset($_GET['controller'])) {
                 case "editEventPage":
 
                     $editEventPage = new \App\controller\userController();
-                    $editEventPage->editEvent();
+                    $editEventPage->editEventPage();
                     break;
 
                 case "editUserPage":
@@ -72,6 +72,12 @@ if (isset($_GET['controller'])) {
 
                     $editVosEventPage = new \App\controller\userController();
                     $editVosEventPage->editVosEvent();
+                    break;
+
+                case "PagedeContact":
+
+                    $contact = new \App\controller\userController();
+                    $contact->contactPage();
                     break;
 
                 case "logout":
@@ -152,6 +158,42 @@ if (isset($_GET['controller'])) {
                     $detail = new \App\controller\userController();
                     $detail->details();
                     break;
+
+                case "profil":
+
+                    $profil = new \App\controller\userController();
+                    $profil->profil();
+                    break;
+
+                case "editProfilPage":
+
+                    $editProfilPage = new \App\controller\userController();
+                    $editProfilPage->editProfilPage();
+                    break;
+
+                case "editProfil":
+
+                    $editProfil = new \App\controller\userController();
+                    $editProfil->editProfil();
+                    break;
+
+                case "deleteProfil":
+
+                    $deleteProfil = new \App\controller\userController();
+                    $deleteProfil->deleteProfil();
+
+                case "mail":
+
+                    $mail = new \App\controller\userController();
+                    $mail->mail();
+                    break;
+
+                case "participation":
+
+                    $participation = new \App\controller\userController();
+                    $participation->participation();
+                    break;
+
         }
         break;
 

@@ -33,7 +33,10 @@
     <?php }
 
     if (isset($_SESSION['rank'])) { ?>
-    <a href="../index.php?controller=user&action=logout"> logout </a>
+
+        <a href="../index.php?controller=user&action=profil"> Page de profil</a>
+        <a href="../index.php?controller=user&action=PagedeContact"> Page de contact </a>
+        <a href="../index.php?controller=user&action=logout"> logout </a>
 <?php } ?>
 
 </header>

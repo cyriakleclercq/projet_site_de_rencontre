@@ -57,7 +57,8 @@
                                 <td><?= $user->password ?></td>
                                 <td><?= $user->about ?></td>
                                 <td> <?= $user->rank ?></td>
-                                <td> <a href="../index.php?controller=user&action=deleteUser&id=<?= $user->id_user ?>"> delete </a> </td>
+
+                                <td> <a href="../index.php?controller=user&action=deleteUser&id=<?= $user->id_user ?>" onclick="return confirm('êtes vous sûr de vouloir supprimer ce compte ?')"> delete </a> </td>
                                 <td> <a href="../index.php?controller=user&action=editUserPage&id=<?=$user->id_user ?>&name=<?=$user->name ?>&sexe=<?=$user->sexe ?>&surname=<?=$user->surname ?>&age=<?=$user->age ?>&mail=<?=$user->mail ?>&city=<?=$user->city ?>&pseudo=<?=$user->pseudo ?>&password=<?=$user->password ?>&about=<?=$user->about ?>&rank=<?=$user->rank ?>"> edit </a> </td>
 
 

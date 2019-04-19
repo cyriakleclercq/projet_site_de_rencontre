@@ -22,6 +22,11 @@ class userController
         include "vu/homePage.php";
     }
 
+    public function contactPage ()
+    {
+        include "vu/contact.php";
+    }
+
     public function createPage ()
     {
         include "vu/create.php";
@@ -44,6 +49,16 @@ class userController
     public function editUserPage ()
     {
         include "vu/editUser.php";
+    }
+
+    public function editEventPage ()
+    {
+        include "vu/editEvent.php";
+    }
+
+    public function editProfilPage ()
+    {
+        include "vu/editProfil.php";
     }
 
     public function affichageEvent ()
@@ -250,11 +265,92 @@ class userController
 
     public function details ()
     {
-        $this->id_event = $_REQUEST['id'];
+        $id_event = $_REQUEST['id'];
+        filter_var($id_event,FILTER_SANITIZE_NUMBER_INT);
 
-        $details = $this->model->getDetail($this->id_event);
+        $details = $this->model->getDetail($id_event);
 
         include "vu/thisEvent.php";
+
+    }
+
+    public function profil ()
+    {
+        $id = $_SESSION['id_user'];
+        filter_var($id,FILTER_SANITIZE_NUMBER_INT);
+
+        $profil = $this->model->getProfil($id);
+
+        include "vu/profil.php";
+    }
+
+    public function editProfil ()
+    {
+        $id = $_SESSION['id_user'];
+        filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+
+        $name = $_REQUEST['name'];
+        filter_var($name, FILTER_SANITIZE_STRING);
+
+        $surname = $_REQUEST['surname'];
+        filter_var($surname, FILTER_SANITIZE_STRING);
+
+        $sexe = $_REQUEST['sexe'];
+        filter_var($sexe,FILTER_SANITIZE_STRING);
+
+        $mail = $_REQUEST['mail'];
+        filter_var($mail, FILTER_SANITIZE_EMAIL);
+
+        $age = $_REQUEST['age'];
+        filter_var($age, FILTER_SANITIZE_NUMBER_INT);
+
+        $city = $_REQUEST['city'];
+        filter_var($city, FILTER_SANITIZE_STRING);
+
+        $pseudo = $_REQUEST['pseudo'];
+        filter_var($pseudo, FILTER_SANITIZE_STRING);
+
+        $password = $_REQUEST['password'];
+        filter_var($password, FILTER_SANITIZE_STRING);
+
+        $about = $_REQUEST['about'];
+        filter_var($about, FILTER_SANITIZE_STRING);
+
+        $edit_profil = $this->model->setEditProfil($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about);
+
+        $this->profil();
+    }
+
+    public function deleteProfil ()
+    {
+        $id = $_SESSION['id_user'];
+
+        $this->model->deleteProfil($id);
+
+        $this->logout();
+    }
+
+    public function participation ()
+    {
+        $id_user = $_SESSION['id_user'];
+        filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
+
+        $id_event = $_REQUEST['id_event'];
+        filter_var($id_event, FILTER_SANITIZE_NUMBER_INT);
+
+        $participe = $this->model->setParticipation($id_user,$id_event);
+
+        $this->affichageEvent();
+    }
+
+    public function mail ()
+    {
+        $mail = $_SESSION['mail'];
+        $titre = $_REQUEST['titre'];
+        $message = $_REQUEST['message'];
+
+        $sendMail = $this->model->setMail($mail,$titre,$message);
+
 
     }
 }

@@ -14,6 +14,8 @@ class user
     private $sql;
     private $eventList;
     private  $details;
+    private $profil;
+    private $recepteur;
 
 
 
@@ -25,12 +27,20 @@ class user
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
+
+        $this->recepteur ="cyriakleclercq@gmail.com";
     }
 
     public function getUser()
     {
         $this->userList = $this->bdd->query("select * from users")->fetchAll(PDO::FETCH_OBJ);
         return $this->userList;
+    }
+
+    public function getProfil($id)
+    {
+        $this->profil = $this->bdd->query("select * from users where `id_user` = $id")->fetchAll(PDO::FETCH_OBJ);
+        return $this->profil;
     }
 
     public function getEvent()
@@ -52,15 +62,21 @@ class user
         session_destroy();
     }
 
-    function deleteUser($id)
+    public function deleteUser($id)
     {
         $this->sql = $this->bdd->query("delete from users where id_user = $id ");
         $this->sql->execute();
     }
 
-    function deleteEvent($id)
+    public function deleteEvent($id)
     {
         $this->sql = $this->bdd->query("delete from events where id_event = $id ");
+        $this->sql->execute();
+    }
+
+    public function deleteProfil ($id)
+    {
+        $this->sql = $this->bdd->query("delete from users where id_user = $id");
         $this->sql->execute();
     }
 
@@ -79,7 +95,7 @@ class user
 
     }
 
-    function setComment ($comment, $id_event, $id_user)
+    public function setComment ($comment, $id_event, $id_user)
     {
         $this->sql = $this->bdd->prepare("INSERT INTO `comments` (`comment`, `date`, `hours`, `id_event`, `id_user`) VALUE (?,?,?)");
         $this->sql->bindParam(1, $comment);
@@ -88,19 +104,46 @@ class user
         $this->sql->execute();
     }
 
+    public function setParticipation($id_user,$id_event)
+    {
+        $this->sql = $this->bdd->prepare("INSERT INTO `participations` (`id_user`,`id_event`) VALUE (?,?)");
+        $this->sql->bindParam(1,$id_user);
+        $this->sql->bindParam(2,$id_event);
+        $this->sql->execute();
+    }
 
-    function setEditUser ($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank) {
+
+    public function setEditUser ($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank)
+    {
         $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `mail` = ?, `age` = ?, `city` = ?, `pseudo` = ?, `password` = ?, `about` = ?, `rank` = ?  WHERE id_user = ?";
         $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank, $id]);
     }
 
-    function setEditEvent ($id, $title, $place, $city, $event_describe, $nbr, $date, $hours) {
+    public function setEditEvent ($id, $title, $place, $city, $event_describe, $nbr, $date, $hours)
+    {
         $this->sql = "UPDATE `events` SET `title` = ?,`place` = ?, `city` = ?, `event_describe` = ?, `number_of_places` = ?, `date` = ?, `hours` = ? WHERE id_event = ?";
         $this->bdd->prepare($this->sql)->execute([$title, $place, $city, $event_describe, $nbr, $date, $hours, $id]);
     }
 
-    function setEditVosEvent ($id, $title, $place, $city, $event_describe, $nbr, $date, $hours, $id_user) {
+    public function setEditVosEvent ($id, $title, $place, $city, $event_describe, $nbr, $date, $hours, $id_user)
+    {
         $this->sql = "UPDATE `events` SET `title` = ?,`place` = ?, `city` = ?, `event_describe` = ?, `number_of_places` = ?, `date` = ?, `hours` = ? WHERE id_event = ? AND id_user = ?";
         $this->bdd->prepare($this->sql)->execute([$title, $place, $city, $event_describe, $nbr, $date, $hours, $id, $id_user]);
+    }
+
+    public function setEditProfil ($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about)
+    {
+        $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `mail` = ?, `age` = ?, `city` = ?, `pseudo` = ?, `password` = ?, `about` = ?    WHERE id_user = ?";
+        $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $id]);
+    }
+
+    public function setMail ($by,$titre,$message)
+    {
+        $headers = 'From:'.$by . "\r\n" .
+            'Reply-To:'.$by . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        mail($this->recepteur,$titre, $message, $headers);
+        echo"mail envoyé";
     }
 }
