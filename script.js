@@ -74,6 +74,3 @@ ajaxRequest();
         ajaxRequest();
 
     });
-
-
-

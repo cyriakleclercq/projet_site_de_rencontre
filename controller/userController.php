@@ -265,10 +265,17 @@ class userController
 
     public function details ()
     {
-        $id_event = $_REQUEST['id'];
+        $id_event = $_REQUEST['id_event'];
         filter_var($id_event,FILTER_SANITIZE_NUMBER_INT);
 
+        $id_user = $_SESSION['id_user'];
+        filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
+
         $details = $this->model->getDetail($id_event);
+
+        $participations = $this->model->getParticipation($id_event,$id_user);
+
+        $participants = $this->model->getParticipant($id_event);
 
         include "vu/thisEvent.php";
 
@@ -330,6 +337,19 @@ class userController
         $this->logout();
     }
 
+    public function abandon ()
+    {
+        $id_user = $_SESSION['id_user'];
+        filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
+
+        $id_event = $_REQUEST['id_event'];
+        filter_var($id_event,FILTER_SANITIZE_NUMBER_INT);
+
+        $delete = $this->model->deleteparticipation($id_user,$id_event);
+
+        $this->details($id_event);
+    }
+
     public function participation ()
     {
         $id_user = $_SESSION['id_user'];
@@ -340,7 +360,7 @@ class userController
 
         $participe = $this->model->setParticipation($id_user,$id_event);
 
-        $this->affichageEvent();
+        $this->details();
     }
 
     public function mail ()

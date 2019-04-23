@@ -16,6 +16,8 @@ class user
     private  $details;
     private $profil;
     private $recepteur;
+    private $participationList;
+    private $participantList;
 
 
 
@@ -55,6 +57,18 @@ class user
          return $this->details;
     }
 
+    public function getParticipation ($id_event, $id_user)
+    {
+        $this->participationList = $this->bdd->query("select * from participations where `id_event` = $id_event and `id_user` = $id_user")->fetchAll(PDO::FETCH_OBJ);
+        return $this->participationList;
+    }
+
+    public function getParticipant ($id_event)
+    {
+        $this->participantList = $this->bdd->query("select * from `participations`as a, `users` as b where a.id_event = $id_event and a.id_user = b.id_user")->fetchAll(PDO::FETCH_OBJ);
+        return $this->participantList;
+    }
+
     public function logout ()
     {
         session_start();
@@ -64,13 +78,19 @@ class user
 
     public function deleteUser($id)
     {
-        $this->sql = $this->bdd->query("delete from users where id_user = $id ");
+        $this->sql = $this->bdd->query("delete from users where id_user = $id");
+        $this->sql->execute();
+    }
+
+    public function deleteparticipation($id_user,$id_event)
+    {
+        $this->sql = $this->bdd->query("delete from participations where `id_user` = $id_user and `id_event` = $id_event");
         $this->sql->execute();
     }
 
     public function deleteEvent($id)
     {
-        $this->sql = $this->bdd->query("delete from events where id_event = $id ");
+        $this->sql = $this->bdd->query("delete from events where id_event = $id");
         $this->sql->execute();
     }
 
@@ -111,7 +131,6 @@ class user
         $this->sql->bindParam(2,$id_event);
         $this->sql->execute();
     }
-
 
     public function setEditUser ($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank)
     {

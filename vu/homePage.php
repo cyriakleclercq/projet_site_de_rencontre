@@ -42,7 +42,7 @@
 
                         <?php } else {
 
-                        ?> <div class="comm"> <a href="index.php?controller=user&action=details&id=<?=$event->id_event?>"> Plus d'infos </a> </div>
+                        ?> <div class="comm"> <a href="index.php?controller=user&action=details&id_event=<?=$event->id_event?>"> Plus d'infos </a> </div>
                     <?php }
 
                  } ?>

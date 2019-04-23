@@ -194,6 +194,12 @@ if (isset($_GET['controller'])) {
                     $participation->participation();
                     break;
 
+                case "abandon":
+
+                    $abandon = new \App\controller\userController();
+                    $abandon->abandon();
+                    break;
+
         }
         break;
 

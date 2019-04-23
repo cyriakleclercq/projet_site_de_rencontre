@@ -50,7 +50,7 @@
 
                     </table>
 
-                <input type="text" style="display: none" id="id_comm" value=" <?= $_GET['id'] ?>">
+                <input type="text" style="display: none" id="id_comm" value=" <?= $_GET['id_event'] ?>">
 
 
 
@@ -63,8 +63,32 @@
 
     <section>
 
-        <a href="../index.php?controller=user&action=participation&id_event=<?=$_GET['id']?>"> participer à l'event </a>
+        <?php
 
+        print_r($details[0]->'stdClass Object');
+
+        if ($details['number_of_places'] < count($participants)) {
+
+            if (!empty($participations)) {
+                ?>
+                <a href="../index.php?controller=user&action=abandon&id_event=<?= $_GET['id_event'] ?>&id_user=<?= $_SESSION['id_user'] ?>">
+                    Ne plus participer </a>
+
+            <?php }
+        };
+
+        if (empty ($participations)) {
+                ?>
+
+                <a href="../index.php?controller=user&action=participation&id_event=<?= $_GET['id_event'] ?>"> participer à l'event </a>
+
+            <?php } ?>
+
+    </section>
+
+    <section>
+
+        nombre de participant : <?= count($participants) ?>
     </section>
 
     <section>
