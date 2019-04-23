@@ -12,12 +12,15 @@ function ajaxRequest()
 
         if (this.readyState == 4 && this.status == 200) {
 
+            $('#commentaire > div, span, h4').remove();
+
             var objQuete = this.responseText;
 
         }
 
         let commentaire = JSON.parse(objQuete);
         console.log(commentaire);
+
 
         for (let i = 0; i< commentaire.length; i++)
         {
@@ -53,8 +56,6 @@ function ajaxRequest()
 
     var titre = document.getElementById("titreComm").value;
 
-
-
     var comment = document.getElementById("comm").value;
 
 
@@ -72,5 +73,7 @@ ajaxRequest();
     document.getElementById('bt_comm').addEventListener("click", function () {
 
         ajaxRequest();
+        document.getElementById('titreComm').value = "";
+        document.getElementById("comm").value = "";
 
     });

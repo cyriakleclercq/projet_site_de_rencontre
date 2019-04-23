@@ -48,6 +48,27 @@ class visitor
         $this->sql->execute();
     }
 
+    public function check_inscription ($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password)
+    {
+        $this->sql = $this->bdd->query("SELECT * from users WHERE `pseudo` = '$pseudo' AND `mail` = '$mail'");
+        $this->sql = $this->sql->fetch();
+
+        if ($pseudo == $this->sql['pseudo'])
+        {
+            ?> <div> pseudo déjà utilisé </div> <?php
+        }
+
+        if ($mail == $this->sql['mail'])
+        {
+            ?> <div> adresse mail déjà utilisée </div> <?php
+        }
+
+        if ($mail !== $this->sql['mail'] AND $pseudo !== $this->sql['pseudo'])
+            {
+               $test = 'ok';
+            }
+    }
+
 
 
     public function check_login ($pseudo, $password)

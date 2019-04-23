@@ -181,6 +181,7 @@ if (isset($_GET['controller'])) {
 
                     $deleteProfil = new \App\controller\userController();
                     $deleteProfil->deleteProfil();
+                    break;
 
                 case "mail":
 
@@ -210,12 +211,6 @@ if (isset($_GET['controller'])) {
 
             $commentaire = new \App\controller\ajaxController();
             $commentaire->ajaxCommentaire();
-
-            if ($_GET['postTitle'] != null && $_GET['postCommentaire'] != null)
-            {
-                $post = new \App\controller\ajaxController();
-                $post->ajaxPost();
-            }
             break;
 
     }

@@ -20,6 +20,11 @@ class ajaxController
 
     public function ajaxCommentaire ()
     {
+
+        if ($_GET['postTitle'] != null && $_GET['postCommentaire'] != null) {
+            $this->ajaxPost();
+        }
+
         $this->id = $_REQUEST['id_event'];
         $this->model->getCommentaire($this->id);
     }

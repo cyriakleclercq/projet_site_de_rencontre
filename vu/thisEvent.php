@@ -5,6 +5,8 @@
     <title>page d'accueil </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery.js"></script>
+
 
 </head>
 
@@ -65,30 +67,28 @@
 
         <?php
 
-        print_r($details[0]->'stdClass Object');
-
-        if ($details['number_of_places'] < count($participants)) {
-
             if (!empty($participations)) {
                 ?>
-                <a href="../index.php?controller=user&action=abandon&id_event=<?= $_GET['id_event'] ?>&id_user=<?= $_SESSION['id_user'] ?>">
-                    Ne plus participer </a>
+                <a href="../index.php?controller=user&action=abandon&id_event=<?= $_GET['id_event'] ?>&id_user=<?= $_SESSION['id_user'] ?>"> Ne plus participer </a>
 
-            <?php }
+            <?php
         };
 
-        if (empty ($participations)) {
-                ?>
+            if ((int)$details[0]->number_of_places > (int)count($participants)) {
 
-                <a href="../index.php?controller=user&action=participation&id_event=<?= $_GET['id_event'] ?>"> participer à l'event </a>
+                if (empty ($participations)) {
+                    ?>
 
-            <?php } ?>
+                    <a href="../index.php?controller=user&action=participation&id_event=<?= $_GET['id_event'] ?>"> participer à l'event </a>
+
+                <?php }
+            }?>
 
     </section>
 
     <section>
 
-        nombre de participant : <?= count($participants) ?>
+        nombre de participant : <?= count($participants) ?> / <?= $details[0]->number_of_places ?>
     </section>
 
     <section>
@@ -103,7 +103,7 @@
             <label for="comm"> commentaire : </label>
             <textarea id="comm"> </textarea>
 
-            <input type="submit" id="bt_comm" value="valider">
+            <input type="button" id="bt_comm" value="valider">
 
         </form>
 

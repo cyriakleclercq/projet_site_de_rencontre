@@ -64,9 +64,19 @@ class visitorController
         $password = $_REQUEST['password'];
         filter_var($name,FILTER_SANITIZE_STRING);
 
-        $add_user = $this->model->set_inscription($name, $surname,$sexe, $mail, $age, $city, $pseudo, $about, $password);
+        $check_inscription = $this->model->check_inscription($pseudo, $mail);
 
-        $this->connexionPage();
+        if ($check_inscription == $test)
+        {
+
+            $add_user = $this->model->set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password);
+
+            $this->connexionPage();
+
+        } else
+        {
+            $this->inscriptionPage();
+        }
     }
 
     public function login ()
