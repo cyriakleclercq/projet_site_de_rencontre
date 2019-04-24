@@ -136,10 +136,20 @@ class userController
         $rank = $_REQUEST['rank'];
         filter_var($rank, FILTER_SANITIZE_NUMBER_INT);
 
-        $edit_user = $this->model->setEditUser($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank);
+        if(!empty($id) && !empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password) && !empty($rank)) {
 
-        $this->affichageUser();
+            $edit_user = $this->model->setEditUser($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank);
 
+            $this->affichageUser();
+
+        } else {
+
+            $alert = "c'était audacieux mais tu n'es pas QLF !";
+
+            $logout = $this->model->logout();
+
+            include "vu/deco.php";
+        }
     }
 
     public function createEvent ()
@@ -169,18 +179,24 @@ class userController
         $id_user = $_SESSION['id_user'];
         filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
 
-        $add_event = $this->model->setEvent($title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user);
+        if (!empty($title) && !empty($place) && !empty($city) && !empty($event_describe) && !empty($number_of_places) && !empty($date) && !empty($hours) && !empty($id_user)) {
 
-        $check_id = $this->model->autoParticipation($id_user);
+            $add_event = $this->model->setEvent($title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user);
 
-        var_dump((int)$check_id->id_event);
+            $check_id = $this->model->autoParticipation($id_user);
 
-        $check = $check_id->id_event;
+            var_dump((int)$check_id->id_event);
 
-        $add_participant = $this->model->setParticipation($id_user,(int)$check);
+            $check = $check_id->id_event;
+
+            $add_participant = $this->model->setParticipation($id_user, (int)$check);
+
+            $this->vosEvent();
+
+        } else {
 
 
-        $this->vosEvent();
+        }
     }
 
     public function editEvent ()

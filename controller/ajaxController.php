@@ -11,7 +11,6 @@ class ajaxController
 {
 
     private $model;
-    private $id;
 
     public function __construct ()
     {
@@ -21,12 +20,12 @@ class ajaxController
     public function ajaxCommentaire ()
     {
 
-        if ($_GET['postTitle'] != null && $_GET['postCommentaire'] != null) {
+        if (!empty($_GET['postTitle']) && !empty($_GET['postCommentaire'])) {
             $this->ajaxPost();
         }
 
-        $this->id = $_REQUEST['id_event'];
-        $this->model->getCommentaire($this->id);
+        $id = $_REQUEST['id_event'];
+        $this->model->getCommentaire($id);
     }
 
     public function ajaxPost ()

@@ -3,16 +3,15 @@
 
 namespace App\model;
 
+include "visitor.php";
 
 use Exception;
 use PDO;
 
-class user
+class user extends visitor
 {
-    private $bdd;
+
     private $userList;
-    private $sql;
-    private $eventList;
     private  $details;
     private $profil;
     private $recepteur;
@@ -23,14 +22,12 @@ class user
 
     public function __construct()
     {
-        try {
-            $this->bdd = new PDO('mysql:host=localhost;dbname=sitederencontre;charset=utf8', 'root', '',
-                array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
+       parent::__construct();
 
         $this->recepteur ="cyriakleclercq@gmail.com";
+
+
+
     }
 
     public function getUser()
@@ -49,12 +46,6 @@ class user
     {
         $this->sql = $this->bdd->query("SELECT id_event FROM `events` WHERE `id_user` = $id_user ORDER BY id_event DESC")->fetch(PDO::FETCH_OBJ);
         return $this->sql;
-    }
-
-    public function getEvent()
-    {
-        $this->eventList = $this->bdd->query("select * from events")->fetchAll(PDO::FETCH_OBJ);
-        return $this->eventList;
     }
 
     public function getDetail ($id)

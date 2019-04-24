@@ -10,9 +10,8 @@ use PDO;
 class visitor
 {
 
-    private $bdd;
-    private $sql;
-    private $userList;
+    protected $bdd;
+    protected $sql;
     private $eventList;
 
 

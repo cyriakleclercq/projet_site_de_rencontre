@@ -20,13 +20,15 @@
 
         <form action="../index.php?controller=user&action=editUser" method="post" class="form">
 
+            <?= $alert ?>
+
             <input type="text" style="display: none" id="inp_id" name="id" value="<?= $_GET['id'] ?>">
 
             <label for="inp_name"> name : </label>
-            <input type="text" id="inp_name" name="name" value="<?= $_GET['name'] ?>">
+            <input type="text" id="inp_name" name="name" required value="<?= $_GET['name'] ?>">
 
             <label for="inp_surname"> surname : </label>
-            <input type="text" id="inp_surname" name="surname" value="<?= $_GET['surname'] ?>">
+            <input type="text" id="inp_surname" name="surname" required value="<?= $_GET['surname'] ?>">
 
             <label for="inp_sexe"> sexe : </label>
             <select name="sexe" id="inp_sexe">
@@ -36,19 +38,19 @@
             </select>
 
             <label for="inp_mail"> adresse mail : </label>
-            <input type="email" id="inp_mail" name="mail" value="<?= $_GET['mail'] ?>">
+            <input type="email" id="inp_mail" name="mail" required value="<?= $_GET['mail'] ?>">
 
             <label for="inp_age"> age : </label>
-            <input type="number" id="inp_age" name="age" value="<?= $_GET['age'] ?>">
+            <input type="number" id="inp_age" name="age" required value="<?= $_GET['age'] ?>">
 
             <label for="inp_city"> ville : </label>
-            <input type="text" id="inp_city" name="city" value="<?= $_GET['city'] ?>">
+            <input type="text" id="inp_city" name="city" required value="<?= $_GET['city'] ?>">
 
             <label for="inp_pseudo"> pseudo : </label>
-            <input type="text" id="inp_pseudo" name="pseudo" value="<?= $_GET['pseudo'] ?>">
+            <input type="text" id="inp_pseudo" name="pseudo" required value="<?= $_GET['pseudo'] ?>">
 
             <label for="inp_password"> password : </label>
-            <input type="text" id="inp_password" name="password" value="<?= $_GET['password'] ?>">
+            <input type="text" id="inp_password" name="password" required value="<?= $_GET['password'] ?>">
 
             <label for="inp_about"> à propos : </label>
             <textarea id="inp_about" name="about"> <?= $_GET['about'] ?> </textarea>

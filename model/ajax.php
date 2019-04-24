@@ -25,7 +25,7 @@ class ajax
 
     function getCommentaire($id)
     {
-        $this->event = $this->bdd->query("select * from comments, users where `id_event` = $id and comments.id_user = users.id_user")->fetchAll(PDO::FETCH_ASSOC);
+        $this->event = $this->bdd->query("select users.pseudo, users.sexe, comments.comment, comments.title, comments.date from comments, users where `id_event` = $id and comments.id_user = users.id_user")->fetchAll(PDO::FETCH_ASSOC);
 
         echo json_encode($this->event);
 

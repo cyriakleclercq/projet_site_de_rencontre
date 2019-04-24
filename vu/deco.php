@@ -16,6 +16,8 @@
 
         <p> vous êtes déconnecté </p>
 
+        <h1> <?= $alert ?> </h1>
+
         <a href="index.php"> retour </a>
 
     </div>
