@@ -48,25 +48,26 @@ class visitor
         $this->sql->execute();
     }
 
-    public function check_inscription ($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password)
+    public function check_inscription ($pseudo, $mail)
     {
-        $this->sql = $this->bdd->query("SELECT * from users WHERE `pseudo` = '$pseudo' AND `mail` = '$mail'");
+        $this->sql = $this->bdd->query("SELECT * from users WHERE `pseudo` = '$pseudo' OR `mail` = '$mail'");
         $this->sql = $this->sql->fetch();
 
         if ($pseudo == $this->sql['pseudo'])
         {
-            ?> <div> pseudo déjà utilisé </div> <?php
+            return 1;
         }
 
-        if ($mail == $this->sql['mail'])
+        else if ($mail == $this->sql['mail'])
         {
-            ?> <div> adresse mail déjà utilisée </div> <?php
+            return 2;
         }
 
-        if ($mail !== $this->sql['mail'] AND $pseudo !== $this->sql['pseudo'])
-            {
-               $test = 'ok';
-            }
+        else if ($mail !== $this->sql['mail'] AND $pseudo !== $this->sql['pseudo'])
+        {
+            return 0;
+        }
+
     }
 
 
@@ -92,7 +93,8 @@ class visitor
             $_SESSION['password'] = $this->sql['password'];
             $_SESSION['rank'] = $this->sql['rank'];
         } else {
-            ?> <div> mauvais login </div> <?php
+
+            return 1;
         }
 
     }

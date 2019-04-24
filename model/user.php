@@ -45,6 +45,12 @@ class user
         return $this->profil;
     }
 
+    public function autoParticipation ($id_user)
+    {
+        $this->sql = $this->bdd->query("SELECT id_event FROM `events` WHERE `id_user` = $id_user ORDER BY id_event DESC")->fetch(PDO::FETCH_OBJ);
+        return $this->sql;
+    }
+
     public function getEvent()
     {
         $this->eventList = $this->bdd->query("select * from events")->fetchAll(PDO::FETCH_OBJ);
@@ -114,6 +120,8 @@ class user
         $this->sql->execute();
 
     }
+
+
 
     public function setComment ($comment, $id_event, $id_user)
     {

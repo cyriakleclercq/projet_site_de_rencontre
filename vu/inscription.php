@@ -32,6 +32,7 @@
                 <option value="femme"> femme </option>
             </select>
 
+            <?= $alert2 ?>
             <label for="inp_mail"> adresse mail : </label>
             <input type="email" id="inp_mail" name="mail">
 
@@ -41,6 +42,7 @@
             <label for="inp_city"> ville : </label>
             <input type="text" id="inp_city" name="city">
 
+            <?= $alert1 ?>
             <label for="inp_pseudo"> pseudo : </label>
             <input type="text" id="inp_pseudo" name="pseudo">
 

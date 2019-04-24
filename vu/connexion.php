@@ -28,6 +28,8 @@
 
             <input type="submit" value="valider">
 
+            <?= $alert ?>
+
         </form>
 
 

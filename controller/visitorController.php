@@ -9,7 +9,6 @@ use App\model\visitor;
 class visitorController
 {
     private $model;
-    private $check_user;
 
 
     public function __construct()
@@ -66,17 +65,25 @@ class visitorController
 
         $check_inscription = $this->model->check_inscription($pseudo, $mail);
 
-        if ($check_inscription == $test)
+        if ($check_inscription == 1)
         {
+            $alert1 = "pseudo déjà utilisé";
+            include "vu/inscription.php";
+        }
 
+        if ($check_inscription == 2)
+        {
+            $alert2 = "adresse mail déjà utilisée";
+            include "vu/inscription.php";
+        }
+
+        if ($check_inscription == 0)
+        {
             $add_user = $this->model->set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password);
-
             $this->connexionPage();
 
-        } else
-        {
-            $this->inscriptionPage();
         }
+
     }
 
     public function login ()
@@ -88,9 +95,18 @@ class visitorController
         filter_var(password, FILTER_SANITIZE_STRING);
         $pass = sha1($password);
 
-        $this->check_user =$this->model->check_login($pseudo, $pass);
+        $check_user =$this->model->check_login($pseudo, $pass);
 
-        $this->affichageEvent();
+        if ($check_user == 1) {
+
+            $alert = 'login incorrect';
+            include "vu/connexion.php";
+        }
+
+        else {
+
+            $this->affichageEvent();
+        }
     }
 
 }

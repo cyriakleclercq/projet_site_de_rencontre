@@ -1,8 +1,25 @@
-<?php
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>page d'accueil </title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
 
-echo "VOUS ETES DECONNECTE";
+<body>
 
-?>
+<div class="container">
 
-<a href="index.php"> retour </a>
+    <div class="form">
+
+        <p> vous êtes déconnecté </p>
+
+        <a href="index.php"> retour </a>
+
+    </div>
+</div>
+
+</body>
+</html>

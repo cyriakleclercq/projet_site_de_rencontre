@@ -38,7 +38,7 @@
 
                     <?php if (!isset($_SESSION['name'])) { ?>
 
-                        <p class="comm" > pour voir les commentaires vous devez être connecté </p >
+                        <p class="comm" > Pour participer aux évènements vous devez être connecté </p >
 
                         <?php } else {
 

@@ -171,6 +171,15 @@ class userController
 
         $add_event = $this->model->setEvent($title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user);
 
+        $check_id = $this->model->autoParticipation($id_user);
+
+        var_dump((int)$check_id->id_event);
+
+        $check = $check_id->id_event;
+
+        $add_participant = $this->model->setParticipation($id_user,(int)$check);
+
+
         $this->vosEvent();
     }
 
