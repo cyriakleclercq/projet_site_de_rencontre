@@ -12,7 +12,7 @@
 <div class="container">
 
     <?php include "header.php" ?>
-
+ required
 
     <h1> Editer l'event "<?= $_GET['title']  ?>" : </h1>
 
@@ -20,28 +20,28 @@
 
         <form action="../index.php?controller=user&action=editEvent" method="post" class="form">
 
-            <input type="text" style="display: none" name="id" id="inp_id" value="<?= $_GET['id'] ?>">
+            <input type="text" style="display: none" name="id" required id="inp_id" value="<?= $_GET['id'] ?>">
 
             <label for="inp_title"> Titre de l'event  </label>
-            <input type="text" name="title" id="inp_title" value="<?= $_GET['title'] ?>">
+            <input type="text" name="title" id="inp_title" required value="<?= $_GET['title'] ?>">
 
             <label for="inp_place"> Adresse de l'event  </label>
-            <input type="text" name="place" id="inp_place" value="<?= $_GET['place'] ?>">
+            <input type="text" name="place" id="inp_place" required value="<?= $_GET['place'] ?>">
 
             <label for="inp_city"> Ville de l'event  </label>
-            <input type="text" name="city" id="inp_city" value="<?= $_GET['city'] ?>">
+            <input type="text" name="city" id="inp_city" required value="<?= $_GET['city'] ?>">
 
             <label for="inp_event_describe"> Description de l'event  </label>
-            <input type="text" name="event_describe" id="inp_event_describe" value="<?= $_GET['description'] ?>">
+            <input type="text" name="event_describe" id="inp_event_describe" required value="<?= $_GET['description'] ?>">
 
             <label for="inp_number_of_places"> Nombre de participant désiré </label>
-            <input type="number" name="number_of_places" id="inp_number_of_places" value="<?= $_GET['nbr'] ?>">
+            <input type="number" name="number_of_places" id="inp_number_of_places" required value="<?= $_GET['nbr'] ?>">
 
             <label for="inp_date"> Date de l'event </label>
-            <input type="date" name="date" id="inp_date" value="<?= $_GET['date'] ?>">
+            <input type="date" name="date" id="inp_date" required value="<?= $_GET['date'] ?>">
 
             <label for="inp_hours"> heure de l'event </label>
-            <input type="time" name="hours" id="inp_hours" value="<?= $_GET['hours'] ?>">
+            <input type="time" name="hours" id="inp_hours" required value="<?= $_GET['hours'] ?>">
 
             <input type="submit" value="valider">
 

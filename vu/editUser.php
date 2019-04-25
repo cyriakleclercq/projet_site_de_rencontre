@@ -58,7 +58,7 @@
             <label for="inp_rank"> rank : </label>
 
             <select name="rank" id="inp_rank">
-                <option value="<?= $_GET['rank'] ?>" selected> <?php if( $_GET['rank'] == 1) { echo "user";  } else echo "admin"; ?> </option>
+                <option value="<?= $_GET['rank'] ?>" selected> <?php if( $_GET['rank'] == 1) { echo "user";  } else echo "adminController"; ?> </option>
                 <option value="1"> user </option>
                 <option value="2"> admin </option>
             </select>

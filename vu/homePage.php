@@ -15,6 +15,8 @@
 
         <section>
 
+            <h1> <?= $alert ?> </h1>
+
             <h1> Liste des events :</h1>
 
             <div>
@@ -30,7 +32,6 @@
 
                             <td><?= $event->title ?></td>
                             <td><?= $event->event_describe ?></td>
-
                         </tr>
 
 
@@ -38,11 +39,11 @@
 
                     <?php if (!isset($_SESSION['name'])) { ?>
 
-                        <p class="comm" > Pour participer aux évènements vous devez être connecté </p >
+                        <p class="comm" > Pour plus de détails, vous devez être connecté </p >
 
                         <?php } else {
 
-                        ?> <div class="comm"> <a href="index.php?controller=user&action=details&id_event=<?=$event->id_event?>"> Plus d'infos </a> </div>
+                        ?> <div class="comm"> <a href="../index.php?controller=user&action=details&id_event=<?=$event->id_event?>"> Plus d'infos </a> </div>
                     <?php }
 
                  } ?>

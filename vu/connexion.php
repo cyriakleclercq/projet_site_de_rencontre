@@ -21,10 +21,10 @@
         <form action="../index.php?controller=visitor&action=connection" method="post" class="form">
 
             <label for="inp_user"> username : </label>
-            <input type="text" id="inp_user" name="pseudo">
+            <input type="text" id="inp_user" required name="pseudo">
 
             <label for="inp_password"> password : </label>
-            <input type="password" id="inp_password" name="password">
+            <input type="password" id="inp_password" required name="password">
 
             <input type="submit" value="valider">
 

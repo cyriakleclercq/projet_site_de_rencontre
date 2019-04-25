@@ -3,17 +3,17 @@
 
 namespace App\Controller;
 
+require "controller.php";
 
 use App\model\visitor;
 
-class visitorController
+class visitorController extends controller
 {
-    private $model;
-
 
     public function __construct()
     {
-        $this->model = new visitor();
+        parent::__construct();
+
     }
 
     public function inscriptionPage ()
@@ -24,13 +24,6 @@ class visitorController
     public function connexionPage ()
     {
         include "vu/connexion.php";
-    }
-
-    public function affichageEvent ()
-    {
-        $listeEvents = $this->model->getEvent();
-        include "vu/homePage.php";
-
     }
 
     public function inscription ()
@@ -79,8 +72,14 @@ class visitorController
 
         if ($check_inscription == 0)
         {
-            $add_user = $this->model->set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password);
-            $this->connexionPage();
+
+            if (!empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password))
+            {
+
+                $add_user = $this->model->set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password);
+                $this->connexionPage();
+
+            }
 
         }
 
@@ -105,7 +104,7 @@ class visitorController
 
         else {
 
-            $this->affichageEvent();
+            $this->affichage();
         }
     }
 

@@ -21,10 +21,10 @@
         <form action="../index.php?controller=visitor&action=inscription" method="post" class="form">
 
             <label for="inp_name"> name : </label>
-            <input type="text" id="inp_name" name="name">
+            <input type="text" id="inp_name" required name="name">
 
             <label for="inp_surname"> surname : </label>
-            <input type="text" id="inp_surname" name="surname">
+            <input type="text" id="inp_surname" required name="surname">
 
             <label for="inp_sexe"> sexe : </label>
             <select name="sexe" id="inp_sexe">
@@ -32,22 +32,22 @@
                 <option value="femme"> femme </option>
             </select>
 
-            <?= $alert2 ?>
+            <?=  $alert2 ?>
             <label for="inp_mail"> adresse mail : </label>
-            <input type="email" id="inp_mail" name="mail">
+            <input type="email" id="inp_mail" required name="mail">
 
             <label for="inp_age"> age : </label>
-            <input type="number" id="inp_age" name="age">
+            <input type="number" id="inp_age" required name="age">
 
             <label for="inp_city"> ville : </label>
-            <input type="text" id="inp_city" name="city">
+            <input type="text" id="inp_city" required name="city">
 
             <?= $alert1 ?>
             <label for="inp_pseudo"> pseudo : </label>
-            <input type="text" id="inp_pseudo" name="pseudo">
+            <input type="text" id="inp_pseudo" required name="pseudo">
 
             <label for="inp_password"> password : </label>
-            <input type="password" id="inp_password" name="password">
+            <input type="password" id="inp_password" required name="password">
 
             <label for="inp_about"> à propos : </label>
             <textarea id="inp_about" name="about"> </textarea>

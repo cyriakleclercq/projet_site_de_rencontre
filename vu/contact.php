@@ -23,10 +23,10 @@
         <form action="../index.php?controller=user&action=mail" class="form">
 
             <label for="titreContact"> titre : </label>
-            <input type="text" id="titreContact" namz="titre">
+            <input type="text" id="titreContact" required namz="titre">
 
             <label for="messageContact"> message : </label>
-            <textarea id="messageContact" name="message"> </textarea>
+            <textarea id="messageContact" name="message" required> </textarea>
 
             <input type="submit" id="bt_contact" value="valider">
 

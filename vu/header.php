@@ -26,8 +26,8 @@
 
     if (isset($_SESSION['rank']) && $_SESSION['rank'] == 2) {?>
 
-        <a href="../index.php?controller=user&action=affichageUser"> table des utilisateurs </a>
-        <a href="../index.php?controller=user&action=affichageEvent"> afficher les évènements </a>
+        <a href="../index.php?controller=admin&action=affichageUser"> table des utilisateurs </a>
+        <a href="../index.php?controller=admin&action=affichageEvent"> afficher les évènements </a>
 
 
     <?php }

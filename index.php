@@ -43,8 +43,6 @@ if (isset($_GET['controller'])) {
         break;
         case "user":
 
-            session_start();
-
             require "model/user.php";
             require "controller/userController.php";
 
@@ -54,18 +52,6 @@ if (isset($_GET['controller'])) {
 
                     $createPage = new \App\controller\userController();
                     $createPage->createPage();
-                    break;
-
-                case "editEventPage":
-
-                    $editEventPage = new \App\controller\userController();
-                    $editEventPage->editEventPage();
-                    break;
-
-                case "editUserPage":
-
-                    $editUserPage = new \App\controller\userController();
-                    $editUserPage->editUserPage();
                     break;
 
                 case "editVosEventPage":
@@ -86,35 +72,10 @@ if (isset($_GET['controller'])) {
                     $logout->logout();
                     break;
 
-
-                case "affichageUser":
-
-                    $affichage = new \App\controller\userController();
-                    $affichage->affichageUser();
-                    break;
-
                 case "create":
 
                     $create = new \App\controller\userController();
                     $create->createEvent();
-                    break;
-
-                case "affichage":
-
-                    $affichage = new \App\controller\userController();
-                    $affichage->affichageEvent();
-                    break;
-
-                case "affichageEvent":
-
-                    $affichageEvent = new \App\controller\userController();
-                    $affichageEvent->affichageEvent();
-                    break;
-
-                case "deleteUser":
-
-                    $deleteUser = new \App\controller\userController();
-                    $deleteUser->deleteUser();
                     break;
 
                 case "editUser":
@@ -129,12 +90,6 @@ if (isset($_GET['controller'])) {
                     $deleteEvent->deleteEvent();
                     break;
 
-                case "editEvent":
-
-                    $editEvent = new \App\controller\userController();
-                    $editEvent->editEvent();
-                    break;
-
                 case "vosEvent":
 
                     $vosEvent = new \App\controller\userController();
@@ -145,12 +100,6 @@ if (isset($_GET['controller'])) {
 
                     $editVosEvent = new \App\controller\userController();
                     $editVosEvent->editVosEvent();
-                    break;
-
-                case "comment":
-
-                    $comment = new \App\controller\userController();
-                    $comment->comment();
                     break;
 
                 case "details":
@@ -204,6 +153,52 @@ if (isset($_GET['controller'])) {
         }
         break;
 
+        case "admin":
+
+            require "model/admin.php";
+            require "controller/adminController.php";
+
+            switch ($_GET['action']) {
+
+                case "editEventPage":
+
+                    $editEventPage = new \App\controller\adminController();
+                    $editEventPage->editEventPage();
+                    break;
+
+                case "editEvent":
+
+                    $editEvent = new \App\controller\adminController();
+                    $editEvent->editEvent();
+                    break;
+
+                case "editUserPage":
+
+                    $editUserPage = new \App\controller\adminController();
+                    $editUserPage->editUserPage();
+                    break;
+
+                case "affichageUser":
+
+                    $affichage = new \App\controller\adminController();
+                    $affichage->affichageUser();
+                    break;
+
+                case "affichageEvent":
+
+                    $affichageEvent = new \App\controller\adminController();
+                    $affichageEvent->affichage();
+                    break;
+
+                case "deleteUser":
+
+                    $deleteUser = new \App\controller\adminController();
+                    $deleteUser->deleteUser();
+                    break;
+
+            }
+            break;
+
         case "ajax":
 
             require "model/ajax.php";
@@ -222,5 +217,5 @@ if (isset($_GET['controller'])) {
     require "controller/visitorController.php";
 
     $accueil = new \App\Controller\visitorController();
-    $accueil-> affichageEvent();
+    $accueil-> affichage();
 }

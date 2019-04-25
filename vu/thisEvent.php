@@ -98,10 +98,10 @@
         <form action="" class="form">
 
             <label for="titreComm"> titre : </label>
-            <input type="text" id="titreComm">
+            <input type="text" id="titreComm" required>
 
             <label for="comm"> commentaire : </label>
-            <textarea id="comm"> </textarea>
+            <textarea id="comm" required> </textarea>
 
             <input type="button" id="bt_comm" value="valider">
 

@@ -5,7 +5,6 @@ namespace App\model;
 
 include "visitor.php";
 
-use Exception;
 use PDO;
 
 class user extends visitor
@@ -25,8 +24,6 @@ class user extends visitor
        parent::__construct();
 
         $this->recepteur ="cyriakleclercq@gmail.com";
-
-
 
     }
 
@@ -110,17 +107,6 @@ class user extends visitor
         $this->sql->bindParam(8, $id_user);
         $this->sql->execute();
 
-    }
-
-
-
-    public function setComment ($comment, $id_event, $id_user)
-    {
-        $this->sql = $this->bdd->prepare("INSERT INTO `comments` (`comment`, `date`, `hours`, `id_event`, `id_user`) VALUE (?,?,?)");
-        $this->sql->bindParam(1, $comment);
-        $this->sql->bindParam(4,$id_event);
-        $this->sql->bindParam(5,$id_user);
-        $this->sql->execute();
     }
 
     public function setParticipation($id_user,$id_event)

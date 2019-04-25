@@ -3,17 +3,17 @@
 
 namespace App\controller;
 
-
+require "controller.php";
 use App\model\user;
 
-class userController
+class userController extends controller
 {
 
-    private $model;
     private $id_event;
 
     public function __construct()
     {
+        parent::__construct();
         $this->model = new user();
     }
 
@@ -32,40 +32,9 @@ class userController
         include "vu/create.php";
     }
 
-    public function affichageUser ()
-    {
-        $listeUsers = $this->model->getUser();
-        include "vu/users.php";
-    }
-
-
-    public function affichage ()
-    {
-        $listeEvents = $this->model->getEvent();
-
-        include "index.php";
-    }
-
-    public function editUserPage ()
-    {
-        include "vu/editUser.php";
-    }
-
-    public function editEventPage ()
-    {
-        include "vu/editEvent.php";
-    }
-
     public function editProfilPage ()
     {
         include "vu/editProfil.php";
-    }
-
-    public function affichageEvent ()
-    {
-        $listeEvents = $this->model->getEvent();
-
-        include "vu/affichageEvent.php";
     }
 
     public function vosEvent ()
@@ -81,15 +50,6 @@ class userController
 
         include "vu/deco.php";
 
-    }
-
-    public function deleteUser ()
-    {
-        $id = $_REQUEST['id'];
-
-        $supp_user = $this->model->deleteUser($id);
-
-        $this->affichageUser();
     }
 
     public function deleteEvent ()
@@ -142,13 +102,6 @@ class userController
 
             $this->affichageUser();
 
-        } else {
-
-            $alert = "c'était audacieux mais tu n'es pas QLF !";
-
-            $logout = $this->model->logout();
-
-            include "vu/deco.php";
         }
     }
 
@@ -179,13 +132,12 @@ class userController
         $id_user = $_SESSION['id_user'];
         filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
 
-        if (!empty($title) && !empty($place) && !empty($city) && !empty($event_describe) && !empty($number_of_places) && !empty($date) && !empty($hours) && !empty($id_user)) {
+        if (!empty($title) && !empty($place) && !empty($city) && !empty($event_describe) && !empty($number_of_places) && !empty($date) && !empty($hours) && !empty($id_user))
+        {
 
             $add_event = $this->model->setEvent($title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user);
 
             $check_id = $this->model->autoParticipation($id_user);
-
-            var_dump((int)$check_id->id_event);
 
             $check = $check_id->id_event;
 
@@ -193,44 +145,8 @@ class userController
 
             $this->vosEvent();
 
-        } else {
-
-
         }
     }
-
-    public function editEvent ()
-    {
-
-        $id = $_REQUEST['id'];
-        filter_var($id, FILTER_SANITIZE_NUMBER_INT);
-
-        $title = $_REQUEST['title'];
-        filter_var($title,FILTER_SANITIZE_STRING);
-
-        $place = $_REQUEST['place'];
-        filter_var($place,FILTER_SANITIZE_STRING);
-
-        $city = $_REQUEST['city'];
-        filter_var($city,FILTER_SANITIZE_STRING);
-
-        $event_describe = $_REQUEST['event_describe'];
-        filter_var($event_describe,FILTER_SANITIZE_STRING);
-
-        $number_of_places = $_REQUEST['number_of_places'];
-        filter_var($number_of_places,FILTER_SANITIZE_NUMBER_INT);
-
-        $date = $_REQUEST['date'];
-        filter_var($date,FILTER_SANITIZE_STRING);
-
-        $hours = $_REQUEST['hours'];
-        filter_var($hours, FILTER_SANITIZE_STRING);
-
-        $add_event = $this->model->setEditEvent($id, $title, $place, $city, $event_describe, $number_of_places, $date, $hours);
-
-        $this->affichageEvent();
-    }
-
 
     public function editVosEvent ()
     {
@@ -261,32 +177,20 @@ class userController
 
         $id_user = $_SESSION['id_user'];
 
-        $add_event = $this->model->setEditVosEvent($id, $title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user);
+        if (!empty($id) && !empty($title) && !empty($place) && !empty($city) && !empty($event_describe) && !empty($number_of_places) && !empty($date) && !empty($hours) && !empty($id_user)) {
 
-        $this->vosEvent();
+            $add_event = $this->model->setEditVosEvent($id, $title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user);
+
+            $this->vosEvent();
+        } else {
+
+            $alert = "veuillez remplir machin";
+
+            include "vu/editEvent.php";
+
+
+        }
     }
-
-    public function comment ()
-    {
-
-        $id_event = $_REQUEST['id'];
-        filter_var($id_event,FILTER_SANITIZE_NUMBER_INT);
-
-        $id_user = $_SESSION['id_user'];
-
-        $comment = $_REQUEST['comment'];
-        filter_var($comment,FILTER_SANITIZE_STRING);
-
-        $date = $_REQUEST['date'];
-        filter_var($date,FILTER_SANITIZE_STRING);
-
-        $hours = $_REQUEST['hours'];
-        filter_var($hours,FILTER_SANITIZE_STRING);
-
-        $add_comment = $this->model->setComment($comment,$date,$hours,$id_event,$id_user);
-    }
-
-
 
     public function details ()
     {
@@ -348,9 +252,12 @@ class userController
         $about = $_REQUEST['about'];
         filter_var($about, FILTER_SANITIZE_STRING);
 
-        $edit_profil = $this->model->setEditProfil($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about);
+        if (!empty($id) && !empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password)) {
 
-        $this->profil();
+            $edit_profil = $this->model->setEditProfil($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about);
+
+            $this->profil();
+        }
     }
 
     public function deleteProfil ()
