@@ -78,12 +78,6 @@ if (isset($_GET['controller'])) {
                     $create->createEvent();
                     break;
 
-                case "editUser":
-
-                    $editUser = new \App\controller\userController();
-                    $editUser->editUser();
-                    break;
-
                 case "deleteEvent":
 
                     $deleteEvent = new \App\controller\userController();
@@ -94,6 +88,12 @@ if (isset($_GET['controller'])) {
 
                     $vosEvent = new \App\controller\userController();
                     $vosEvent->vosEvent();
+                    break;
+
+                case "vosSorties":
+
+                    $vosSorties = new \App\controller\userController();
+                    $vosSorties->vosSorties();
                     break;
 
                 case "editVosEvent":
@@ -170,6 +170,12 @@ if (isset($_GET['controller'])) {
 
                     $editEvent = new \App\controller\adminController();
                     $editEvent->editEvent();
+                    break;
+
+                case "editUser":
+
+                    $editUser = new \App\controller\adminController();
+                    $editUser->editUser();
                     break;
 
                 case "editUserPage":

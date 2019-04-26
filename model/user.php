@@ -10,13 +10,8 @@ use PDO;
 class user extends visitor
 {
 
-    private $userList;
-    private  $details;
-    private $profil;
-    private $recepteur;
-    private $participationList;
-    private $participantList;
 
+    private $recepteur;
 
 
     public function __construct()
@@ -29,14 +24,14 @@ class user extends visitor
 
     public function getUser()
     {
-        $this->userList = $this->bdd->query("select * from users")->fetchAll(PDO::FETCH_OBJ);
-        return $this->userList;
+        $userList = $this->bdd->query("select * from users")->fetchAll(PDO::FETCH_OBJ);
+        return $userList;
     }
 
     public function getProfil($id)
     {
-        $this->profil = $this->bdd->query("select * from users where `id_user` = $id")->fetchAll(PDO::FETCH_OBJ);
-        return $this->profil;
+        $profil = $this->bdd->query("select * from users where `id_user` = $id")->fetchAll(PDO::FETCH_OBJ);
+        return $profil;
     }
 
     public function autoParticipation ($id_user)
@@ -47,20 +42,32 @@ class user extends visitor
 
     public function getDetail ($id)
     {
-         $this->details = $this->bdd->query("select * from events where `id_event` = $id")->fetchAll(PDO::FETCH_OBJ);
-         return $this->details;
+         $details = $this->bdd->query("select * from events where `id_event` = $id")->fetchAll(PDO::FETCH_OBJ);
+         return $details;
     }
 
     public function getParticipation ($id_event, $id_user)
     {
-        $this->participationList = $this->bdd->query("select * from participations where `id_event` = $id_event and `id_user` = $id_user")->fetchAll(PDO::FETCH_OBJ);
-        return $this->participationList;
+        $participationList = $this->bdd->query("select * from participations where `id_event` = $id_event and `id_user` = $id_user")->fetchAll(PDO::FETCH_OBJ);
+        return $participationList;
     }
 
     public function getParticipant ($id_event)
     {
-        $this->participantList = $this->bdd->query("select * from `participations`as a, `users` as b where a.id_event = $id_event and a.id_user = b.id_user")->fetchAll(PDO::FETCH_OBJ);
-        return $this->participantList;
+        $participantList = $this->bdd->query("select * from `participations`as a, `users` as b where a.id_event = $id_event and a.id_user = b.id_user")->fetchAll(PDO::FETCH_OBJ);
+        return $participantList;
+    }
+
+    public function getSorties ($id_user)
+    {
+        $sortiesList = $this->bdd->query("select * from `participations` as a, `events` as b, `users` as c where a.id_event = b.id_event and b.id_user = c.id_user and a.id_user = $id_user")->fetchALL(pdo::FETCH_OBJ);
+        return $sortiesList;
+    }
+
+    public function getVosEvent ($id_user)
+    {
+        $vosEvent = $this->bdd->query("select * from `events` where events.id_user = $id_user")->fetchAll(PDO::FETCH_OBJ);
+        return $vosEvent;
     }
 
     public function logout ()
@@ -115,18 +122,6 @@ class user extends visitor
         $this->sql->bindParam(1,$id_user);
         $this->sql->bindParam(2,$id_event);
         $this->sql->execute();
-    }
-
-    public function setEditUser ($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank)
-    {
-        $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `mail` = ?, `age` = ?, `city` = ?, `pseudo` = ?, `password` = ?, `about` = ?, `rank` = ?  WHERE id_user = ?";
-        $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank, $id]);
-    }
-
-    public function setEditEvent ($id, $title, $place, $city, $event_describe, $nbr, $date, $hours)
-    {
-        $this->sql = "UPDATE `events` SET `title` = ?,`place` = ?, `city` = ?, `event_describe` = ?, `number_of_places` = ?, `date` = ?, `hours` = ? WHERE id_event = ?";
-        $this->bdd->prepare($this->sql)->execute([$title, $place, $city, $event_describe, $nbr, $date, $hours, $id]);
     }
 
     public function setEditVosEvent ($id, $title, $place, $city, $event_describe, $nbr, $date, $hours, $id_user)

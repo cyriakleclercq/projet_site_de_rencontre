@@ -13,6 +13,7 @@ class visitor
     protected $bdd;
     protected $sql;
     private $eventList;
+    protected $id_user;
 
 
     public function __construct()

@@ -18,18 +18,10 @@
 
     <section>
 
-        <h2> bienvenue <?= $_SESSION['pseudo'] ?> </h2>
-
         <h1> Liste de vos events :</h1>
-        <?= $alpha = date('Y-m-d');
-        echo date_timestamp_get($alpha)?>
 
 
-        <div>
-
-            <?php foreach ($listeEvents as $event ) {
-
-                if ( $event->id_user == $_SESSION['id_user'] ) {
+            <?php foreach ($listEvents as $event ) {
 
 ?>
 
@@ -64,15 +56,9 @@
 
                 </table>
 
-
-
-            <?php }
-            } ?>
+            <?php }  ?>
 
         </div>
-
-
-
 
     </section>
 

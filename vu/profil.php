@@ -19,12 +19,7 @@
 
     <section>
 
-        <?php if ( isset($_SESSION['rank']))
-        {
-            ?> <div> welcome <?= $_SESSION['name'] ?> </div> <?php
-        } ?>
-
-        <h1> Liste des utilisateurs :</h1>
+        <h1> Vos informations :</h1>
 
         <div>
 

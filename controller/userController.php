@@ -39,9 +39,15 @@ class userController extends controller
 
     public function vosEvent ()
     {
-        $listeEvents = $this->model->getEvent();
+                $listEvents = $this->model->getVosEvent($this->id_user);
 
         include "vu/vosEvent.php";
+    }
+
+    public function vosSorties ()
+    {
+        $listSorties = $this->model->getSorties($this->id_user);
+        include "vu/vosSorties.php";
     }
 
     public function logout ()
@@ -59,50 +65,6 @@ class userController extends controller
         $this->model->deleteEvent($id);
 
         $this->vosEvent();
-    }
-
-    public function editUser ()
-    {
-        $id = $_REQUEST['id'];
-        filter_var($id, FILTER_SANITIZE_NUMBER_INT);
-
-        $name = $_REQUEST['name'];
-        filter_var($name, FILTER_SANITIZE_STRING);
-
-        $surname = $_REQUEST['surname'];
-        filter_var($surname, FILTER_SANITIZE_STRING);
-
-        $sexe = $_REQUEST['sexe'];
-        filter_var($sexe,FILTER_SANITIZE_STRING);
-
-        $mail = $_REQUEST['mail'];
-        filter_var($mail, FILTER_SANITIZE_EMAIL);
-
-        $age = $_REQUEST['age'];
-        filter_var($age, FILTER_SANITIZE_NUMBER_INT);
-
-        $city = $_REQUEST['city'];
-        filter_var($city, FILTER_SANITIZE_STRING);
-
-        $pseudo = $_REQUEST['pseudo'];
-        filter_var($pseudo, FILTER_SANITIZE_STRING);
-
-        $password = $_REQUEST['password'];
-        filter_var($password, FILTER_SANITIZE_STRING);
-
-        $about = $_REQUEST['about'];
-        filter_var($about, FILTER_SANITIZE_STRING);
-
-        $rank = $_REQUEST['rank'];
-        filter_var($rank, FILTER_SANITIZE_NUMBER_INT);
-
-        if(!empty($id) && !empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password) && !empty($rank)) {
-
-            $edit_user = $this->model->setEditUser($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank);
-
-            $this->affichageUser();
-
-        }
     }
 
     public function createEvent ()
@@ -129,19 +91,16 @@ class userController extends controller
         $hours = $_REQUEST['hours'];
         filter_var($hours, FILTER_SANITIZE_STRING);
 
-        $id_user = $_SESSION['id_user'];
-        filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
-
-        if (!empty($title) && !empty($place) && !empty($city) && !empty($event_describe) && !empty($number_of_places) && !empty($date) && !empty($hours) && !empty($id_user))
+        if (!empty($title) && !empty($place) && !empty($city) && !empty($event_describe) && !empty($number_of_places) && !empty($date) && !empty($hours))
         {
 
-            $add_event = $this->model->setEvent($title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user);
+            $add_event = $this->model->setEvent($title, $place, $city, $event_describe, $number_of_places, $date, $hours, $this->id_user);
 
-            $check_id = $this->model->autoParticipation($id_user);
+            $check_id = $this->model->autoParticipation($this->id_user);
 
             $check = $check_id->id_event;
 
-            $add_participant = $this->model->setParticipation($id_user, (int)$check);
+            $add_participant = $this->model->setParticipation($this->id_user, (int)$check);
 
             $this->vosEvent();
 
@@ -175,11 +134,9 @@ class userController extends controller
         $hours = $_REQUEST['hours'];
         filter_var($hours, FILTER_SANITIZE_STRING);
 
-        $id_user = $_SESSION['id_user'];
+        if (!empty($id) && !empty($title) && !empty($place) && !empty($city) && !empty($event_describe) && !empty($number_of_places) && !empty($date) && !empty($hours)) {
 
-        if (!empty($id) && !empty($title) && !empty($place) && !empty($city) && !empty($event_describe) && !empty($number_of_places) && !empty($date) && !empty($hours) && !empty($id_user)) {
-
-            $add_event = $this->model->setEditVosEvent($id, $title, $place, $city, $event_describe, $number_of_places, $date, $hours, $id_user);
+            $add_event = $this->model->setEditVosEvent($id, $title, $place, $city, $event_describe, $number_of_places, $date, $hours, $this->id_user);
 
             $this->vosEvent();
         } else {
@@ -197,12 +154,9 @@ class userController extends controller
         $id_event = $_REQUEST['id_event'];
         filter_var($id_event,FILTER_SANITIZE_NUMBER_INT);
 
-        $id_user = $_SESSION['id_user'];
-        filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
-
         $details = $this->model->getDetail($id_event);
 
-        $participations = $this->model->getParticipation($id_event,$id_user);
+        $participations = $this->model->getParticipation($id_event,$this->id_user);
 
         $participants = $this->model->getParticipant($id_event);
 
@@ -212,19 +166,13 @@ class userController extends controller
 
     public function profil ()
     {
-        $id = $_SESSION['id_user'];
-        filter_var($id,FILTER_SANITIZE_NUMBER_INT);
-
-        $profil = $this->model->getProfil($id);
+        $profil = $this->model->getProfil($this->id_user);
 
         include "vu/profil.php";
     }
 
     public function editProfil ()
     {
-        $id = $_SESSION['id_user'];
-        filter_var($id, FILTER_SANITIZE_NUMBER_INT);
-
         $name = $_REQUEST['name'];
         filter_var($name, FILTER_SANITIZE_STRING);
 
@@ -252,9 +200,9 @@ class userController extends controller
         $about = $_REQUEST['about'];
         filter_var($about, FILTER_SANITIZE_STRING);
 
-        if (!empty($id) && !empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password)) {
+        if (!empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password)) {
 
-            $edit_profil = $this->model->setEditProfil($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about);
+            $edit_profil = $this->model->setEditProfil($this->id_user, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about);
 
             $this->profil();
         }
@@ -262,46 +210,38 @@ class userController extends controller
 
     public function deleteProfil ()
     {
-        $id = $_SESSION['id_user'];
 
-        $this->model->deleteProfil($id);
+        $this->model->deleteProfil($this->id_user);
 
         $this->logout();
     }
 
     public function abandon ()
     {
-        $id_user = $_SESSION['id_user'];
-        filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
-
         $id_event = $_REQUEST['id_event'];
         filter_var($id_event,FILTER_SANITIZE_NUMBER_INT);
 
-        $delete = $this->model->deleteparticipation($id_user,$id_event);
+        $delete = $this->model->deleteparticipation($this->id_user,$id_event);
 
-        $this->details($id_event);
+        $this->details();
     }
 
     public function participation ()
     {
-        $id_user = $_SESSION['id_user'];
-        filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
-
         $id_event = $_REQUEST['id_event'];
         filter_var($id_event, FILTER_SANITIZE_NUMBER_INT);
 
-        $participe = $this->model->setParticipation($id_user,$id_event);
+        $participe = $this->model->setParticipation($this->id_user,$id_event);
 
         $this->details();
     }
 
     public function mail ()
     {
-        $mail = $_SESSION['mail'];
         $titre = $_REQUEST['titre'];
         $message = $_REQUEST['message'];
 
-        $sendMail = $this->model->setMail($mail,$titre,$message);
+        $sendMail = $this->model->setMail($this->mail,$titre,$message);
 
 
     }

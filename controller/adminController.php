@@ -64,8 +64,52 @@ class adminController extends userController
 
             $add_event = $this->model->setEditEvent($id, $title, $place, $city, $event_describe, $number_of_places, $date, $hours);
 
-            $this->affichage();
+            $this->affichageEvent();
         }
+    }
+
+    public function editUser ()
+    {
+        $id = $_REQUEST['id'];
+        filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+
+        $name = $_REQUEST['name'];
+        filter_var($name, FILTER_SANITIZE_STRING);
+
+        $surname = $_REQUEST['surname'];
+        filter_var($surname, FILTER_SANITIZE_STRING);
+
+        $sexe = $_REQUEST['sexe'];
+        filter_var($sexe,FILTER_SANITIZE_STRING);
+
+        $mail = $_REQUEST['mail'];
+        filter_var($mail, FILTER_SANITIZE_EMAIL);
+
+        $age = $_REQUEST['age'];
+        filter_var($age, FILTER_SANITIZE_NUMBER_INT);
+
+        $city = $_REQUEST['city'];
+        filter_var($city, FILTER_SANITIZE_STRING);
+
+        $pseudo = $_REQUEST['pseudo'];
+        filter_var($pseudo, FILTER_SANITIZE_STRING);
+
+        $password = $_REQUEST['password'];
+        filter_var($password, FILTER_SANITIZE_STRING);
+
+        $about = $_REQUEST['about'];
+        filter_var($about, FILTER_SANITIZE_STRING);
+
+        $rank = $_REQUEST['rank'];
+        filter_var($rank, FILTER_SANITIZE_NUMBER_INT);
+
+      //  if(!empty($id) && !empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password) && !empty($rank)) {
+
+            $edit_user = $this->model->setEditUser($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank);
+
+            $this->affichageUser();
+
+    //    }
     }
 
     public function deleteUser ()

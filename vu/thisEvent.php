@@ -20,8 +20,6 @@
 
     <section>
 
-        <h2> bienvenue <?= $_SESSION['pseudo'] ?> </h2>
-
         <h1> detail de l'event :</h1>
 
         <div>
@@ -93,8 +91,6 @@
 
     <section>
 
-        <div id="commentaire"> </div>
-
         <form action="" class="form">
 
             <label for="titreComm"> titre : </label>
@@ -106,6 +102,9 @@
             <input type="button" id="bt_comm" value="valider">
 
         </form>
+
+        <div id="commentaire"> </div>
+
 
 
     </section>

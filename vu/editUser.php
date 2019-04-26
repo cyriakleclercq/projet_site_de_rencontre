@@ -18,7 +18,7 @@
 
     <section>
 
-        <form action="../index.php?controller=user&action=editUser" method="post" class="form">
+        <form action="../index.php?controller=admin&action=editUser" method="post" class="form">
 
             <?= $alert ?>
 
