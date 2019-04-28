@@ -67,7 +67,7 @@
 
             if (!empty($participations)) {
                 ?>
-                <a href="../index.php?controller=user&action=abandon&id_event=<?= $_GET['id_event'] ?>&id_user=<?= $_SESSION['id_user'] ?>"> Ne plus participer </a>
+                <a href="../index.php?controller=user&action=abandon&id_event=<?= $_GET['id_event'] ?>"> Ne plus participer </a>
 
             <?php
         };

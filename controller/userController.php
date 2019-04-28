@@ -223,7 +223,15 @@ class userController extends controller
 
         $delete = $this->model->deleteparticipation($this->id_user,$id_event);
 
-        $this->details();
+        if (isset($_REQUEST['sortie'])) {
+
+            $this->vosSorties();
+
+        } else {
+
+            $this->details();
+
+        }
     }
 
     public function participation ()

@@ -25,11 +25,13 @@
 
                     <table id="table">
 
+                        <th> Ville </th>
                         <th> Titre </th>
                         <th> description </th>
 
-                        <tr>
 
+                        <tr>
+                            <td><?= $event->city ?></td>
                             <td><?= $event->title ?></td>
                             <td><?= $event->event_describe ?></td>
                         </tr>

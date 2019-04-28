@@ -64,7 +64,7 @@ class adminController extends userController
 
             $add_event = $this->model->setEditEvent($id, $title, $place, $city, $event_describe, $number_of_places, $date, $hours);
 
-            $this->affichageEvent();
+            $this->affichage();
         }
     }
 

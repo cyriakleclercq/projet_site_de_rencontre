@@ -35,6 +35,8 @@
                 <th> Date </th>
                 <th> Heure </th>
                 <th> Organisateur </th>
+                <th> Voir les commentaires </th>
+                <th> Participation </th>
 
                 <tr>
 
@@ -46,6 +48,8 @@
                     <td><?= $sortie->date ?></td>
                     <td><?= $sortie->hours ?></td>
                     <td><?= $sortie->pseudo ?></td>
+                    <td> <a href="../index.php?controller=user&action=details&id_event=<?=$sortie->id_event?>"> Commentaires </a> </td>
+                    <td> <a href="../index.php?controller=user&action=abandon&id_event=<?= $sortie->id_event ?>&sortie"> Annuler </a> </td>
 
 
                 </tr>
