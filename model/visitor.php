@@ -3,33 +3,20 @@
 
 namespace App\model;
 
+include 'model.php';
 
-use Exception;
 use PDO;
 
-class visitor
+class visitor extends model
 {
 
-    protected $bdd;
-    protected $sql;
-    private $eventList;
-    protected $id_user;
+
+
 
 
     public function __construct()
     {
-        try {
-            $this->bdd = new PDO('mysql:host=localhost;dbname=sitederencontre;charset=utf8', 'root', '',
-                array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-    }
-
-    public function getEvent()
-    {
-        $this->eventList = $this->bdd->query("select * from events")->fetchAll(PDO::FETCH_OBJ);
-        return $this->eventList;
+        parent::__construct();
     }
 
     public function getEventFiltre($city)

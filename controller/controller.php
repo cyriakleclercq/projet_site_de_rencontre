@@ -4,7 +4,7 @@
 namespace App\controller;
 
 
-use App\model\visitor;
+use App\model\model;
 
 class controller
 {
@@ -14,7 +14,7 @@ class controller
 
     public function __construct()
     {
-        $this->model = new visitor();
+        $this->model = new model();
 
         session_start();
 
