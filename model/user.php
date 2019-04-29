@@ -136,6 +136,12 @@ class user extends visitor
         $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $id]);
     }
 
+    public function setEditComment ($id_user, $id_comment, $title, $comment)
+    {
+        $this->sql = "UPDATE `comments` SET `title` = ?, `comment` = ? WHERE `id_user` = ? AND `id_comment` = ?";
+        $this->bdd->prepare($this->sql)->execute([$title, $comment, $id_user, $id_comment]);
+    }
+
     public function setMail ($by,$titre,$message)
     {
         $headers = 'From:'.$by . "\r\n" .
@@ -145,4 +151,26 @@ class user extends visitor
         mail($this->recepteur,$titre, $message, $headers);
         echo"mail envoyé";
     }
+    public function deleteComm ($id_comment)
+    {
+        $this->sql = $this->bdd->query("delete from comments where id_comment = $id_comment");
+        $this->sql->execute();
+    }
+
+    public function checkComm ($id_user, $id_comment)
+    {
+        $this->sql = $this->bdd->query("select * from `comments` where id_user = '$id_user' and id_comment = '$id_comment'");
+        $this->sql = $this->sql->fetch();
+
+        if ($id_user == $this->sql['id_user'] AND $id_comment == $this->sql['id_comment'])
+        {
+            return 1;
+
+        } else {
+
+            return 0;
+
+        }
+    }
+
 }

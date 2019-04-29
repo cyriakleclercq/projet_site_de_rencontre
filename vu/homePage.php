@@ -5,6 +5,8 @@
     <title>page d'accueil </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery.js"></script>
+
 </head>
 
 <body>
@@ -18,6 +20,16 @@
             <h1> <?= $alert ?> </h1>
 
             <h1> Liste des events :</h1>
+
+
+                <form action="../index.php" method="post">
+                    <label for="filtre"> rechercher une ville</label>
+                    <input type="text" id="filtre" name="filtre">
+                    <input type="submit">
+
+                </form>
+
+
 
             <div>
 
@@ -61,9 +73,9 @@
         <footer>  </footer>
 
 
-
-
     </div>
+
+    <script src="../script.js"></script>
 
 </body>
 </html>

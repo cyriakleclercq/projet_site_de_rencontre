@@ -103,13 +103,19 @@ class adminController extends userController
         $rank = $_REQUEST['rank'];
         filter_var($rank, FILTER_SANITIZE_NUMBER_INT);
 
-      //  if(!empty($id) && !empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password) && !empty($rank)) {
+        if(!empty($id) && !empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password) && !empty($rank)) {
 
             $edit_user = $this->model->setEditUser($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank);
 
             $this->affichageUser();
 
-    //    }
+        }
+    }
+
+    public function affichageEvent ()
+    {
+        $events = $this->model->getAllEvent();
+        include "vu/affichageEvent.php";
     }
 
     public function deleteUser ()
@@ -120,4 +126,15 @@ class adminController extends userController
 
         $this->affichageUser();
     }
+
+    public function deleteEvent ()
+    {
+        $id = $_REQUEST['id'];
+
+        $this->model->deleteEvent($id);
+
+        $this->affichageEvent();
+    }
+
+
 }

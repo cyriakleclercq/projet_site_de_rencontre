@@ -21,10 +21,11 @@
 
         <div>
 
-            <?php foreach ($listeEvents as $event ) { ?>
+            <?php foreach ($events as $event ) { ?>
 
                 <table>
 
+                    <th> pseudo </th>
                     <th> Titre </th>
                     <th> Description de l'event </th>
                     <th> Adresse </th>
@@ -32,12 +33,13 @@
                     <th> nombre de place </th>
                     <th> Date </th>
                     <th> Heure </th>
-
+                    <th> détails </th>
                     <th> delete </th>
-                    <th> edit </th>
+
 
                     <tr>
 
+                        <td><?= $event->pseudo ?></td>
                         <td><?= $event->title ?></td>
                         <td><?= $event->event_describe ?></td>
                         <td><?= $event->place ?></td>
@@ -45,9 +47,8 @@
                         <td><?= $event->number_of_places ?></td>
                         <td><?= $event->date ?></td>
                         <td><?= $event->hours ?></td>
-
-                        <td> <a href="../index.php?controller=user&action=deleteEvent&id=<?=$event->id_event ?>" onclick="return confirm('êtes vous sûr de vouloir supprimer cet évènement ?')"> delete </a> </td>
-                        <td> <a href="../index.php?controller=user&action=editEventPage&id=<?= $event->id_event ?>&title=<?= $event->title ?>&place=<?=$event->place ?>&city=<?=$event->city ?>&description=<?=$event->event_describe ?>&nbr=<?=$event->number_of_places ?>&date=<?=$event->date ?>&hours=<?=$event->hours ?>"> edit </a> </td>
+                        <td><a href="../index.php?controller=user&action=details&id_event=<?=$event->id_event?>"> press </a></td>
+                        <td> <a href="../index.php?controller=admin&action=deleteEvent&id=<?=$event->id_event ?>" onclick="return confirm('êtes vous sûr de vouloir supprimer cet évènement ?')"> delete </a> </td>
 
 
                     </tr>

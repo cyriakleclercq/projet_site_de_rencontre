@@ -3,6 +3,20 @@ var id = document.getElementById('id_comm').value;
 
 var commentary = document.getElementById('commentaire');
 
+var commSupp = document.getElementById('supp');
+
+if (document.getElementById('rank_admin'))
+{
+    var verif = document.getElementById('rank_admin').innerHTML;
+
+}
+
+if (document.getElementById('rank_user'))
+{
+    var verif_user = document.getElementById('rank_user').innerHTML;
+
+}
+
 function ajaxRequest()
 {
 
@@ -50,6 +64,43 @@ function ajaxRequest()
             div_comm.appendChild(date);
             date.innerHTML = commentaire[i].date;
 
+            if (verif)
+            {
+
+                let suppr = document.createElement("a");
+                div_comm.appendChild(suppr);
+                suppr.className = "supprComm";
+                suppr.innerHTML = "supprimer";
+                suppr.href = "../index.php?controller=admin&action=deleteComm&id_comment="+commentaire[i].id_comment+"&id_event="+commentaire[i].id_event;
+
+                if (verif == Number(commentaire[i].id_user))
+                {
+                    let edit = document.createElement("a");
+                    div_comm.appendChild(edit);
+                    edit.className = "editComm";
+                    edit.innerHTML = "editer";
+                    edit.href = "../index.php?controller=user&action=editCommPage&id_event="+commentaire[i].id_event+"&id_comment="+commentaire[i].id_comment+"&titre="+commentaire[i].title+"&comment="+commentaire[i].comment;
+
+                }
+
+            }
+
+            if (verif_user == Number(commentaire[i].id_user))
+            {
+
+                let suppr = document.createElement("a");
+                div_comm.appendChild(suppr);
+                suppr.className = "supprComm";
+                suppr.innerHTML = "supprimer";
+                suppr.href = "../index.php?controller=user&action=deleteComm&id_comment="+commentaire[i].id_comment+"&id_event="+commentaire[i].id_event;
+
+                let edit = document.createElement("a");
+                div_comm.appendChild(edit);
+                edit.className = "editComm";
+                edit.innerHTML = "editer";
+                edit.href = "../index.php?controller=user&action=editCommPage&id_event="+commentaire[i].id_event+"&id_comment="+commentaire[i].id_comment+"&titre="+commentaire[i].title+"&comment="+commentaire[i].comment;
+            }
+
         }
 
     };
@@ -70,10 +121,13 @@ function ajaxRequest()
 ajaxRequest();
 
 
-    document.getElementById('bt_comm').addEventListener("click", function () {
+document.getElementById('bt_comm').addEventListener("click", function () {
 
-        ajaxRequest();
-        document.getElementById('titreComm').value = "";
-        document.getElementById("comm").value = "";
+    ajaxRequest();
+    document.getElementById('titreComm').value = "";
+    document.getElementById("comm").value = "";
 
-    });
+});
+
+
+

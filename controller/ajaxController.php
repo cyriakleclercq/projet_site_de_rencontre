@@ -20,7 +20,8 @@ class ajaxController
     public function ajaxCommentaire ()
     {
 
-        if (!empty($_GET['postTitle']) && !empty($_GET['postCommentaire'])) {
+        if (!empty($_GET['postTitle']) && !empty($_GET['postCommentaire']))
+        {
             $this->ajaxPost();
         }
 
@@ -43,7 +44,7 @@ class ajaxController
         $comment = $_REQUEST['postCommentaire'];
         filter_var($comment,FILTER_SANITIZE_STRING);
 
-        $add_comment = $this->model->setCommentaire($title, $comment, $id_event, $id_user);
+        $this->model->setCommentaire($title, $comment, $id_event, $id_user);
     }
 
 }

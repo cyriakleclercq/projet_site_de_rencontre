@@ -150,6 +150,24 @@ if (isset($_GET['controller'])) {
                     $abandon->abandon();
                     break;
 
+                case "deleteComm":
+
+                    $deleteEvent = new \App\controller\userController();
+                    $deleteEvent->deleteComm();
+                    break;
+
+                case "editCommPage":
+
+                    $editCommPage = new \App\controller\userController();
+                    $editCommPage->editCommPage();
+                    break;
+
+                case "editComm":
+
+                    $editComm = new \App\controller\userController();
+                    $editComm->editComm();
+                    break;
+
         }
         break;
 
@@ -193,13 +211,25 @@ if (isset($_GET['controller'])) {
                 case "affichageEvent":
 
                     $affichageEvent = new \App\controller\adminController();
-                    $affichageEvent->affichage();
+                    $affichageEvent->affichageEvent();
                     break;
 
                 case "deleteUser":
 
                     $deleteUser = new \App\controller\adminController();
                     $deleteUser->deleteUser();
+                    break;
+
+                case "deleteEvent":
+
+                    $deleteEvent = new \App\controller\adminController();
+                    $deleteEvent->deleteEvent();
+                    break;
+
+                case "deleteComm":
+
+                    $deleteEvent = new \App\controller\adminController();
+                    $deleteEvent->deleteComm();
                     break;
 
             }
@@ -213,6 +243,7 @@ if (isset($_GET['controller'])) {
             $commentaire = new \App\controller\ajaxController();
             $commentaire->ajaxCommentaire();
             break;
+
 
     }
 

@@ -37,6 +37,11 @@ class userController extends controller
         include "vu/editProfil.php";
     }
 
+    public function editCommPage ()
+    {
+        include "vu/editCommentaire.php";
+    }
+
     public function vosEvent ()
     {
                 $listEvents = $this->model->getVosEvent($this->id_user);
@@ -251,6 +256,58 @@ class userController extends controller
 
         $sendMail = $this->model->setMail($this->mail,$titre,$message);
 
+    }
+
+    public function deleteComm ()
+    {
+
+
+        $id_comment = $_REQUEST['id_comment'];
+        filter_var($id_comment,FILTER_SANITIZE_NUMBER_INT);
+
+        $id_event = $_REQUEST['id_event'];
+        filter_var($id_event, FILTER_SANITIZE_NUMBER_INT);
+
+        if (isset($_SESSION['rank']) && $_SESSION['rank'] == 2)
+        {
+
+            $this->model->deleteComm($id_comment);
+
+        } else if(isset($_SESSION['rank']) && $_SESSION['rank'] == 1) {
+
+            $reponse = $this->model->checkComm($this->id_user, $id_comment);
+
+            if ($reponse == 1)
+            {
+                $this->model->deleteComm($id_comment);
+            }
+
+
+        }
+
+        $this->details($id_event);
+    }
+
+    public function editComm ()
+    {
+
+        $id_comment = $_REQUEST['id_comment'];
+        filter_var($id_comment,FILTER_SANITIZE_NUMBER_INT);
+
+       $id_event = $_REQUEST['id_event'];
+       filter_var($id_event, FILTER_SANITIZE_NUMBER_INT);
+
+        $title = $_REQUEST['title'];
+        filter_var($title,FILTER_SANITIZE_STRING);
+
+        $comm = $_REQUEST['comment'];
+        filter_var($comm, FILTER_SANITIZE_STRING);
+
+
+        $this->model->setEditComment($this->id_user, $id_comment, $title, $comm);
+
+
+        include "vu/editComm.php";
 
     }
 }

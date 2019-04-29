@@ -67,7 +67,7 @@
 
             if (!empty($participations)) {
                 ?>
-                <a href="../index.php?controller=user&action=abandon&id_event=<?= $_GET['id_event'] ?>"> Ne plus participer </a>
+                <a href="../index.php?controller=user&action=abandon&id_event=<?= $_GET['id_event'] ?>" onclick="return confirm('êtes vous sûr de ne plus vouloir participer à cet évènement ?')"> Ne plus participer </a>
 
             <?php
         };
@@ -87,6 +87,20 @@
     <section>
 
         nombre de participant : <?= count($participants) ?> / <?= $details[0]->number_of_places ?>
+
+        <?php if ($_SESSION['rank'] == 2) { ?>
+
+            <span id="rank_admin"> <?= $_SESSION['id_user'] ?> </span>
+
+        <?php }
+
+        if ($_SESSION['rank'] == 1) { ?>
+
+            <span id="rank_user"> <?= $_SESSION['id_user'] ?> </span>
+
+        <?php }
+        ?>
+
     </section>
 
     <section>
@@ -103,7 +117,10 @@
 
         </form>
 
-        <div id="commentaire"> </div>
+        <div id="commentaire">
+
+        <div id="supp"> </div>
+        </div>
 
 
 

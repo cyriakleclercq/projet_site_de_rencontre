@@ -32,6 +32,12 @@ class visitor
         return $this->eventList;
     }
 
+    public function getEventFiltre($city)
+    {
+        $this->eventList = $this->bdd->query("select * from events where `city` = '$city'")->fetchAll(PDO::FETCH_OBJ);
+        return $this->eventList;
+    }
+
 
     public function set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password)
     {

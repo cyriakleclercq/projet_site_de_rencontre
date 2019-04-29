@@ -30,7 +30,19 @@ class controller
     public function affichage ()
     {
 
-        $listeEvents = $this->model->getEvent();
+        if (isset($_REQUEST['filtre']) && !empty($_REQUEST['filtre']))
+        {
+            $city = $_REQUEST['filtre'];
+            filter_var($city,FILTER_SANITIZE_STRING);
+
+            $listeEvents = $this->model->getEventFiltre($city);
+
+        } else {
+
+            $listeEvents = $this->model->getEvent();
+        }
+
+
 
         include "vu/homePage.php";
     }
