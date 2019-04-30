@@ -1,3 +1,5 @@
+<?php if ($_SESSION['rank'])
+{ ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,3 +25,15 @@
 
 </body>
 </html>
+
+<?php } else {
+    ?>
+
+    <div class="form">
+
+        <p> veuillez vous connecter </p>
+
+    </div>
+
+    <?php
+}
