@@ -11,10 +11,6 @@ use PDO;
 class visitor extends model
 {
 
-
-
-
-
     public function __construct()
     {
         parent::__construct();
@@ -110,24 +106,19 @@ class visitor extends model
         }
     }
 
-    public function envoiemail ($mail)
+    public function envoiemail ($by, $mail)
     {
-        $message= '<a href="http://localhost:8000/index.php?controller=visitor&action=newPassword&mail="'.$mail.'> cliquez sur ce lien pour créer un nouveau mot de passe </a>';
+        $message= '<a href="http://localhost:8000/index.php?controller=visitor&action=modifPassword&mail="'.$mail.'> cliquez sur ce lien pour créer un nouveau mot de passe </a>';
 
         $titre= "modification de mot de passe";
 
         $recepteur = $mail;
-
-        $by = "Render@gmail.com";
-
 
         $headers = 'From:'.$by . "\r\n" .
             'Reply-To:'.$by . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
         mail($recepteur,$titre, $message, $headers);
-
-        echo"mail envoyé";
 
     }
 

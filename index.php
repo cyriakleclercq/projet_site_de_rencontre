@@ -75,10 +75,10 @@ if (isset($_GET['controller'])) {
                     $createPage->createPage();
                     break;
 
-                case "editVosEventPage":
+                case "edit":
 
                     $editVosEventPage = new \App\controller\userController();
-                    $editVosEventPage->editVosEvent();
+                    $editVosEventPage->edit();
                     break;
 
                 case "PagedeContact":
@@ -117,10 +117,10 @@ if (isset($_GET['controller'])) {
                     $vosSorties->vosSorties();
                     break;
 
-                case "editVosEvent":
+                case "editEvent":
 
                     $editVosEvent = new \App\controller\userController();
-                    $editVosEvent->editVosEvent();
+                    $editVosEvent->editEvent();
                     break;
 
                 case "details":
@@ -135,11 +135,6 @@ if (isset($_GET['controller'])) {
                     $profil->profil();
                     break;
 
-                case "editProfilPage":
-
-                    $editProfilPage = new \App\controller\userController();
-                    $editProfilPage->editProfilPage();
-                    break;
 
                 case "editProfil":
 
@@ -177,11 +172,6 @@ if (isset($_GET['controller'])) {
                     $deleteEvent->deleteComm();
                     break;
 
-                case "editCommPage":
-
-                    $editCommPage = new \App\controller\userController();
-                    $editCommPage->editCommPage();
-                    break;
 
                 case "editComm":
 
@@ -198,18 +188,6 @@ if (isset($_GET['controller'])) {
             require "controller/adminController.php";
 
             switch ($_GET['action']) {
-
-                case "editEventPage":
-
-                    $editEventPage = new \App\controller\adminController();
-                    $editEventPage->editEventPage();
-                    break;
-
-                case "editEvent":
-
-                    $editEvent = new \App\controller\adminController();
-                    $editEvent->editEvent();
-                    break;
 
                 case "editUser":
 

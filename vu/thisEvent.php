@@ -110,9 +110,6 @@
 
         <form action="" class="form">
 
-            <label for="titreComm"> titre : </label>
-            <input type="text" id="titreComm" required>
-
             <label for="comm"> commentaire : </label>
             <textarea id="comm" required> </textarea>
 

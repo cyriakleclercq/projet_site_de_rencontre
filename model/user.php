@@ -124,10 +124,10 @@ class user extends visitor
         $this->sql->execute();
     }
 
-    public function setEditVosEvent ($id, $title, $place, $city, $event_describe, $nbr, $date, $hours, $id_user)
+    public function setEditEvent ($id_user, $id_event, $title, $place, $city, $event_describe, $nbr, $date, $hours)
     {
         $this->sql = "UPDATE `events` SET `title` = ?,`place` = ?, `city` = ?, `event_describe` = ?, `number_of_places` = ?, `date` = ?, `hours` = ? WHERE id_event = ? AND id_user = ?";
-        $this->bdd->prepare($this->sql)->execute([$title, $place, $city, $event_describe, $nbr, $date, $hours, $id, $id_user]);
+        $this->bdd->prepare($this->sql)->execute([$title, $place, $city, $event_describe, $nbr, $date, $hours, $id_event, $id_user]);
     }
 
     public function setEditProfil ($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about)
@@ -136,10 +136,10 @@ class user extends visitor
         $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $id]);
     }
 
-    public function setEditComment ($id_user, $id_comment, $title, $comment)
+    public function setEditComment ($id_user, $id_comment, $comment)
     {
-        $this->sql = "UPDATE `comments` SET `title` = ?, `comment` = ? WHERE `id_user` = ? AND `id_comment` = ?";
-        $this->bdd->prepare($this->sql)->execute([$title, $comment, $id_user, $id_comment]);
+        $this->sql = "UPDATE `comments` SET `comment` = ? WHERE `id_user` = ? AND `id_comment` = ?";
+        $this->bdd->prepare($this->sql)->execute([$comment, $id_user, $id_comment]);
     }
 
     public function setMail ($by,$titre,$message)
@@ -149,8 +149,8 @@ class user extends visitor
             'X-Mailer: PHP/' . phpversion();
 
         mail($this->recepteur,$titre, $message, $headers);
-        echo"mail envoyé";
     }
+
     public function deleteComm ($id_comment)
     {
         $this->sql = $this->bdd->query("delete from comments where id_comment = $id_comment");

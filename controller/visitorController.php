@@ -32,16 +32,6 @@ class visitorController extends controller
         include "vu/connexion.php";
     }
 
-    public function verifInscriptionPage ()
-    {
-        include "vu/verifInscription.php";
-    }
-
-    public function validationPassword ()
-    {
-        include "vu/validationPassword.php";
-    }
-
     public function inscription ()
     {
 
@@ -93,8 +83,15 @@ class visitorController extends controller
             {
 
                 $add_user = $this->model->set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password);
-                $this->verifInscriptionPage();
+
+                $inscription = "Votre inscription a bien été prise en compte";
+
+            } else {
+
+                $inscription = "veuillez remplir les champs obligatoires";
             }
+
+            include "vu/validation.php";
 
         }
 
@@ -137,7 +134,7 @@ class visitorController extends controller
 
         if ($check == 1)
         {
-            $this->model->envoiemail($mail);
+            $this->model->envoiemail($this->mail,$mail);
 
             $reponse = "veuillez vérifier votre boite mail";
 
@@ -162,7 +159,9 @@ class visitorController extends controller
 
         $this->model->newPassword($password, $mail);
 
-        $this->validationPassword();
+        $validationPassword = "Vous avez bien changé votre mot de passe";
+
+        include "vu/validation.php";
     }
 
 }

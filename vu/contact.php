@@ -24,10 +24,10 @@
 
         <div id="contact"> </div>
 
-        <form action="../index.php?controller=user&action=mail" class="form">
+        <form action="../index.php?controller=user&action=mail" method="post" class="form">
 
             <label for="titreContact"> titre : </label>
-            <input type="text" id="titreContact" required namz="titre">
+            <input type="text" id="titreContact" required name="titre">
 
             <label for="messageContact"> message : </label>
             <textarea id="messageContact" name="message" required> </textarea>

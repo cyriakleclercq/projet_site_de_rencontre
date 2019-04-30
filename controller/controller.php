@@ -21,8 +21,7 @@ class controller
         $this->id_user = $_SESSION['id_user'];
         filter_var($this->id_user,FILTER_SANITIZE_NUMBER_INT);
 
-        $this->mail = $_SESSION['mail'];
-        filter_var($this->mail,FILTER_SANITIZE_EMAIL);
+        $this->mail = "Render@gmail.com";
 
     }
 

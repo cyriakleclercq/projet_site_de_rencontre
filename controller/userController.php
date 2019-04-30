@@ -32,19 +32,14 @@ class userController extends controller
         include "vu/create.php";
     }
 
-    public function editProfilPage ()
+    public function edit ()
     {
-        include "vu/editProfil.php";
-    }
-
-    public function editCommPage ()
-    {
-        include "vu/editCommentaire.php";
+        include "vu/edit.php";
     }
 
     public function vosEvent ()
     {
-                $listEvents = $this->model->getVosEvent($this->id_user);
+        $listEvents = $this->model->getVosEvent($this->id_user);
 
         include "vu/vosEvent.php";
     }
@@ -57,9 +52,11 @@ class userController extends controller
 
     public function logout ()
     {
-        $logout = $this->model->logout();
+        $this->model->logout();
 
-        include "vu/deco.php";
+        $logout = "vous êtes déconnecté";
+
+        include "vu/validation.php";
 
     }
 
@@ -107,15 +104,23 @@ class userController extends controller
 
             $add_participant = $this->model->setParticipation($this->id_user, (int)$check);
 
-            $this->vosEvent();
+            $create = "Votre évènement a bien été créé";
 
+
+        } else {
+
+            $create = "veuillez remplir tous les champs demandés";
         }
+
+        include "vu/validation.php";
+
     }
 
-    public function editVosEvent ()
+    public function editEvent ()
     {
 
-        $id = $_REQUEST['id'];
+
+        $id_event = $_REQUEST['id_event'];
         filter_var($id, FILTER_SANITIZE_NUMBER_INT);
 
         $title = $_REQUEST['title'];
@@ -139,19 +144,22 @@ class userController extends controller
         $hours = $_REQUEST['hours'];
         filter_var($hours, FILTER_SANITIZE_STRING);
 
-        if (!empty($id) && !empty($title) && !empty($place) && !empty($city) && !empty($event_describe) && !empty($number_of_places) && !empty($date) && !empty($hours)) {
+        if (!empty($id_event) && !empty($title) && !empty($place) && !empty($city) && !empty($event_describe) && !empty($number_of_places) && !empty($date) && !empty($hours)) {
 
-            $add_event = $this->model->setEditVosEvent($id, $title, $place, $city, $event_describe, $number_of_places, $date, $hours, $this->id_user);
+            $this->model->setEditEvent($this->id_user, $id_event, $title, $place, $city, $event_describe, $number_of_places, $date, $hours);
 
-            $this->vosEvent();
+
+            $editEvent = "votre Event a bien été modifié";
+
+
         } else {
 
-            $alert = "veuillez remplir machin";
-
-            include "vu/editEvent.php";
-
+            $editEvent = "veuillez remplir tous les champs";
 
         }
+
+        include "vu/validation.php";
+
     }
 
     public function details ()
@@ -209,8 +217,14 @@ class userController extends controller
 
             $edit_profil = $this->model->setEditProfil($this->id_user, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about);
 
-            $this->profil();
+            $profil = "Votre profil a bien été édité";
+
+        } else {
+
+            $profil = "veuillez remplir tous les champs";
         }
+
+        include "vu/validation.php";
     }
 
     public function deleteProfil ()
@@ -252,9 +266,26 @@ class userController extends controller
     public function mail ()
     {
         $titre = $_REQUEST['titre'];
-        $message = $_REQUEST['message'];
+        filter_var($titre,FILTER_SANITIZE_STRING);
 
-        $sendMail = $this->model->setMail($this->mail,$titre,$message);
+        $message = $_REQUEST['message'];
+        filter_var($message,FILTER_SANITIZE_STRING);
+
+        var_dump($message);
+
+        if (!empty($titre) && !empty($message) && $message !== NULL) {
+
+            $this->model->setMail($this->mail, $titre, $message);
+
+            $contactClose = "Votre message a été envoyé";
+
+        } else
+
+        {
+            $contactClose = "veuillez remplir tous les champs";
+        }
+
+        include "vu/validation.php";
 
     }
 
@@ -297,17 +328,22 @@ class userController extends controller
        $id_event = $_REQUEST['id_event'];
        filter_var($id_event, FILTER_SANITIZE_NUMBER_INT);
 
-        $title = $_REQUEST['title'];
-        filter_var($title,FILTER_SANITIZE_STRING);
-
         $comm = $_REQUEST['comment'];
         filter_var($comm, FILTER_SANITIZE_STRING);
 
+        if (!empty($id_comment) && !empty($id_event) && !empty($comm))
+        {
+            $this->model->setEditComment($this->id_user, $id_comment, $comm);
 
-        $this->model->setEditComment($this->id_user, $id_comment, $title, $comm);
+            $editComm = "votre commentaire a bien été édité";
+
+        } else {
+
+            $editComm = "veuillez remplir tous les champs";
+        }
 
 
-        include "vu/editComm.php";
+        include "vu/validation.php";
 
     }
 }

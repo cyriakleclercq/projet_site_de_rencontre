@@ -3,8 +3,6 @@ var id = document.getElementById('id_comm').value;
 
 var commentary = document.getElementById('commentaire');
 
-var commSupp = document.getElementById('supp');
-
 if (document.getElementById('rank_admin'))
 {
     var verif = document.getElementById('rank_admin').innerHTML;
@@ -42,17 +40,11 @@ function ajaxRequest()
             let pseudo = document.createElement("div");
             pseudo.className = "pseudoComm";
             commentary.appendChild(pseudo);
-            pseudo.innerHTML = commentaire[i].pseudo+" -"+commentaire[i].sexe;
+            pseudo.innerHTML = commentaire[i].pseudo+" -"+commentaire[i].sexe+ " -age : "+commentaire[i].age+" ans";
 
             let div_comm = document.createElement("div");
             div_comm.className = "div_comm";
             commentary.appendChild(div_comm);
-
-            let titre = document.createElement("h4");
-            titre.className = "titleComm";
-            div_comm.appendChild(titre);
-            titre.innerHTML = commentaire[i].title;
-
 
             let comment = document.createElement("div");
             comment.className = "comment";
@@ -79,7 +71,7 @@ function ajaxRequest()
                     div_comm.appendChild(edit);
                     edit.className = "editComm";
                     edit.innerHTML = "editer";
-                    edit.href = "../index.php?controller=user&action=editCommPage&id_event="+commentaire[i].id_event+"&id_comment="+commentaire[i].id_comment+"&titre="+commentaire[i].title+"&comment="+commentaire[i].comment;
+                    edit.href = "../index.php?controller=user&action=edit&id_event="+commentaire[i].id_event+"&id_comment="+commentaire[i].id_comment+"&comment="+commentaire[i].comment;
 
                 }
 
@@ -98,19 +90,17 @@ function ajaxRequest()
                 div_comm.appendChild(edit);
                 edit.className = "editComm";
                 edit.innerHTML = "editer";
-                edit.href = "../index.php?controller=user&action=editCommPage&id_event="+commentaire[i].id_event+"&id_comment="+commentaire[i].id_comment+"&titre="+commentaire[i].title+"&comment="+commentaire[i].comment;
+                edit.href = "../index.php?controller=user&action=edit&id_event="+commentaire[i].id_event+"&id_comment="+commentaire[i].id_comment+"&comment="+commentaire[i].comment;
             }
 
         }
 
     };
 
-    var titre = document.getElementById("titreComm").value;
-
     var comment = document.getElementById("comm").value;
 
 
-    var RequestURL = "index.php?controller=ajax&id_event="+id+"&postTitle="+titre+"&postCommentaire="+comment;
+    var RequestURL = "index.php?controller=ajax&id_event="+id+"&postCommentaire="+comment;
 
 
     xhttp.open('GET', RequestURL,true) ;
@@ -124,7 +114,7 @@ ajaxRequest();
 document.getElementById('bt_comm').addEventListener("click", function () {
 
     ajaxRequest();
-    document.getElementById('titreComm').value = "";
+
     document.getElementById("comm").value = "";
 
 });

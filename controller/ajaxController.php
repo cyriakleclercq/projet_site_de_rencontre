@@ -20,7 +20,7 @@ class ajaxController
     public function ajaxCommentaire ()
     {
 
-        if (!empty($_GET['postTitle']) && !empty($_GET['postCommentaire']))
+        if (!empty($_GET['postCommentaire']))
         {
             $this->ajaxPost();
         }
@@ -38,13 +38,10 @@ class ajaxController
         $id_event = $_REQUEST['id_event'];
         filter_var($id_event,FILTER_SANITIZE_NUMBER_INT);
 
-        $title = $_REQUEST['postTitle'];
-        filter_var($title,FILTER_SANITIZE_STRING);
-
         $comment = $_REQUEST['postCommentaire'];
         filter_var($comment,FILTER_SANITIZE_STRING);
 
-        $this->model->setCommentaire($title, $comment, $id_event, $id_user);
+        $this->model->setCommentaire($comment, $id_event, $id_user);
     }
 
 }
