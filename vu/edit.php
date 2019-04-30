@@ -1,4 +1,6 @@
-<?php if ($_SESSION['rank'])
+<?php session_start();
+
+if ($_SESSION['rank'])
 { ?>
 
     <!DOCTYPE html>
