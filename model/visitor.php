@@ -5,6 +5,7 @@ namespace App\model;
 
 include 'model.php';
 
+use App\controller\ajaxController;
 use PDO;
 
 class visitor extends model
@@ -90,5 +91,49 @@ class visitor extends model
             return 1;
         }
 
+    }
+
+    public function checkmail ($mail)
+    {
+        $this->sql = $this->bdd->query("SELECT * from users WHERE `mail` = '$mail'");
+        $this->sql = $this->sql->fetch();
+
+        if ($mail == $this->sql['mail'])
+        {
+
+            return 1;
+
+        } else {
+
+            return 0;
+
+        }
+    }
+
+    public function envoiemail ($mail)
+    {
+        $message= '<a href="http://localhost:8000/index.php?controller=visitor&action=newPassword&mail="'.$mail.'> cliquez sur ce lien pour créer un nouveau mot de passe </a>';
+
+        $titre= "modification de mot de passe";
+
+        $recepteur = $mail;
+
+        $by = "Render@gmail.com";
+
+
+        $headers = 'From:'.$by . "\r\n" .
+            'Reply-To:'.$by . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        mail($recepteur,$titre, $message, $headers);
+
+        echo"mail envoyé";
+
+    }
+
+    public function newPassword ($password, $mail)
+    {
+        $this->sql = "UPDATE `users` SET `password` = ? WHERE `mail` = ?";
+        $this->bdd->prepare($this->sql)->execute([$password, $mail]);
     }
 }

@@ -30,6 +30,8 @@
 
             <?= $alert ?>
 
+            <a href="../index.php?controller=visitor&action=lostPassword"> Mot de passe oublié ?</a>
+
         </form>
 
 

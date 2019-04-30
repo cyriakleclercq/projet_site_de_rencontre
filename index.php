@@ -24,8 +24,6 @@ if (isset($_GET['controller'])) {
                     $connexionPage->connexionPage();
                     break;
 
-
-
                 case "inscription":
 
                     $inscription = new \App\Controller\visitorController();
@@ -38,6 +36,29 @@ if (isset($_GET['controller'])) {
                     $connection->login();
                     break;
 
+                case "lostPassword":
+
+                    $lost = new \App\Controller\visitorController();
+                    $lost->lostPasswordPage();
+                    break;
+
+                case "forgotPassword":
+
+                    $password = new \App\Controller\visitorController();
+                    $password->checkMail();
+                    break;
+
+                case "modifPassword":
+
+                    $modifPassword = new \App\Controller\visitorController();
+                    $modifPassword->modifPassword();
+                    break;
+
+                case "newPassword":
+
+                    $newPassword = new \App\Controller\visitorController();
+                    $newPassword->newPassword();
+                    break;
 
             }
         break;

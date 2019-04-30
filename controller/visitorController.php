@@ -22,9 +22,24 @@ class visitorController extends controller
         include "vu/inscription.php";
     }
 
+    public function modifPassword ()
+    {
+        include "vu/modifPassword.php";
+    }
+
     public function connexionPage ()
     {
         include "vu/connexion.php";
+    }
+
+    public function verifInscriptionPage ()
+    {
+        include "vu/verifInscription.php";
+    }
+
+    public function validationPassword ()
+    {
+        include "vu/validationPassword.php";
     }
 
     public function inscription ()
@@ -78,8 +93,7 @@ class visitorController extends controller
             {
 
                 $add_user = $this->model->set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password);
-                $this->connexionPage();
-
+                $this->verifInscriptionPage();
             }
 
         }
@@ -107,6 +121,48 @@ class visitorController extends controller
 
             $this->affichage();
         }
+    }
+
+    public function lostPasswordPage ()
+    {
+        include "vu/lostPassword.php";
+    }
+
+    public function checkMail ()
+    {
+        $mail = $_REQUEST['mail'];
+        filter_var($mail, FILTER_SANITIZE_EMAIL);
+
+        $check = $this->model->checkmail($mail);
+
+        if ($check == 1)
+        {
+            $this->model->envoiemail($mail);
+
+            $reponse = "veuillez vérifier votre boite mail";
+
+            include "vu/lostPassword.php";
+
+        } else if ($check == 0)
+        {
+            $reponse = "adresse mail introuvable";
+
+            include "vu/lostPassword.php";
+        }
+    }
+
+    public function newPassword ()
+    {
+
+        $mail = $_REQUEST['mail'];
+        filter_var($mail,FILTER_SANITIZE_EMAIL);
+
+        $password = $_REQUEST['password'];
+        filter_var($password,FILTER_SANITIZE_STRING);
+
+        $this->model->newPassword($password, $mail);
+
+        $this->validationPassword();
     }
 
 }
