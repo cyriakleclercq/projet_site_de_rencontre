@@ -61,8 +61,6 @@
 
                 </table>
 
-
-
             <?php } ?>
 
         </div>
@@ -70,10 +68,113 @@
 
     </section>
 
+    <section>
+
+        <h3> rechercher un utilisateur : </h3>
+
+        <form action="../index.php?controller=user&action=profil" method="post" class="form">
+
+            <label for="inp_pseudo"> pseudo : </label>
+            <input type="text" id="inp_pseudo" required name="pseudo">
+
+            <input type="submit" value="rechercher">
+
+        </div>
+
+    </section>
+
+    <section>
+
+
+        <?php if($reponse || $search )
+            { ?>
+
+            <div class="form">
+
+                <?php if ($reponse)
+
+                    { ?>
+
+                    <p> <?= $reponse ?> </p>
+
+               <?php } elseif ($search[0]->pseudo !== $_SESSION['pseudo']) { ?>
+
+
+                    <p> <?= $search[0]->pseudo ?> </p>
+                    <p> <?= $search[0]->sexe ?> </p>
+                    <p> <?= $search[0]->age ?> ans </p>
+                    <p> <?= $search[0]->about ?> </p>
+
+                    <?php if (!$checkFriend)
+                        { ?>
+
+                    <a href="../index.php?controller=user&action=friend&id_friend=<?= $search[0]->id_user ?>"> demander en ami </a>
+
+                            <?php }
+                 } else {
+                    ?>
+                <p> Vos infos sont déjà plus haut :p </p>
+
+                <?php
+
+                } ?>
+
+            </div>
+
+        <?php } ?>
+
+    </section>
+
+    <section>
+
+        <?php if ($check)
+            { ?>
+
+                <div class="form">
+
+                <h3> Vos demandes d'amis : </h3>
+
+                    <div class="form">
+
+                        <?php foreach ($check as $i)
+                            { ?>
+
+                        <p> <?= $i->pseudo ?> </p>
+                        <p> <?= $i->age ?> ans </p>
+                        <p> <?= $i->about ?></p>
+                        <a href="../index.php?controller=user&action=confirm&id_friend=<?= $i->id_user ?>"> accepter </a>
+                        <a href="../index.php?controller=user&action=refus&id_friend=<?=$i->id_user ?>" onclick="return confirm('êtes vous sûr de vouloir refuser cette demande ?')"> refuser </a>
+
+                                <?php }?>
+                    </div>
+
+                </div>
+
+           <?php } ?>
+
+
+    </section>
+
+        <section>
+
+            <div class="form">
+
+                <h3> Vos amis : </h3>
+
+                <?php if ($friends)
+{
+    foreach ($friends as $friend)
+    { ?>
+
+        <a href="../index.php?controller=user&action=vosSorties&id_user=<?= $friend->id_user?>"> <?= $friend->pseudo ?> </a>
+
+    <?php }
+} ?>
+
+            </div>
+        </section>
+
     <footer>  </footer>
-
-
-
 
 </div>
 

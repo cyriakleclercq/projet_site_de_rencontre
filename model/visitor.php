@@ -125,6 +125,6 @@ class visitor extends model
     public function newPassword ($password, $mail)
     {
         $this->sql = "UPDATE `users` SET `password` = ? WHERE `mail` = ?";
-        $this->bdd->prepare($this->sql)->execute([$password, $mail]);
+        $this->bdd->prepare($this->sql)->execute([sha1($password), $mail]);
     }
 }

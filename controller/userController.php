@@ -46,7 +46,26 @@ class userController extends controller
 
     public function vosSorties ()
     {
-        $listSorties = $this->model->getSorties($this->id_user);
+        if ($_REQUEST['id_user'])
+        {
+
+            $id_user = $_REQUEST['id_user'];
+            filter_var($id_user,FILTER_SANITIZE_NUMBER_INT);
+
+            $checkVosEvent = $this->model->checkVosEvent($this->id_user,$id_user);
+
+            if ($checkVosEvent) {
+
+                $listSorties = $this->model->getSorties($id_user);
+            }
+
+
+
+        } else {
+
+            $listSorties = $this->model->getSorties($this->id_user);
+        }
+
         include "vu/vosSorties.php";
     }
 
@@ -181,8 +200,46 @@ class userController extends controller
     {
         $profil = $this->model->getProfil($this->id_user);
 
+        $check = $this->model->getReceive($this->id_user);
+
+        $friends = $this->model->getFriends($this->id_user);
+
+
+
+
+
+        if (isset($_REQUEST['pseudo'])) {
+
+            $pseudo = $_REQUEST['pseudo'];
+            filter_var($pseudo, FILTER_SANITIZE_STRING);
+
+            $checkFriend = $this->model->checkFriend($this->id_user,$pseudo);
+
+            $search = $this->model->getSearchUser($pseudo);
+
+            if ($search == null) {
+
+                $reponse = "pseudo inconnu";
+
+            }
+
+        }
+
         include "vu/profil.php";
+
     }
+
+    public function confirm ()
+    {
+
+        $id_friend = $_REQUEST['id_friend'];
+        filter_var($id_friend,FILTER_SANITIZE_NUMBER_INT);
+
+        $this->model->setEditFriend($this->id_user, $id_friend);
+
+        $this->profil();
+    }
+
 
     public function editProfil ()
     {
@@ -271,8 +328,6 @@ class userController extends controller
         $message = $_REQUEST['message'];
         filter_var($message,FILTER_SANITIZE_STRING);
 
-        var_dump($message);
-
         if (!empty($titre) && !empty($message) && $message !== NULL) {
 
             $this->model->setMail($this->mail, $titre, $message);
@@ -346,4 +401,26 @@ class userController extends controller
         include "vu/validation.php";
 
     }
+
+    public function friend ()
+    {
+        $id_friend = $_REQUEST['id_friend'];
+        filter_var($id_friend,FILTER_SANITIZE_NUMBER_INT);
+
+        $this->model->setFriend($this->id_user, $id_friend);
+
+        $this->profil();
+    }
+
+    public function refuseFriend ()
+    {
+        $id_friend = $_REQUEST['id_friend'];
+        filter_var($id_friend,FILTER_SANITIZE_NUMBER_INT);
+
+        $this->model->refuseFriend($this->id_user, $id_friend);
+
+        $this->profil();
+
+    }
+
 }

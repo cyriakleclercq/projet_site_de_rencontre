@@ -136,7 +136,7 @@ class visitorController extends controller
         {
             $this->model->envoiemail($this->mail,$mail);
 
-            $reponse = "veuillez vérifier votre boite mail";
+            $reponse = "Un lien pour modifier votre mot de passe a été envoyé sur votre boite mail";
 
             include "vu/lostPassword.php";
 

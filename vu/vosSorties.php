@@ -21,8 +21,16 @@
 
     <section>
 
+        <?php if (isset($_GET['id_user']))
+            { ?>
+
+                <h1> Liste de ses sorties :</h1>
+
+            <?php } else { ?>
+
         <h1> Liste de vos sorties :</h1>
 
+<?php } ?>
 
         <?php foreach ($listSorties as $sortie ) {
 
@@ -39,7 +47,13 @@
                 <th> Heure </th>
                 <th> Organisateur </th>
                 <th> Voir les commentaires </th>
-                <th> Participation </th>
+
+                <?php if (!$_REQUEST['id_user'])
+                { ?>
+                    <th> Participation </th>
+
+                <?php } ?>
+
 
                 <tr>
 
@@ -52,7 +66,13 @@
                     <td><?= $sortie->hours ?></td>
                     <td><?= $sortie->pseudo ?></td>
                     <td> <a href="../index.php?controller=user&action=details&id_event=<?=$sortie->id_event?>"> Commentaires </a> </td>
-                    <td> <a href="../index.php?controller=user&action=abandon&id_event=<?= $sortie->id_event ?>&sortie" onclick="return confirm('êtes vous sûr de ne plus vouloir participer à cet évènement ?')"> Annuler </a> </td>
+
+                    <?php if (!$_REQUEST['id_user'])
+                        { ?>
+
+                            <td> <a href="../index.php?controller=user&action=abandon&id_event=<?= $sortie->id_event ?>&sortie" onclick="return confirm('êtes vous sûr de ne plus vouloir participer à cet évènement ?')"> Annuler </a> </td>
+
+                        <?php } ?>
 
 
                 </tr>

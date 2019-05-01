@@ -173,4 +173,66 @@ class user extends visitor
         }
     }
 
+    public function getSearchUser ($pseudo)
+    {
+        $search = $this->bdd->query("select * from `users` where `pseudo` = '$pseudo'")->fetchAll(PDO::FETCH_OBJ);
+        return $search;
+
+    }
+
+    public function setFriend ($id_user, $id_friend)
+    {
+        $this->sql = $this->bdd->prepare("INSERT INTO `friends` (`id_request`,`id_receive`) VALUE (?,?)");
+        $this->sql->bindParam(1,$id_user);
+        $this->sql->bindParam(2,$id_friend);
+        $this->sql->execute();
+    }
+
+    public function getReceive ($id_user)
+    {
+        $check = $this->bdd->query("select * from friends as a, users as b where a.id_request = b.id_user and  a.id_receive = '$id_user' and `validation` is NULL")->fetchAll(PDO::FETCH_OBJ);
+        return $check;
+    }
+
+    public function setEditFriend ($id_user, $id_friend)
+    {
+        $this->sql = "UPDATE `friends` SET `validation` = ? WHERE `id_receive` = ? AND `id_request` = ?";
+        $this->bdd->prepare($this->sql)->execute([1, $id_user, $id_friend]);
+    }
+
+    public function getFriends ($id_user)
+    {
+        $friends = $this->bdd->query("select * from friends as a, users as b where (a.id_request = b.id_user and a.id_receive = '$id_user' and `validation` = '1') or (a.id_receive = b.id_user and a.id_request = '$id_user' and `validation` = '1')")->fetchAll(PDO::FETCH_OBJ);
+        return $friends;
+    }
+
+    public function refuseFriend ($id_user, $id_friend)
+    {
+        $this->sql = $this->bdd->query("delete from friends where id_request = $id_friend and id_receive = $id_user");
+        $this->sql->execute();
+    }
+
+    public function checkFriend ($id_user, $pseudo)
+    {
+        $this->sql = $this->bdd->query("select * from `friends` as a, `users` as b where (a.id_receive = '$id_user' and a.id_request = b.id_user and b.pseudo = '$pseudo') or (a.id_request = '$id_user' and a.id_receive = b.id_user and b.pseudo = '$pseudo') ");
+        $this->sql = $this->sql->fetch();
+
+        if ($id_user == $this->sql['id_receive'] OR $id_user == $this->sql['id_request'])
+        {
+            return 1;
+
+        }
+    }
+
+    public function checkVosEvent ($id_user, $friend)
+    {
+        $this->sql = $this->bdd->query("select * from `friends` where (id_receive = '$id_user'  and id_request = '$friend' and `validation` = '1') or (id_request = '$id_user' and id_receive = '$friend' and `validation` = '1') ");
+        $this->sql = $this->sql->fetch();
+
+        if ($id_user == $this->sql['id_receive'] OR $id_user == $this->sql['id_request'])
+        {
+            return 1;
+
+        }
+    }
 }

@@ -1,7 +1,7 @@
 
 <?php session_start();
 
-if ($_SESSION['rank']) {?>
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,59 +16,47 @@ if ($_SESSION['rank']) {?>
 
 <div class="container">
 
+
     <div class="form">
 
-        <?php if ($inscription)
-            { ?>
-
-        <p> <?= $inscription ?> </p>
-
-        <a href="../index.php?controller=visitor&action=connexionPage"> retour </a>
-
-        <?php }
-
-        if ($logout)
-
-            { ?>
-
-        <p> <?= $logout ?> </p>
+<?php if ($_SESSION['rank']) { ?>
 
 
-        <a href="index.php"> retour </a>
+        <?php if ($inscription) { ?>
+
+            <p> <?= $inscription ?> </p>
+
+            <a href="../index.php?controller=visitor&action=connexionPage"> retour </a>
 
         <?php }
 
-        if ($contactClose)
-            { ?>
+        if ($contactClose) { ?>
 
-        <p> <?= $contactClose ?> </p>
-
-
-        <a href="index.php"> retour </a>
-
-        <?php }
-
-        if ($editComm)
-            { ?>
-
-        <p> <?= $editComm ?> </p>
-
-        <a href="../index.php?controller=user&action=details&id_event=<?=$id_event ?>"> retour </a>
-
-         <?php }
-
-        if ($validationPassword)
-        { ?>
-
-        <p> <?php $validationPassword ?> </p>
+            <p> <?= $contactClose ?> </p>
 
 
-        <a href="../index.php"> retour </a>
+            <a href="index.php"> retour </a>
 
         <?php }
 
-        if ($editEvent)
-        { ?>
+        if ($editComm) { ?>
+
+            <p> <?= $editComm ?> </p>
+
+            <a href="../index.php?controller=user&action=details&id_event=<?= $id_event ?>"> retour </a>
+
+        <?php }
+
+        if ($validationPassword) { ?>
+
+            <p> <?php $validationPassword ?> </p>
+
+
+            <a href="../index.php"> retour </a>
+
+        <?php }
+
+        if ($editEvent) { ?>
 
             <p> <?= $editEvent ?> </p>
 
@@ -77,8 +65,7 @@ if ($_SESSION['rank']) {?>
 
         <?php }
 
-        if ($profil)
-        { ?>
+        if ($profil) { ?>
 
             <p> <?= $profil ?> </p>
 
@@ -87,25 +74,36 @@ if ($_SESSION['rank']) {?>
 
         <?php }
 
-        if ($create)
-        { ?>
+        if ($create) { ?>
 
             <p> <?= $create ?> </p>
 
 
             <a href="../index.php?controller=user&action=vosEvent"> retour </a>
 
+        <?php }
+
+        } elseif ($logout)
+
+        { ?>
+
+        <p> <?= $logout ?> </p>
+
+
+        <a href="index.php"> retour </a>
+
+
+        <?php } else { ?>
+
+            <p> Veuillez vous connecter </p>
+
         <?php } ?>
 
 
     </div>
+
 </div>
 
 </body>
 </html>
 
-<?php } else { ?>
-
-<p> Veuillez vous connecter </p>
-
-<?php } ?>

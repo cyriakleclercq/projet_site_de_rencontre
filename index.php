@@ -172,11 +172,28 @@ if (isset($_GET['controller'])) {
                     $deleteEvent->deleteComm();
                     break;
 
-
                 case "editComm":
 
                     $editComm = new \App\controller\userController();
                     $editComm->editComm();
+                    break;
+
+                case "friend":
+
+                    $friend = new \App\controller\userController();
+                    $friend->friend();
+                    break;
+
+                case "confirm":
+
+                    $confirm = new \App\controller\userController();
+                    $confirm->confirm();
+                    break;
+
+                case "refus":
+
+                    $refus = new \App\controller\userController();
+                    $refus->refuseFriend();
                     break;
 
         }
