@@ -65,6 +65,37 @@
     </section>
 
     <section>
+        <h3> Participants à l'event :</h3>
+
+        <div>
+
+            <?php foreach ($adherents as $adherent ) { ?>
+
+                <table>
+
+                    <th> pseudo </th>
+                    <th> age </th>
+                    <th> sexe </th>
+
+                    <tr>
+
+                        <td><?= $adherent->pseudo ?></td>
+                        <td><?= $adherent->age ?></td>
+                        <td><?= $adherent->sexe ?></td>
+
+                    </tr>
+
+                </table>
+
+
+            <?php } ?>
+
+        </div>
+
+
+    </section>
+
+    <section>
 
         <?php
 

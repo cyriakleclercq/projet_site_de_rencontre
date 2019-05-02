@@ -46,6 +46,12 @@ class user extends visitor
          return $details;
     }
 
+    public function getAdhesion ($id_event)
+    {
+        $adherent = $this->bdd->query("select * from users as a, participations as b where a.id_user = b.id_user and b.id_event = '$id_event' ")->fetchAll(PDO::FETCH_OBJ);
+        return $adherent;
+    }
+
     public function getParticipation ($id_event, $id_user)
     {
         $participationList = $this->bdd->query("select * from participations where `id_event` = $id_event and `id_user` = $id_user")->fetchAll(PDO::FETCH_OBJ);
@@ -224,9 +230,9 @@ class user extends visitor
         }
     }
 
-    public function checkVosEvent ($id_user, $friend)
+    public function checkVosEvent ($id_user, $id_friend)
     {
-        $this->sql = $this->bdd->query("select * from `friends` where (id_receive = '$id_user'  and id_request = '$friend' and `validation` = '1') or (id_request = '$id_user' and id_receive = '$friend' and `validation` = '1') ");
+        $this->sql = $this->bdd->query("select * from `friends` where (id_receive = '$id_user'  and id_request = '$id_friend' and `validation` = '1') or (id_request = '$id_user' and id_receive = '$id_friend' and `validation` = '1') ");
         $this->sql = $this->sql->fetch();
 
         if ($id_user == $this->sql['id_receive'] OR $id_user == $this->sql['id_request'])
@@ -234,5 +240,11 @@ class user extends visitor
             return 1;
 
         }
+    }
+
+    public function deleteFriend ($id_user, $id_friend)
+    {
+        $this->sql = $this->bdd->query("delete from `friends` where (id_receive = '$id_user'  and id_request = '$id_friend' and `validation` = '1') or (id_request = '$id_user' and id_receive = '$id_friend' and `validation` = '1')");
+        $this->sql->execute();
     }
 }

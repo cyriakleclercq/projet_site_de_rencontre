@@ -166,7 +166,8 @@
     foreach ($friends as $friend)
     { ?>
 
-        <a href="../index.php?controller=user&action=vosSorties&id_user=<?= $friend->id_user?>"> <?= $friend->pseudo ?> </a>
+        <a href="../index.php?controller=user&action=vosSorties&id_user=<?= $friend->id_user ?>"> <?= $friend->pseudo ?> </a>
+        <a href="../index.php?controller=user&action=deleteFriend&id_friend=<?= $friend->id_user ?>"> retirer de vos amis </a>
 
     <?php }
 } ?>

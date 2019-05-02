@@ -4,13 +4,10 @@
     <list default="true" id="c2cf65c7-3c27-4592-932d-a2eabd8ba13b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/visitorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/visitorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/visitor.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/visitor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vu/profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/profil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/vosSorties.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/vosSorties.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vu/thisEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/thisEvent.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1625">
-              <caret line="196" column="26" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="26" />
+            <state relative-caret-position="318">
+              <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
             </state>
           </provider>
         </entry>
@@ -32,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vu/profil.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="103" column="52" lean-forward="true" selection-start-line="103" selection-start-column="52" selection-end-line="103" selection-end-column="52" />
+            <state relative-caret-position="457">
+              <caret line="177" column="23" lean-forward="true" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -41,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vu/vosSorties.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="48" column="48" lean-forward="true" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+            <state relative-caret-position="408">
+              <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -50,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vu/thisEvent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+            <state relative-caret-position="165">
+              <caret line="76" column="34" lean-forward="true" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -59,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/userController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="58" column="66" selection-start-line="58" selection-start-column="66" selection-end-line="58" selection-end-column="66" />
+            <state relative-caret-position="189">
+              <caret line="185" column="42" lean-forward="true" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -68,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/user.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="216" column="254" selection-start-line="216" selection-start-column="254" selection-end-line="216" selection-end-column="254" />
+            <state relative-caret-position="372">
+              <caret line="50" column="169" selection-start-line="50" selection-start-column="169" selection-end-line="50" selection-end-column="169" />
             </state>
           </provider>
         </entry>
@@ -102,6 +99,7 @@
       <find>editevent</find>
       <find>validation</find>
       <find>logout</find>
+      <find>deta</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\cyriak\PhpstormProjects\projet_site_de_rencontre</dir>
@@ -149,7 +147,6 @@
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/vu/editCommentaire.php" />
         <option value="$PROJECT_DIR$/vu/header.php" />
-        <option value="$PROJECT_DIR$/vu/thisEvent.php" />
         <option value="$PROJECT_DIR$/vu/editEvent.php" />
         <option value="$PROJECT_DIR$/vu/vosEvent.php" />
         <option value="$PROJECT_DIR$/script.js" />
@@ -159,10 +156,11 @@
         <option value="$PROJECT_DIR$/model/visitor.php" />
         <option value="$PROJECT_DIR$/controller/visitorController.php" />
         <option value="$PROJECT_DIR$/vu/validation.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/vu/vosSorties.php" />
+        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/vu/profil.php" />
         <option value="$PROJECT_DIR$/controller/userController.php" />
+        <option value="$PROJECT_DIR$/vu/thisEvent.php" />
         <option value="$PROJECT_DIR$/model/user.php" />
       </list>
     </option>
@@ -282,7 +280,8 @@
       <workItem from="1556610166577" duration="4188000" />
       <workItem from="1556627028940" duration="8683000" />
       <workItem from="1556638797123" duration="16541000" />
-      <workItem from="1556700757918" duration="18832000" />
+      <workItem from="1556700757918" duration="19090000" />
+      <workItem from="1556787922456" duration="3931000" />
     </task>
     <task id="LOCAL-00001" summary="commit initial&#10;&#10;login/logout/users/inscription">
       <created>1555010910606</created>
@@ -431,18 +430,24 @@
       <option name="project" value="LOCAL" />
       <updated>1556658817312</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="systeme d'ami fini">
+      <created>1556726551270</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1556726551270</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308143000" />
+    <option name="totallyTimeSpent" value="312332000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21342282" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21610738" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -508,7 +513,8 @@
     <MESSAGE value="denied d'acces aux pages non autorisées finie" />
     <MESSAGE value="mot de passe oublié terminé" />
     <MESSAGE value="simplification du code et réduction du nombre de vu" />
-    <option name="LAST_COMMIT_MESSAGE" value="simplification du code et réduction du nombre de vu" />
+    <MESSAGE value="systeme d'ami fini" />
+    <option name="LAST_COMMIT_MESSAGE" value="systeme d'ami fini" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://D:/GitHub/Exercices-PHP-Interfaces/README.md">
@@ -744,43 +750,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vu/vosSorties.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="48" column="48" lean-forward="true" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vu/thisEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+        <state relative-caret-position="408">
+          <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1625">
-          <caret line="196" column="26" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/userController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="58" column="66" selection-start-line="58" selection-start-column="66" selection-end-line="58" selection-end-column="66" />
+        <state relative-caret-position="318">
+          <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vu/profil.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="103" column="52" lean-forward="true" selection-start-line="103" selection-start-column="52" selection-end-line="103" selection-end-column="52" />
+        <state relative-caret-position="457">
+          <caret line="177" column="23" lean-forward="true" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/userController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="185" column="42" lean-forward="true" selection-start-line="185" selection-start-column="42" selection-end-line="185" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vu/thisEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="76" column="34" lean-forward="true" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="216" column="254" selection-start-line="216" selection-start-column="254" selection-end-line="216" selection-end-column="254" />
+        <state relative-caret-position="372">
+          <caret line="50" column="169" selection-start-line="50" selection-start-column="169" selection-end-line="50" selection-end-column="169" />
         </state>
       </provider>
     </entry>

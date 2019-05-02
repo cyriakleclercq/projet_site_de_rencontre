@@ -196,6 +196,12 @@ if (isset($_GET['controller'])) {
                     $refus->refuseFriend();
                     break;
 
+                case "deleteFriend":
+
+                    $deleteFriend = new \App\controller\userController();
+                    $deleteFriend->deleteFriend();
+                    break;
+
         }
         break;
 

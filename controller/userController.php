@@ -140,7 +140,7 @@ class userController extends controller
 
 
         $id_event = $_REQUEST['id_event'];
-        filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+        filter_var($id_event, FILTER_SANITIZE_NUMBER_INT);
 
         $title = $_REQUEST['title'];
         filter_var($title,FILTER_SANITIZE_STRING);
@@ -188,6 +188,8 @@ class userController extends controller
 
         $details = $this->model->getDetail($id_event);
 
+        $adherents = $this->model->getAdhesion($id_event);
+
         $participations = $this->model->getParticipation($id_event,$this->id_user);
 
         $participants = $this->model->getParticipant($id_event);
@@ -203,9 +205,6 @@ class userController extends controller
         $check = $this->model->getReceive($this->id_user);
 
         $friends = $this->model->getFriends($this->id_user);
-
-
-
 
 
         if (isset($_REQUEST['pseudo'])) {
@@ -228,6 +227,19 @@ class userController extends controller
         include "vu/profil.php";
 
     }
+
+    public function deleteFriend ()
+    {
+        $id_friend = $_REQUEST['id_friend'];
+        filter_var($id_friend,FILTER_SANITIZE_NUMBER_INT);
+
+        $this->model->deleteFriend($this->id_user, $id_friend);
+
+        $this->profil();
+
+
+    }
+
 
     public function confirm ()
     {
