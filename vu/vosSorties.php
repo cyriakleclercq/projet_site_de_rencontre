@@ -34,7 +34,8 @@
 
         <?php foreach ($listSorties as $sortie ) {
 
-            ?>
+            if (strtotime($sortie->date) - time() > 0) { ?>
+
 
             <table>
 
@@ -62,7 +63,7 @@
                     <td><?= $sortie->place ?></td>
                     <td><?= $sortie->city ?></td>
                     <td><?= $sortie->number_of_places ?></td>
-                    <td><?= $sortie->date ?></td>
+                    <td><?= strftime('%d-%m-%Y', strtotime($sortie->date)) ?></td>
                     <td><?= $sortie->hours ?></td>
                     <td><?= $sortie->pseudo ?></td>
                     <td> <a href="../index.php?controller=user&action=details&id_event=<?=$sortie->id_event?>"> Commentaires </a> </td>
@@ -79,7 +80,8 @@
 
             </table>
 
-        <?php }  ?>
+        <?php }
+        }  ?>
 
 </div>
 

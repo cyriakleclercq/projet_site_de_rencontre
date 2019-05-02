@@ -46,7 +46,7 @@
                             <td><?= $detail->place ?></td>
                             <td><?= $detail->city ?></td>
                             <td><?= $detail->number_of_places ?></td>
-                            <td><?= $detail->date ?></td>
+                            <td><?= strftime('%d-%m-%Y', strtotime($detail->date)) ?></td>
                             <td><?= $detail->hours ?></td>
 
                         </tr>

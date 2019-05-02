@@ -26,7 +26,8 @@
 
             <?php foreach ($listEvents as $event ) {
 
-?>
+                if (strtotime($event->date) - time() > 0) { ?>
+
 
                     <table>
 
@@ -49,7 +50,7 @@
                         <td><?= $event->place ?></td>
                         <td><?= $event->city ?></td>
                         <td><?= $event->number_of_places ?></td>
-                        <td><?= $event->date ?></td>
+                        <td><?= strftime('%d-%m-%Y', strtotime($event->date)) ?></td>
                         <td><?= $event->hours ?></td>
                         <td> <a href="../index.php?controller=user&action=details&id_event=<?=$event->id_event?>""> details </a></td>
                         <td> <a href="../index.php?controller=user&action=deleteEvent&id=<?=$event->id_event ?>" onclick="return confirm('êtes vous sûr de vouloir supprimer cet evenement ?')"> delete </a> </td>
@@ -60,7 +61,8 @@
 
                 </table>
 
-            <?php }  ?>
+            <?php }
+            }  ?>
 
         </div>
 

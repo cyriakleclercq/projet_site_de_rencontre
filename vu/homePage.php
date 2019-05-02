@@ -33,33 +33,42 @@
 
             <div>
 
-                <?php foreach ($listeEvents as $event ) { ?>
+                <?php foreach ($listeEvents as $event ) {
 
-                    <table id="table">
+                    if (strtotime($event->date) - time() > 0) { ?>
 
-                        <th> Ville </th>
-                        <th> Titre </th>
-                        <th> description </th>
+                        <table id="table">
 
-
-                        <tr>
-                            <td><?= $event->city ?></td>
-                            <td><?= $event->title ?></td>
-                            <td><?= $event->event_describe ?></td>
-                        </tr>
+                            <th> Ville</th>
+                            <th> Titre</th>
+                            <th> description</th>
+                            <th> time</th>
 
 
-                    </table>
+                            <tr>
+                                <td><?= $event->city ?></td>
+                                <td><?= $event->title ?></td>
+                                <td><?= $event->event_describe ?></td>
+                                <td><?= strftime('%d-%m-%Y', strtotime($event->date)) ?> </td>
 
-                    <?php if (!isset($_SESSION['name'])) { ?>
+                            </tr>
 
-                        <p class="comm" > Pour plus de détails, vous devez être connecté </p >
+
+                        </table>
+
+                        <?php if (!isset($_SESSION['name'])) { ?>
+
+                            <p class="comm"> Pour plus de détails, vous devez être connecté </p>
 
                         <?php } else {
 
-                        ?> <div class="comm"> <a href="../index.php?controller=user&action=details&id_event=<?=$event->id_event?>"> Plus d'infos </a> </div>
-                    <?php }
+                            ?>
+                            <div class="comm"><a
+                                        href="../index.php?controller=user&action=details&id_event=<?= $event->id_event ?>">
+                                    Plus d'infos </a></div>
+                        <?php }
 
+                    }
                  } ?>
 
 
