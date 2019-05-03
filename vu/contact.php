@@ -18,13 +18,12 @@
 
     <?php include "header.php" ?>
 
+    <h3 class="center crudUser"> Nous contacter</h3>
 
 
     <section>
 
-        <div id="contact"> </div>
-
-        <form action="../index.php?controller=user&action=mail" method="post" class="form">
+        <form action="../index.php?controller=user&action=mail" method="post" class="form flex">
 
             <label for="titreContact"> titre : </label>
             <input type="text" id="titreContact" required name="titre">
@@ -32,7 +31,7 @@
             <label for="messageContact"> message : </label>
             <textarea id="messageContact" name="message" required> </textarea>
 
-            <input type="submit" id="bt_contact" value="valider">
+            <input type="submit" id="bt_contact" value="valider" class="bouton">
 
         </form>
 

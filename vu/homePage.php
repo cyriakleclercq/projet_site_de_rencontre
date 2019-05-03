@@ -22,55 +22,40 @@
             <h1> Liste des events :</h1>
 
 
-                <form action="../index.php" method="post">
+            <div class="row">
+
+                <div class="col-4"> </div>
+
+            <ul class="col-8 ulHomepage">
+
+                <form action="../index.php" method="post" id="searchHomepage">
                     <label for="filtre"> rechercher une ville</label>
                     <input type="text" id="filtre" name="filtre">
-                    <input type="submit">
+                    <input type="submit" class="bouton">
 
                 </form>
-
-
-
-            <div>
 
                 <?php foreach ($listeEvents as $event ) {
 
                     if (strtotime($event->date) - time() > 0) { ?>
 
-                        <table id="table">
+                                <li><?= $event->title ?> (<?= $event->city ?>)</li>
 
-                            <th> Ville</th>
-                            <th> Titre</th>
-                            <th> description</th>
-                            <th> time</th>
-
-
-                            <tr>
-                                <td><?= $event->city ?></td>
-                                <td><?= $event->title ?></td>
-                                <td><?= $event->event_describe ?></td>
-                                <td><?= strftime('%d-%m-%Y', strtotime($event->date)) ?> </td>
-
-                            </tr>
-
-
-                        </table>
 
                         <?php if (!isset($_SESSION['name'])) { ?>
 
-                            <p class="comm"> Pour plus de détails, vous devez être connecté </p>
+                            <span class="comm"> Pour plus de détails, vous devez être connecté </span>
 
                         <?php } else {
 
                             ?>
-                            <div class="comm"><a
-                                        href="../index.php?controller=user&action=details&id_event=<?= $event->id_event ?>">
-                                    Plus d'infos </a></div>
+                            <div class="comm"><a href="../index.php?controller=user&action=details&id_event=<?= $event->id_event ?>">Plus d'infos </a></div>
                         <?php }
 
                     }
                  } ?>
 
+             </ul>
 
             </div>
 

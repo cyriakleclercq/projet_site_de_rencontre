@@ -6,7 +6,7 @@ if (isset($_SESSION['rank'])) { ?>
     <div id="deco">
 
         <span> Bonjour <?= $_SESSION['pseudo']?></span>
-        <a href="../index.php?controller=user&action=logout"> <img src="../css/Logout.png" id="img_logout" alt="image de logout"> </a>
+        <a id="logout" href="../index.php?controller=user&action=logout"> <img src="../css/Logout.png" id="img_logout" alt="image de logout"> </a>
 
     </div>
 
@@ -15,7 +15,7 @@ if (isset($_SESSION['rank'])) { ?>
 <header>
 
 
-    <div id="head">
+    <div id="head" class="header">
         <a href="../index.php"> page d'accueil </a>
 
 

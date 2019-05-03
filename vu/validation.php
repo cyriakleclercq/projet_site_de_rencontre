@@ -7,7 +7,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>page d'accueil </title>
+    <title>page de confirmation </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -17,7 +17,7 @@
 <div class="container">
 
 
-    <div class="form">
+    <div class="form flex">
 
 <?php if ($_SESSION['rank']) { ?>
 

@@ -5,7 +5,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>page d'accueil </title>
+    <title>Vos sorties </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
 
@@ -35,55 +35,65 @@
         <?php foreach ($listSorties as $sortie ) {
 
             if (strtotime($sortie->date) - time() > 0) { ?>
+        <div class="form">
+
+            <div>
+
+                <div class="formG">
+
+                    <h4><?= $sortie->title ?> </h4>
+
+                </div>
+
+                <div class="formD" style="text-align: right">
+
+                   <span> par <?= $sortie->pseudo ?>  </span>
+
+                </div>
 
 
-            <table>
+            </div>
 
-                <th> Titre </th>
-                <th> Description de l'event </th>
-                <th> Adresse </th>
-                <th> Ville </th>
-                <th> nombre de place </th>
-                <th> Date </th>
-                <th> Heure </th>
-                <th> Organisateur </th>
-                <th> Voir les commentaires </th>
+            <hr style="clear: both">
+
+            <div>
+
+                <span> à <?= $sortie->city ?> le <?= strftime('%d-%m-%Y', strtotime($sortie->date)) ?> pour <?= $sortie->hours ?> </span>
+
+            </div>
+
+            <div>
+                <span>adresse : <?= $sortie->place ?> </span>
+            </div>
+
+            <div>
+                <span> description : <?= $sortie->event_describe ?></span>
+            </div>
+
+            <div>
+                <span> nombre de participant désiré : <?= $sortie->number_of_places ?></span>
+
+            </div>
+
+            <div class="crudUser">
+
+                <a href="../index.php?controller=user&action=details&id_event=<?=$sortie->id_event?>"> Commentaires </a>
 
                 <?php if (!$_REQUEST['id_user'])
                 { ?>
-                    <th> Participation </th>
+
+                    <a href="../index.php?controller=user&action=abandon&id_event=<?= $sortie->id_event ?>&sortie" onclick="return confirm('êtes vous sûr de ne plus vouloir participer à cet évènement ?')"> Annuler </a>
 
                 <?php } ?>
 
+            </div>
 
-                <tr>
-
-                    <td><?= $sortie->title ?></td>
-                    <td><?= $sortie->event_describe ?></td>
-                    <td><?= $sortie->place ?></td>
-                    <td><?= $sortie->city ?></td>
-                    <td><?= $sortie->number_of_places ?></td>
-                    <td><?= strftime('%d-%m-%Y', strtotime($sortie->date)) ?></td>
-                    <td><?= $sortie->hours ?></td>
-                    <td><?= $sortie->pseudo ?></td>
-                    <td> <a href="../index.php?controller=user&action=details&id_event=<?=$sortie->id_event?>"> Commentaires </a> </td>
-
-                    <?php if (!$_REQUEST['id_user'])
-                        { ?>
-
-                            <td> <a href="../index.php?controller=user&action=abandon&id_event=<?= $sortie->id_event ?>&sortie" onclick="return confirm('êtes vous sûr de ne plus vouloir participer à cet évènement ?')"> Annuler </a> </td>
-
-                        <?php } ?>
-
-
-                </tr>
-
-            </table>
+        </div>
 
         <?php }
         }  ?>
 
-</div>
+
 
 </section>
 

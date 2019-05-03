@@ -5,7 +5,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>page d'accueil </title>
+    <title>Vos events </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
 
@@ -28,38 +28,39 @@
 
                 if (strtotime($event->date) - time() > 0) { ?>
 
+                    <div class="form">
 
-                    <table>
+                        <h4><?= $event->title ?></h4>
 
-                    <th> Titre </th>
-                    <th> Description de l'event </th>
-                    <th> Adresse </th>
-                    <th> Ville </th>
-                    <th> nombre de place </th>
-                    <th> Date </th>
-                    <th> Heure </th>
-                    <th> commentaires</th>
+                        <hr>
 
-                    <th> delete </th>
-                    <th> edit </th>
+                        <div>
 
-                    <tr>
+                            <span> à <?= $event->city ?> le <?= strftime('%d-%m-%Y', strtotime($event->date)) ?> pour <?= $event->hours ?> </span>
 
-                        <td><?= $event->title ?></td>
-                        <td><?= $event->event_describe ?></td>
-                        <td><?= $event->place ?></td>
-                        <td><?= $event->city ?></td>
-                        <td><?= $event->number_of_places ?></td>
-                        <td><?= strftime('%d-%m-%Y', strtotime($event->date)) ?></td>
-                        <td><?= $event->hours ?></td>
-                        <td> <a href="../index.php?controller=user&action=details&id_event=<?=$event->id_event?>""> details </a></td>
-                        <td> <a href="../index.php?controller=user&action=deleteEvent&id=<?=$event->id_event ?>" onclick="return confirm('êtes vous sûr de vouloir supprimer cet evenement ?')"> delete </a> </td>
-                        <td> <a href="../index.php?controller=user&action=edit&id_event=<?= $event->id_event ?>&title=<?= $event->title ?>&place=<?=$event->place ?>&city=<?=$event->city ?>&description=<?=$event->event_describe ?>&nbr=<?=$event->number_of_places ?>&date=<?=$event->date ?>&hours=<?=$event->hours ?>"> edit </a> </td>
+                        </div>
 
+                        <div>
+                            <span>adresse : <?= $event->place ?> </span>
+                        </div>
 
-                    </tr>
+                        <div>
+                            <span> description : <?= $event->event_describe ?></span>
+                        </div>
 
-                </table>
+                        <div>
+                            <span> nombre de participant désiré : <?= $event->number_of_places ?></span>
+
+                        </div>
+
+                        <div class="crudUser">
+
+                             <a href="../index.php?controller=user&action=details&id_event=<?=$event->id_event?>""> details </a>
+                             <a href="../index.php?controller=user&action=deleteEvent&id=<?=$event->id_event ?>" onclick="return confirm('êtes vous sûr de vouloir supprimer cet evenement ?')"> delete </a>
+                             <a href="../index.php?controller=user&action=edit&id_event=<?= $event->id_event ?>&title=<?= $event->title ?>&place=<?=$event->place ?>&city=<?=$event->city ?>&description=<?=$event->event_describe ?>&nbr=<?=$event->number_of_places ?>&date=<?=$event->date ?>&hours=<?=$event->hours ?>"> edit </a>
+
+                        </div>
+                    </div>
 
             <?php }
             }  ?>

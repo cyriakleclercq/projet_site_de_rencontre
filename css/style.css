@@ -1,58 +1,54 @@
+input, a, .about>textarea, .header {
+    padding: 8px 20px 8px 20px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.12);
+    font: normal 30px 'Bitter',serif;
+    border: 1px solid #257c9e;
+    font-size: 15px;
+    
+}
+
+div, ul {
+    color: #2a88ad;
+}
+
+a, .bouton {
+    background: #2a88ad;
+    color: ghostwhite;
+}
+
+#logout {
+    background: white;
+    border: none;
+    padding: 0;
+}
+
+a:hover, .bouton:hover {
+    color: #2a88ad;
+    background: ghostwhite;
+    text-decoration: none;
+}
+
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
     border: solid 3px;
     margin-right: 20%;
     margin-left: 20%;
     padding: 3%;
+    background: #88888836;
 }
 .form > input {
     margin: 1%;
 }
 
-.form>textarea {
-    height: 80px;
-    width: 70%;
-}
-
 h1 {
     text-align: center;
-    margin: 5%;
-}
-
-table{
-    font-size: 12px;
-    width: 100%;
-    margin-bottom: 5%;
-}
-
-td, th {
-    background: slategrey;
-    color: whitesmoke;
-    border: solid black 2px;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    background: black;
-    color: white;
-    text-align: center;
-}
-
-td >a {
-    color: #06407b;
+    margin: 3%;
 }
 
 .comm {
     margin-bottom: 5%;
-}
-
-#table {
-    margin-bottom: 0%;
 }
 
 .div_comm, .pseudoComm {
@@ -95,7 +91,7 @@ td >a {
 #head {
     padding-top: 3%;
     padding-bottom: 3%;
-    border: solid;
+    border: solid 2px;
     clear: both;
     display: flex;
     flex-direction: row;
@@ -111,5 +107,75 @@ td >a {
     margin-right: 2%;
     margin-left: 1%;
 }
+
+.formG {
+    float: left;
+    width: 50%;
+
+}
+
+.formD {
+    float: right;
+    width: 50%;
+}
+
+.about {
+    clear: both;
+}
+
+.about >input {
+    margin-top: 2%;
+}
+
+.about >textarea {
+    height: 80px;
+    width: 70%;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#searchHomepage {
+    margin-bottom: 4%;
+}
+
+.ulHomepage >li {
+    font-size: x-large;
+}
+
+.ulHomepage >span {
+    font-size: smaller;
+}
+
+.crudUser {
+    margin-top: 3%;
+}
+
+.crudUser> a {
+    margin-right: 2%;
+}
+
+.friend {
+    margin: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info {
+    padding-left: 2%;
+}
+
+.perso {
+    padding-top: 2%;
+}
+
+.center {
+    text-align: center;
+}
+
 
 

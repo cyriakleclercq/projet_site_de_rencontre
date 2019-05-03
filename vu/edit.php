@@ -7,7 +7,7 @@ if ($_SESSION['rank'])
     <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>page d'inscrption </title>
+        <title>page d'edition </title>
         <link rel="stylesheet" href="../css/bootstrap.css">
         <link rel="stylesheet" href="../css/style.css">
     </head>
@@ -30,28 +30,44 @@ if ($_SESSION['rank'])
 
                 <input type="text" style="display: none" name="id_event" required id="inp_id" value="<?= $_GET['id_event'] ?>">
 
-                <label for="inp_title"> Titre de l'event  </label>
-                <input type="text" name="title" id="inp_title" required value="<?= $_GET['title'] ?>">
 
-                <label for="inp_place"> Adresse de l'event  </label>
-                <input type="text" name="place" id="inp_place" required value="<?= $_GET['place'] ?>">
+                <div class="formG flex">
 
-                <label for="inp_city"> Ville de l'event  </label>
-                <input type="text" name="city" id="inp_city" required value="<?= $_GET['city'] ?>">
+                    <label for="inp_title"> Titre de l'event  </label>
+                    <input type="text" name="title" id="inp_title" required value="<?= $_GET['title'] ?>">
 
-                <label for="inp_event_describe"> Description de l'event  </label>
-                <input type="text" name="event_describe" id="inp_event_describe" required value="<?= $_GET['description'] ?>">
+                    <label for="inp_place"> Adresse de l'event  </label>
+                    <input type="text" name="place" id="inp_place" required value="<?= $_GET['place'] ?>">
 
-                <label for="inp_number_of_places"> Nombre de participant désiré </label>
-                <input type="number" name="number_of_places" id="inp_number_of_places" required value="<?= $_GET['nbr'] ?>">
+                    <label for="inp_city"> Ville de l'event  </label>
+                    <input type="text" name="city" id="inp_city" required value="<?= $_GET['city'] ?>">
 
-                <label for="inp_date"> Date de l'event </label>
-                <input type="date" name="date" id="inp_date" required value="<?= $_GET['date'] ?>">
+                </div>
 
-                <label for="inp_hours"> heure de l'event </label>
-                <input type="time" name="hours" id="inp_hours" required value="<?= $_GET['hours'] ?>">
+                <div class="formD flex">
 
-                <input type="submit" value="valider">
+                    <label for="inp_number_of_places"> Nombre de participant désiré </label>
+                    <input type="number" name="number_of_places" id="inp_number_of_places" required value="<?= $_GET['nbr'] ?>">
+
+                    <label for="inp_date"> Date de l'event </label>
+                    <input type="date" name="date" id="inp_date" required value="<?= $_GET['date'] ?>">
+
+                    <label for="inp_hours"> heure de l'event </label>
+                    <input type="time" name="hours" id="inp_hours" required value="<?= $_GET['hours'] ?>">
+
+                </div>
+
+                <div class="about flex">
+
+                    <label for="inp_event_describe"> Description de l'event  </label>
+                    <textarea name="event_describe" id="inp_event_describe" required> <?= $_GET['description'] ?> </textarea>
+
+
+
+                    <input type="submit" value="valider">
+
+                </div>
+
 
             </form>
 
@@ -86,44 +102,56 @@ if ($_SESSION['rank'])
         if (isset($_GET['name']) && isset($_GET['surname']))
             { ?>
 
-                <h1> edition de votre profil <?= $_GET['name'] ?> <?=$_GET['surname'] ?> : </h1>
+                <h1> edition de ton profil, <?= $_GET['name'] ?> : </h1>
 
                 <section>
 
                     <form action="../index.php?controller=user&action=editProfil" method="post" class="form">
 
-                        <label for="inp_name"> name : </label>
-                        <input type="text" id="inp_name" required name="name" value="<?= $_GET['name'] ?>">
+                        <div class="formG flex">
 
-                        <label for="inp_surname"> surname : </label>
-                        <input type="text" id="inp_surname" required name="surname" value="<?= $_GET['surname'] ?>">
+                            <label for="inp_name"> name : </label>
+                            <input type="text" id="inp_name" required name="name" value="<?= $_GET['name'] ?>">
 
-                        <label for="inp_sexe"> sexe : </label>
-                        <select name="sexe" id="inp_sexe">
-                            <option value="<?= $_GET['sexe'] ?>" selected> <?= $_GET['sexe'] ?> </option>
-                            <option value="femme"> femme </option>
-                            <option value="homme"> homme </option>
-                        </select>
+                            <label for="inp_surname"> surname : </label>
+                            <input type="text" id="inp_surname" required name="surname" value="<?= $_GET['surname'] ?>">
 
-                        <label for="inp_mail"> adresse mail : </label>
-                        <input type="email" id="inp_mail" required name="mail" value="<?= $_GET['mail'] ?>">
+                            <label for="inp_sexe"> sexe : </label>
+                            <select name="sexe" id="inp_sexe">
+                                <option value="<?= $_GET['sexe'] ?>" selected> <?= $_GET['sexe'] ?> </option>
+                                <option value="femme"> femme </option>
+                                <option value="homme"> homme </option>
+                            </select>
 
-                        <label for="inp_age"> age : </label>
-                        <input type="number" id="inp_age" required name="age" value="<?= $_GET['age'] ?>">
+                            <label for="inp_mail"> adresse mail : </label>
+                            <input type="email" id="inp_mail" required name="mail" value="<?= $_GET['mail'] ?>">
 
-                        <label for="inp_city"> ville : </label>
-                        <input type="text" id="inp_city" required name="city" value="<?= $_GET['city'] ?>">
+                        </div>
 
-                        <label for="inp_pseudo"> pseudo : </label>
-                        <input type="text" id="inp_pseudo" required name="pseudo" value="<?= $_GET['pseudo'] ?>">
+                        <div class="formD flex">
 
-                        <label for="inp_password"> password : </label>
-                        <input type="text" id="inp_password" required name="password" value="<?= $_GET['password'] ?>">
+                            <label for="inp_age"> age : </label>
+                            <input type="number" id="inp_age" required name="age" value="<?= $_GET['age'] ?>">
 
-                        <label for="inp_about"> à propos : </label>
-                        <textarea id="inp_about" required name="about"> <?= $_GET['about'] ?> </textarea>
+                            <label for="inp_city"> ville : </label>
+                            <input type="text" id="inp_city" required name="city" value="<?= $_GET['city'] ?>">
 
-                        <input type="submit" value="valider">
+                            <label for="inp_pseudo"> pseudo : </label>
+                            <input type="text" id="inp_pseudo" required name="pseudo" value="<?= $_GET['pseudo'] ?>">
+
+                            <label for="inp_password"> password : </label>
+                            <input type="text" id="inp_password" required name="password" value="<?= $_GET['password'] ?>">
+
+                        </div>
+
+                        <div class="about flex ">
+
+                            <label for="inp_about"> à propos : </label>
+                            <textarea id="inp_about" required name="about"> <?= $_GET['about'] ?> </textarea>
+
+                            <input type="submit" value="valider" class="bouton">
+
+                        </div>
 
                     </form>
 

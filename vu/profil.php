@@ -23,157 +23,207 @@
 
         <h1> Vos informations :</h1>
 
-        <div>
+        <div class="form info">
 
             <?php foreach ($profil as $i ) { ?>
 
-                <table>
+                <div class="formG">
 
-                    <th> name</th>
-                    <th> surname</th>
-                    <th> sexe </th>
-                    <th> age </th>
-                    <th> mail </th>
-                    <th> city </th>
-                    <th> pseudo </th>
-                    <th> password</th>
-                    <th> about </th>
-                    <th> supprimer votre compte </th>
-                    <th> editer vos informations </th>
+                    <div>
+                        <span>nom : <?= $i->surname ?> </span>
+                    </div>
 
-                    <tr>
+                    <div>
+                        <span>prénom : <?= $i->name ?></span>
+                    </div>
 
-                        <td><?= $i->name ?></td>
-                        <td><?= $i->surname ?></td>
-                        <td><?= $i->sexe ?> </td>
-                        <td><?= $i->age ?></td>
-                        <td><?= $i->mail ?></td>
-                        <td><?= $i->city ?></td>
-                        <td><?= $i->pseudo ?></td>
-                        <td><?= $i->password ?></td>
-                        <td><?= $i->about ?></td>
+                    <div>
+                        <span>sexe : <?= $i->sexe ?></span>
+                    </div>
 
-                        <td> <a href="../index.php?controller=user&action=deleteProfil" onclick="return confirm('êtes vous sûr de vouloir supprimer votre compte ?');"> delete </a> </td>
-                        <td> <a href="../index.php?controller=user&action=edit&name=<?=$i->name ?>&sexe=<?=$i->sexe ?>&surname=<?=$i->surname ?>&age=<?=$i->age ?>&mail=<?=$i->mail ?>&city=<?=$i->city ?>&pseudo=<?=$i->pseudo ?>&password=<?=$i->password ?>&about=<?=$i->about ?>"> edit </a> </td>
+                    <div>
+                        <span>age : <?= $i->age ?></span>
+                    </div>
 
+                </div>
 
-                    </tr>
+              <div class="formD">
 
-                </table>
+                  <div>
+                      <span>adresse mail : <?= $i->mail ?></span>
+                  </div>
+
+                  <div>
+                      <span>Ville : <?= $i->city ?></span>
+                  </div>
+
+                  <div>
+                      <span>Pseudo : <?= $i->pseudo ?></span>
+                  </div>
+
+                  <div>
+                      <span>A propos : <?= $i->about ?></span>
+                  </div>
+
+              </div>
+
+                <div class="crudUser about perso">
+
+                    <a href="../index.php?controller=user&action=deleteProfil" onclick="return confirm('êtes vous sûr de vouloir supprimer votre compte ?');"> delete </a>
+                    <a href="../index.php?controller=user&action=edit&name=<?=$i->name ?>&sexe=<?=$i->sexe ?>&surname=<?=$i->surname ?>&age=<?=$i->age ?>&mail=<?=$i->mail ?>&city=<?=$i->city ?>&pseudo=<?=$i->pseudo ?>&password=<?=$i->password ?>&about=<?=$i->about ?>"> edit </a>
+
+                </div>
 
             <?php } ?>
 
         </div>
 
+        <div class="formG">
 
-    </section>
+            <section>
 
-    <section>
+                <div class="form">
 
-        <h3> rechercher un utilisateur : </h3>
+                    <h3 class="center""> Vos amis : </h3>
 
-        <form action="../index.php?controller=user&action=profil" method="post" class="form">
-
-            <label for="inp_pseudo"> pseudo : </label>
-            <input type="text" id="inp_pseudo" required name="pseudo">
-
-            <input type="submit" value="rechercher">
-
-        </div>
-
-    </section>
-
-    <section>
-
-
-        <?php if($reponse || $search )
-            { ?>
-
-            <div class="form">
-
-                <?php if ($reponse)
-
-                    { ?>
-
-                    <p> <?= $reponse ?> </p>
-
-               <?php } elseif ($search[0]->pseudo !== $_SESSION['pseudo']) { ?>
-
-
-                    <p> <?= $search[0]->pseudo ?> </p>
-                    <p> <?= $search[0]->sexe ?> </p>
-                    <p> <?= $search[0]->age ?> ans </p>
-                    <p> <?= $search[0]->about ?> </p>
-
-                    <?php if (!$checkFriend)
+                    <?php if ($friends)
+                    {
+                        foreach ($friends as $friend)
                         { ?>
 
-                    <a href="../index.php?controller=user&action=friend&id_friend=<?= $search[0]->id_user ?>"> demander en ami </a>
+                            <div class="crudUser friend"">
 
-                            <?php }
-                 } else {
-                    ?>
-                <p> Vos infos sont déjà plus haut :p </p>
+                                <a href="../index.php?controller=user&action=vosSorties&id_user=<?= $friend->id_user ?>"> <?= $friend->pseudo ?> </a>
+                                <a href="../index.php?controller=user&action=deleteFriend&id_friend=<?= $friend->id_user ?>"> retirer de vos amis </a>
 
-                <?php
+                            </div>
 
-                } ?>
+                        <?php }
+                    } ?>
 
-            </div>
+                </div>
 
-        <?php } ?>
+        <section>
 
-    </section>
-
-    <section>
-
-        <?php if ($check)
+            <?php if ($check)
             { ?>
 
                 <div class="form">
 
-                <h3> Vos demandes d'amis : </h3>
+                    <h3> Vos demandes d'amis : </h3>
 
-                    <div class="form">
+
 
                         <?php foreach ($check as $i)
-                            { ?>
+                        { ?>
+                    <div class="friend">
 
-                        <p> <?= $i->pseudo ?> </p>
-                        <p> <?= $i->age ?> ans </p>
-                        <p> <?= $i->about ?></p>
-                        <a href="../index.php?controller=user&action=confirm&id_friend=<?= $i->id_user ?>"> accepter </a>
-                        <a href="../index.php?controller=user&action=refus&id_friend=<?=$i->id_user ?>" onclick="return confirm('êtes vous sûr de vouloir refuser cette demande ?')"> refuser </a>
+                        <div class="flex">
 
-                                <?php }?>
+                            <span> <?= $i->pseudo ?> </span>
+                            <span> <?= $i->age ?> ans </span>
+
+                        </div>
+
+                        <div class="crudUser">
+
+                            <a href="../index.php?controller=user&action=confirm&id_friend=<?= $i->id_user ?>"> accepter </a>
+                            <a href="../index.php?controller=user&action=refus&id_friend=<?=$i->id_user ?>" onclick="return confirm('êtes vous sûr de vouloir refuser cette demande ?')"> refuser </a>
+
+                        </div>
+
                     </div>
+                        <?php }?>
+
 
                 </div>
 
-           <?php } ?>
+            <?php } ?>
+
+
+        </section>
+
+            </section>
+
+
+        </div>
+
+        <div class="formD">
+
+            <section>
+
+
+
+                <form action="../index.php?controller=user&action=profil" method="post" class="form flex">
+
+                    <h3 style="text-align: center"> Rechercher un utilisateur : </h3>
+
+                    <label for="inp_pseudo"> pseudo : </label>
+                    <input type="text" id="inp_pseudo" required name="pseudo">
+
+                    <input type="submit" value="rechercher" class="bouton">
+
+                </form>
+
+            </section>
+
+            <?php if($reponse || $search )
+            { ?>
+
+                <div class="form flex">
+
+                    <?php if ($reponse)
+
+                    { ?>
+
+                        <p> <?= $reponse ?> </p>
+
+                    <?php } elseif ($search[0]->pseudo !== $_SESSION['pseudo']) { ?>
+
+
+                        <span> <?= $search[0]->pseudo ?> </span>
+                        <span> <?= $search[0]->sexe ?> </span>
+                        <span> <?= $search[0]->age ?> ans </span>
+                        <span> <?= $search[0]->about ?> </span>
+
+                        <?php if (!$checkFriend)
+                        { ?>
+
+                            <div class="crudUser">
+
+                                <a href="../index.php?controller=user&action=friend&id_friend=<?= $search[0]->id_user ?>"> demander en ami </a>
+
+                            </div>
+
+                        <?php }
+                    } else {
+                        ?>
+                        <p> Vos infos sont déjà plus haut :p </p>
+
+                        <?php
+
+                    } ?>
+
+                </div>
+
+            <?php } ?>
+
+
+        </div>
+
+
+
 
 
     </section>
 
-        <section>
 
-            <div class="form">
 
-                <h3> Vos amis : </h3>
 
-                <?php if ($friends)
-{
-    foreach ($friends as $friend)
-    { ?>
 
-        <a href="../index.php?controller=user&action=vosSorties&id_user=<?= $friend->id_user ?>"> <?= $friend->pseudo ?> </a>
-        <a href="../index.php?controller=user&action=deleteFriend&id_friend=<?= $friend->id_user ?>"> retirer de vos amis </a>
 
-    <?php }
-} ?>
 
-            </div>
-        </section>
+
 
     <footer>  </footer>
 
