@@ -29,129 +29,124 @@
 
             <?php foreach ($details as $detail ) { ?>
 
-                    <table>
+                <div class="form">
 
-                        <th> Titre </th>
-                        <th> Description de l'event </th>
-                        <th> Adresse </th>
-                        <th> Ville </th>
-                        <th> nombre de place </th>
-                        <th> Date </th>
-                        <th> Heure </th>
 
-                        <tr>
+                    <h4><?= $detail->title ?></h4>
 
-                            <td><?= $detail->title ?></td>
-                            <td><?= $detail->event_describe ?></td>
-                            <td><?= $detail->place ?></td>
-                            <td><?= $detail->city ?></td>
-                            <td><?= $detail->number_of_places ?></td>
-                            <td><?= strftime('%d-%m-%Y', strtotime($detail->date)) ?></td>
-                            <td><?= $detail->hours ?></td>
+                    <hr>
 
-                        </tr>
+                    <div>
 
-                    </table>
+                        <span> à <?= $detail->city ?> le <?= strftime('%d-%m-%Y', strtotime($detail->date)) ?> pour <?= $detail->hours ?> </span>
+
+                    </div>
+
+                    <div>
+                        <span>adresse : <?= $detail->place ?> </span>
+                    </div>
+
+                    <div>
+                        <span> description : <?= $detail->event_describe ?></span>
+                    </div>
+
+                    <div>
+                        <span> nombre de participant désiré : <?= $detail->number_of_places ?></span>
+
+                    </div>
+
+                    <div>
+                        <span>Nombre de participant : <?= count($participants) ?> / <?= $details[0]->number_of_places ?></span>
+
+                    </div>
+
+
+
+
+                </div>
+
 
                 <input type="text" style="display: none" id="id_comm" value=" <?= $_GET['id_event'] ?>">
 
 
+        </div>
 
 
                 <?php } ?>
 
-        </div>
 
     </section>
 
     <section>
-        <h3> Participants à l'event :</h3>
+        <h3 class="center"> Participants à l'event :</h3>
 
         <div>
 
+            <div class="form flex">
+
             <?php foreach ($adherents as $adherent ) { ?>
 
-                <table>
+                    <div>
 
-                    <th> pseudo </th>
-                    <th> age </th>
-                    <th> sexe </th>
-
-                    <tr>
-
-                        <td><?= $adherent->pseudo ?></td>
-                        <td><?= $adherent->age ?></td>
-                        <td><?= $adherent->sexe ?></td>
-
-                    </tr>
-
-                </table>
+                        <span><?= $adherent->pseudo ?>, </span>
+                        <span><?= $adherent->age ?> ans</span>
+                        <span><?= $adherent->sexe ?></span>
 
 
-            <?php } ?>
+                    </div>
+
+            <?php }
+
+                if (!empty($participations)) {
+                    ?>
+                    <a href="../index.php?controller=user&action=abandon&id_event=<?= $_GET['id_event'] ?>" class="crudUser" onclick="return confirm('êtes vous sûr de ne plus vouloir participer à cet évènement ?')"> Ne plus participer </a>
+
+                    <?php
+                };
+
+                if ((int)$details[0]->number_of_places > (int)count($participants)) {
+
+                    if (empty ($participations)) {
+                        ?>
+
+                        <a href="../index.php?controller=user&action=participation&id_event=<?= $_GET['id_event'] ?>" class="crudUser"> participer à l'event </a>
+
+                    <?php }
+                }?>
+
+            </div>
+
 
         </div>
 
 
     </section>
 
-    <section>
-
-        <?php
-
-            if (!empty($participations)) {
-                ?>
-                <a href="../index.php?controller=user&action=abandon&id_event=<?= $_GET['id_event'] ?>" onclick="return confirm('êtes vous sûr de ne plus vouloir participer à cet évènement ?')"> Ne plus participer </a>
-
-            <?php
-        };
-
-            if ((int)$details[0]->number_of_places > (int)count($participants)) {
-
-                if (empty ($participations)) {
-                    ?>
-
-                    <a href="../index.php?controller=user&action=participation&id_event=<?= $_GET['id_event'] ?>"> participer à l'event </a>
-
-                <?php }
-            }?>
-
-    </section>
-
-    <section>
-
-        nombre de participant : <?= count($participants) ?> / <?= $details[0]->number_of_places ?>
-
         <?php if ($_SESSION['rank'] == 2) { ?>
 
-            <span id="rank_admin"> <?= $_SESSION['id_user'] ?> </span>
+            <span style="display: none" id="rank_admin"> <?= $_SESSION['id_user'] ?> </span>
 
         <?php }
 
         if ($_SESSION['rank'] == 1) { ?>
 
-            <span id="rank_user"> <?= $_SESSION['id_user'] ?> </span>
+            <span style="display: none" id="rank_user"> <?= $_SESSION['id_user'] ?> </span>
 
         <?php }
         ?>
 
-    </section>
-
     <section>
 
-        <form action="" class="form">
+        <form action="" class="form flex">
 
             <label for="comm"> commentaire : </label>
             <textarea id="comm" required> </textarea>
 
-            <input type="button" id="bt_comm" value="valider">
+            <input type="button" id="bt_comm" value="valider" class="bouton">
 
         </form>
 
-        <div id="commentaire">
-
-        <div id="supp"> </div>
-        </div>
+        <div id="commentaire"> </div>
 
 
 
@@ -160,13 +155,9 @@
     <footer>  </footer>
 
 
-    <script src="../script.js"></script>
 </div>
 
-</body>
-</html>
-
-    <?php } else {
+<?php } else {
     ?>
 
     <div class="form">
@@ -176,4 +167,9 @@
     </div>
 
     <?php
-}
+} ?>
+
+<script src="../script.js"></script>
+</body>
+</html>
+

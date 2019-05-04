@@ -64,7 +64,7 @@ if ($_SESSION['rank'])
 
 
 
-                    <input type="submit" value="valider">
+                    <input type="submit" value="valider" class="bouton">
 
                 </div>
 
@@ -82,7 +82,7 @@ if ($_SESSION['rank'])
 
         <section>
 
-            <form action="../index.php?controller=user&action=editComm" method="post" class="form">
+            <form action="../index.php?controller=user&action=editComm" method="post" class="form flex">
 
                 <input type="text" style="display: none" name="id_event" value="<?= $_GET['id_event'] ?>">
 
@@ -91,7 +91,7 @@ if ($_SESSION['rank'])
                 <label for="comm"> commentaire : </label>
                 <textarea id="comm" name="comment" required> <?= $_GET['comment'] ?> </textarea>
 
-                <input type="submit" value="valider">
+                <input type="submit" value="valider" class="bouton">
 
             </form>
 

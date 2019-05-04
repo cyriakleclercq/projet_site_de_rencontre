@@ -28,8 +28,9 @@
             <label for="titreContact"> titre : </label>
             <input type="text" id="titreContact" required name="titre">
 
+
             <label for="messageContact"> message : </label>
-            <textarea id="messageContact" name="message" required> </textarea>
+            <textarea id="messageContact" class="about" name="message" required> </textarea>
 
             <input type="submit" id="bt_contact" value="valider" class="bouton">
 

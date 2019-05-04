@@ -55,6 +55,11 @@ h1 {
     border: solid;
     margin-left: 20%;
     clear: both;
+    background: #88888836;
+}
+
+.pseudoComm {
+    font-size: 20px;
 }
 
 .comment{
@@ -98,6 +103,15 @@ h1 {
     justify-content: space-around;
 }
 
+.header>a {
+    padding: 8px 20px 8px 20px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.12);
+    font: normal 15px 'Bitter',serif;
+    border: 1px solid #257c9e;
+    font-size: 13px;
+}
+
 #img_logout {
     height: 20px;
     width: 20px;
@@ -127,7 +141,7 @@ h1 {
     margin-top: 2%;
 }
 
-.about >textarea {
+textarea {
     height: 80px;
     width: 70%;
 }
@@ -176,6 +190,48 @@ h1 {
 .center {
     text-align: center;
 }
+
+.aComm {
+    width: 17%;
+    margin: 1%;
+}
+
+table{
+    font-size: 12px;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+td, th {
+    background: slategrey;
+    color: whitesmoke;
+    border: solid black 2px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #2a88ad;
+    color: white;
+    text-align: center;
+}
+
+td >a {
+    color: whitesmoke;
+    padding: 0;
+    border: none;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.12);
+    font: normal 30px 'Bitter',serif;
+    font-size: 12px;
+    background: none;
+}
+
+td >a:hover {
+    background: none;
+    color: black;
+}
+
 
 
 

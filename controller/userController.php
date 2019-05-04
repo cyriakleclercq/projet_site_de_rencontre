@@ -327,7 +327,13 @@ class userController extends controller
         $id_event = $_REQUEST['id_event'];
         filter_var($id_event, FILTER_SANITIZE_NUMBER_INT);
 
-        $participe = $this->model->setParticipation($this->id_user,$id_event);
+        $checkParticipant = $this->model->getParticipation($id_event, $this->id_user);
+
+        if ($checkParticipant == null)
+        {
+            $participe = $this->model->setParticipation($this->id_user,$id_event);
+
+        }
 
         $this->details();
     }

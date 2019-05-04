@@ -14,16 +14,16 @@
     <?php include "header.php" ?>
 
 
-    <h1> Veuillez renseigner votre adresse mail : </h1>
+    <h1 style="margin-bottom: 7%"> Veuillez renseigner votre adresse mail : </h1>
 
     <section>
 
-        <form action="../index.php?controller=visitor&action=forgotPassword" method="post" class="form">
+        <form action="../index.php?controller=visitor&action=forgotPassword" method="post" class="form flex">
 
-            <label for="inp_mail"> mail : </label>
+            <label for="inp_mail"> Adresse mail : </label>
             <input type="email" id="inp_mail" required name="mail">
 
-            <input type="submit" value="valider">
+            <input type="submit" value="valider" class="bouton">
 
             <?= $reponse ?>
 

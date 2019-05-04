@@ -24,7 +24,9 @@ function ajaxRequest()
 
         if (this.readyState == 4 && this.status == 200) {
 
-            $('#commentaire > div, span, h4').remove();
+            $('#commentaire > div').remove();
+            $('#commentaire > span').remove();
+            $('#commentaire > h4').remove();
 
             var objQuete = this.responseText;
 
@@ -40,7 +42,7 @@ function ajaxRequest()
             let pseudo = document.createElement("div");
             pseudo.className = "pseudoComm";
             commentary.appendChild(pseudo);
-            pseudo.innerHTML = commentaire[i].pseudo+" -"+commentaire[i].sexe+ " -age : "+commentaire[i].age+" ans";
+            pseudo.innerHTML = commentaire[i].pseudo+" -"+commentaire[i].sexe+ " "+commentaire[i].age+" ans";
 
             let div_comm = document.createElement("div");
             div_comm.className = "div_comm";
@@ -56,11 +58,15 @@ function ajaxRequest()
             div_comm.appendChild(date);
             date.innerHTML = commentaire[i].date;
 
+            let a = document.createElement("div");
+            a.className = "friend aComm";
+            div_comm.appendChild(a);
+
             if (verif)
             {
 
                 let suppr = document.createElement("a");
-                div_comm.appendChild(suppr);
+                a.appendChild(suppr);
                 suppr.className = "supprComm";
                 suppr.innerHTML = "supprimer";
                 suppr.href = "../index.php?controller=admin&action=deleteComm&id_comment="+commentaire[i].id_comment+"&id_event="+commentaire[i].id_event;
@@ -68,7 +74,7 @@ function ajaxRequest()
                 if (verif == Number(commentaire[i].id_user))
                 {
                     let edit = document.createElement("a");
-                    div_comm.appendChild(edit);
+                    a.appendChild(edit);
                     edit.className = "editComm";
                     edit.innerHTML = "editer";
                     edit.href = "../index.php?controller=user&action=edit&id_event="+commentaire[i].id_event+"&id_comment="+commentaire[i].id_comment+"&comment="+commentaire[i].comment;
@@ -81,13 +87,13 @@ function ajaxRequest()
             {
 
                 let suppr = document.createElement("a");
-                div_comm.appendChild(suppr);
+                a.appendChild(suppr);
                 suppr.className = "supprComm";
                 suppr.innerHTML = "supprimer";
                 suppr.href = "../index.php?controller=user&action=deleteComm&id_comment="+commentaire[i].id_comment+"&id_event="+commentaire[i].id_event;
 
                 let edit = document.createElement("a");
-                div_comm.appendChild(edit);
+                a.appendChild(edit);
                 edit.className = "editComm";
                 edit.innerHTML = "editer";
                 edit.href = "../index.php?controller=user&action=edit&id_event="+commentaire[i].id_event+"&id_comment="+commentaire[i].id_comment+"&comment="+commentaire[i].comment;
