@@ -5,6 +5,7 @@
     <title>page d'accueil </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../jquery.js"></script>
 
 </head>
@@ -22,11 +23,7 @@
             <h1> Liste des events :</h1>
 
 
-            <div class="row">
-
-                <div class="col-4"> </div>
-
-            <ul class="col-8 ulHomepage">
+            <ul class="ulHomepage">
 
                 <form action="../index.php" method="post" id="searchHomepage">
                     <label for="filtre"> rechercher une ville</label>
@@ -44,12 +41,12 @@
 
                         <?php if (!isset($_SESSION['name'])) { ?>
 
-                            <span class="comm"> Pour plus de détails, vous devez être connecté </span>
+                            <div class="comm"><span> Pour plus de détails, vous devez être connecté </span></div>
 
                         <?php } else {
 
                             ?>
-                            <div class="comm"><a href="../index.php?controller=user&action=details&id_event=<?= $event->id_event ?>">Plus d'infos </a></div>
+                            <div class="comm mt-2"><a href="../index.php?controller=user&action=details&id_event=<?= $event->id_event ?>">Plus d'infos </a></div>
                         <?php }
 
                     }
