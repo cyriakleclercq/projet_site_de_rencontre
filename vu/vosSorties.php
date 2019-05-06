@@ -8,6 +8,7 @@
     <title>Vos sorties </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -99,12 +100,14 @@
 
 </section>
 
-<footer>  </footer>
+<footer class="photo1 footer"> </footer>
+
 
 
 
 
 </div>
+<script src="../script2.js"></script>
 
 </body>
 </html>

@@ -154,7 +154,7 @@
 
     </section>
 
-    <footer>  </footer>
+    <footer class="photo1 footer mt-5" > </footer>
 
 
 </div>
@@ -172,6 +172,8 @@
 } ?>
 
 <script src="../script.js"></script>
+<script src="../script2.js"></script>
+
 </body>
 </html>
 

@@ -17,6 +17,9 @@ class ajaxController
         $this->model = new ajax();
 }
 
+    // affiche tous les commentaires d'un event et check la reception d'un commentaire
+    // en cas de reception d'un commentaire, instancie la methode ajaxpost
+
     public function ajaxCommentaire ()
     {
 
@@ -29,6 +32,7 @@ class ajaxController
         $this->model->getCommentaire($id);
     }
 
+    // envoi un commentaire dans le model
     public function ajaxPost ()
     {
 

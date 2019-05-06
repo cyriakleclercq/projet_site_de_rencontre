@@ -16,10 +16,14 @@ class adminController extends userController
         $this->model = new admin();
     }
 
+    // envoie vers la vue "editUser"
+
     public function editUserPage ()
     {
         include "vu/editUser.php";
     }
+
+    // envoie vers la page "affichageUser" en affichant les utilisateurs
 
     public function affichageUser ()
     {
@@ -27,6 +31,8 @@ class adminController extends userController
         include "vu/users.php";
     }
 
+    // reçoit les infos de la page "editUser", les filtres et les envoies dans le model
+    // redirige vers la methode "affichageUser"
     public function editUser ()
     {
         $id = $_REQUEST['id'];
@@ -71,11 +77,14 @@ class adminController extends userController
         }
     }
 
+    // envoie vers la page "affichageEvent" et affiche tous les events
     public function affichageEvent ()
     {
         $events = $this->model->getAllEvent();
         include "vu/affichageEvent.php";
     }
+
+    // supprime un utilisateur
 
     public function deleteUser ()
     {
@@ -85,6 +94,8 @@ class adminController extends userController
 
         $this->affichageUser();
     }
+
+    // supprime un event
 
     public function deleteEvent ()
     {

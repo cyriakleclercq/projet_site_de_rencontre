@@ -25,7 +25,7 @@ class controller
 
     }
 
-
+    // affiche les evenements dans la page d'accueil
     public function affichage ()
     {
 
@@ -37,11 +37,10 @@ class controller
             $listeEvents = $this->model->getEventFiltre($city);
 
         } else {
+            // affiche les evenements en fonction de la ville que recherche l'utilisateur
 
             $listeEvents = $this->model->getEvent();
         }
-
-
 
         include "vu/homePage.php";
     }

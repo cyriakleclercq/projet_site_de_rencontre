@@ -10,6 +10,7 @@
     <title>page de confirmation </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -21,16 +22,7 @@
 
     <div class="form flex">
 
-<?php if ($_SESSION['rank']) { ?>
-
-
-        <?php if ($inscription) { ?>
-
-            <p> <?= $inscription ?> </p>
-
-            <a href="../index.php?controller=visitor&action=connexionPage"> retour </a>
-
-        <?php }
+<?php if ($_SESSION['rank']) {
 
         if ($contactClose) { ?>
 
@@ -92,8 +84,14 @@
         <p> <?= $logout ?> </p>
 
 
-        <a href="index.php"> retour </a>
+        <a href="../index.php"> retour </a>
 
+
+        <?php } elseif ($inscription) { ?>
+
+        <p> <?= $inscription ?> </p>
+
+        <a href="../index.php?controller=visitor&action=connexionPage"> retour </a>
 
         <?php } else { ?>
 

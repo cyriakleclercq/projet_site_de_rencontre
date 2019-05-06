@@ -102,6 +102,7 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    background: #88888836;
 }
 
 .header>a {
@@ -234,6 +235,30 @@ td >a {
 td >a:hover {
     background: none;
     color: black;
+}
+
+footer {
+    width: 100%;
+    height: 200px;
+    border: solid;
+}
+
+.photo1 {
+    background-image: url("http://www.lesarcs.com/fileadmin/_processed_/7/0/csm_bandeau_tir_arc_a2d692208a.jpg");
+    background-repeat: round;
+    background-size: contain;
+}
+
+.photo2 {
+    background-image: url("https://www.opitrip.com/blog/wp-content/uploads/fete-777x437.jpg");
+    background-repeat: round;
+    background-size: contain;
+}
+
+.photo3 {
+    background-image: url("http://ekladata.com/yqsivo-QVAk8E5TykyEr5-3_fcA.jpg");
+    background-repeat: round;
+    background-size: contain;
 }
 
 

@@ -17,25 +17,28 @@ class userController extends controller
         $this->model = new user();
     }
 
-    public function homePage ()
-    {
-        include "vu/homePage.php";
-    }
+    // envoie vers la page contact
 
     public function contactPage ()
     {
         include "vu/contact.php";
     }
 
+    // envoie vers la page creation d'evenement
+
     public function createPage ()
     {
         include "vu/create.php";
     }
 
+    // envoie ver la page d'edition
+
     public function edit ()
     {
         include "vu/edit.php";
     }
+
+    //envoie vers la page "vosEvent" et affiche ces events
 
     public function vosEvent ()
     {
@@ -44,8 +47,12 @@ class userController extends controller
         include "vu/vosEvent.php";
     }
 
+    // envoie vers la page "vosSorties" et affiches ces sorties
+
     public function vosSorties ()
     {
+        // affiche les events de l'utilisateur
+
         if ($_REQUEST['id_user'])
         {
 
@@ -54,11 +61,11 @@ class userController extends controller
 
             $checkVosEvent = $this->model->checkVosEvent($this->id_user,$id_user);
 
+            // affiche les events des amis de l'utilisateur
             if ($checkVosEvent) {
 
                 $listSorties = $this->model->getSorties($id_user);
             }
-
 
 
         } else {
@@ -68,6 +75,8 @@ class userController extends controller
 
         include "vu/vosSorties.php";
     }
+
+    // permet de se deconnecter
 
     public function logout ()
     {
@@ -79,6 +88,8 @@ class userController extends controller
 
     }
 
+    // supprime le compte de l'utilisateur
+
     public function deleteEvent ()
     {
         $id = $_REQUEST['id'];
@@ -87,6 +98,8 @@ class userController extends controller
 
         $this->vosEvent();
     }
+
+    // permet à l'utilisateur de creer un evenement
 
     public function createEvent ()
     {
@@ -135,6 +148,8 @@ class userController extends controller
 
     }
 
+    //permet à l'utilisateur de modifier ses evenements
+
     public function editEvent ()
     {
 
@@ -181,6 +196,10 @@ class userController extends controller
 
     }
 
+    // affiche la page relative à un evenement
+    // ses détails, son nombre de participant
+    // la possibilité de participer ou non
+
     public function details ()
     {
         $id_event = $_REQUEST['id_event'];
@@ -197,6 +216,12 @@ class userController extends controller
         include "vu/thisEvent.php";
 
     }
+
+    // permet à l'utilisateur de voir ses infos perso
+    // de les modifier, de trouver des utilisateurs
+    // de les demander en ami, de checker ses demandes
+    // d'ami, de voir les évènements auquels participent
+    // ses amis
 
     public function profil ()
     {
@@ -228,6 +253,8 @@ class userController extends controller
 
     }
 
+    // permet de supprimer un ami
+
     public function deleteFriend ()
     {
         $id_friend = $_REQUEST['id_friend'];
@@ -240,6 +267,7 @@ class userController extends controller
 
     }
 
+    // valider une demande d'ami
 
     public function confirm ()
     {
@@ -252,6 +280,7 @@ class userController extends controller
         $this->profil();
     }
 
+    // editer son profil
 
     public function editProfil ()
     {
@@ -296,6 +325,8 @@ class userController extends controller
         include "vu/validation.php";
     }
 
+    // supprimer son profil
+
     public function deleteProfil ()
     {
 
@@ -303,6 +334,8 @@ class userController extends controller
 
         $this->logout();
     }
+
+    //annuler sa participation à un event
 
     public function abandon ()
     {
@@ -322,6 +355,8 @@ class userController extends controller
         }
     }
 
+    // participer à un event
+
     public function participation ()
     {
         $id_event = $_REQUEST['id_event'];
@@ -337,6 +372,8 @@ class userController extends controller
 
         $this->details();
     }
+
+    // envoie d'un mail depuis le formulaire contact
 
     public function mail ()
     {
@@ -361,6 +398,8 @@ class userController extends controller
         include "vu/validation.php";
 
     }
+
+    // supprimer l'un de ses commentaires
 
     public function deleteComm ()
     {
@@ -392,6 +431,8 @@ class userController extends controller
         $this->details($id_event);
     }
 
+    // modifier l'un de ses commentaires
+
     public function editComm ()
     {
 
@@ -420,6 +461,8 @@ class userController extends controller
 
     }
 
+    // permet de faire une demande d'ami
+
     public function friend ()
     {
         $id_friend = $_REQUEST['id_friend'];
@@ -429,6 +472,8 @@ class userController extends controller
 
         $this->profil();
     }
+
+    // permet de refuser une demande d'ami
 
     public function refuseFriend ()
     {

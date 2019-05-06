@@ -17,20 +17,28 @@ class visitorController extends controller
 
     }
 
+    // renvoie vers la page d'inscription
+
     public function inscriptionPage ()
     {
         include "vu/inscription.php";
     }
+
+    // renvoie vers la page modifPassword apres la reception d'un mail
 
     public function modifPassword ()
     {
         include "vu/modifPassword.php";
     }
 
+    // renvoie vers la page de connexion
+
     public function connexionPage ()
     {
         include "vu/connexion.php";
     }
+
+    // permet à l'utilisateur de se créer un compte
 
     public function inscription ()
     {
@@ -97,6 +105,8 @@ class visitorController extends controller
 
     }
 
+    // permet à l'utilisateur de se logger
+
     public function login ()
     {
         $pseudo = $_REQUEST['pseudo'];
@@ -119,6 +129,8 @@ class visitorController extends controller
             $this->affichage();
         }
     }
+
+    //
 
     public function lostPasswordPage ()
     {
