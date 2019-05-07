@@ -25,6 +25,8 @@ class visitor extends model
 
     public function set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password)
     {
+        $pass = sha1($password);
+
         $this->sql = $this->bdd->prepare("INSERT INTO `users` (`name`,`surname`,`sexe`,`mail`,`age`,`city`,`pseudo`,`about`,`password`) VALUE (?,?,?,?,?,?,?,?,?)");
         $this->sql->bindParam(1, $name);
         $this->sql->bindParam(2, $surname);
@@ -34,7 +36,7 @@ class visitor extends model
         $this->sql->bindParam(6, $city);
         $this->sql->bindParam(7, $pseudo);
         $this->sql->bindParam(8, $about);
-        $this->sql->bindParam(9, sha1($password));
+        $this->sql->bindParam(9, $pass);
         $this->sql->execute();
     }
 
@@ -124,7 +126,8 @@ class visitor extends model
 
     public function newPassword ($password, $mail)
     {
+        $pass = sha1($password);
         $this->sql = "UPDATE `users` SET `password` = ? WHERE `mail` = ?";
-        $this->bdd->prepare($this->sql)->execute([sha1($password), $mail]);
+        $this->bdd->prepare($this->sql)->execute([$pass, $mail]);
     }
 }

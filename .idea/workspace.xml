@@ -2,30 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2cf65c7-3c27-4592-932d-a2eabd8ba13b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/script2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/visitorTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ajaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ajaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/visitorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/visitorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/affichageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/affichageEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/visitor.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/visitor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vu/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/connexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/editUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/editUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/homePage.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/homePage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/inscription.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/lostPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/lostPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/modifPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/modifPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/profil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/thisEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/thisEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/vosEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/vosEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/vosSorties.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/vosSorties.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,67 +18,40 @@
   <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="projet_site_de_rencontre" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/adminController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1278">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controller/visitorController.php">
+        <entry file="file://$PROJECT_DIR$/test/visitorTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
+            <state relative-caret-position="510">
+              <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+              <folding>
+                <element signature="e#60#82#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/ajaxController.php">
+        <entry file="file://$PROJECT_DIR$/vu/connexion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+            <state relative-caret-position="510">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/controller.php">
+        <entry file="file://$PROJECT_DIR$/model/visitor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/userController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2079">
-              <caret line="270" lean-forward="true" selection-start-line="270" selection-end-line="270" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/user.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="203" column="5" lean-forward="true" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="123" column="26" lean-forward="true" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
+            <state relative-caret-position="85">
+              <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+              <folding>
+                <element signature="e#52#86#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,7 +102,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vu/user/header.php" />
         <option value="$PROJECT_DIR$/vu/user/headerUser.php" />
         <option value="$PROJECT_DIR$/vu/user/create.php" />
         <option value="$PROJECT_DIR$/vu/user/users.php" />
@@ -158,7 +112,6 @@
         <option value="$PROJECT_DIR$/vu/test.html" />
         <option value="$PROJECT_DIR$/vu/deco.php" />
         <option value="$PROJECT_DIR$/controller/trait.php" />
-        <option value="$PROJECT_DIR$/model/admin.php" />
         <option value="$PROJECT_DIR$/model/model.php" />
         <option value="$PROJECT_DIR$/vu/editProfil.php" />
         <option value="$PROJECT_DIR$/vu/editVosEvent.php" />
@@ -169,15 +122,12 @@
         <option value="$PROJECT_DIR$/vu/editCommentaire.php" />
         <option value="$PROJECT_DIR$/vu/editEvent.php" />
         <option value="$PROJECT_DIR$/model/ajax.php" />
-        <option value="$PROJECT_DIR$/model/visitor.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/model/user.php" />
         <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/vu/header.php" />
         <option value="$PROJECT_DIR$/vu/footer.php" />
         <option value="$PROJECT_DIR$/script2.js" />
         <option value="$PROJECT_DIR$/vu/homePage.php" />
-        <option value="$PROJECT_DIR$/vu/connexion.php" />
         <option value="$PROJECT_DIR$/vu/contact.php" />
         <option value="$PROJECT_DIR$/vu/create.php" />
         <option value="$PROJECT_DIR$/vu/edit.php" />
@@ -198,6 +148,11 @@
         <option value="$PROJECT_DIR$/controller/controller.php" />
         <option value="$PROJECT_DIR$/controller/userController.php" />
         <option value="$PROJECT_DIR$/controller/visitorController.php" />
+        <option value="$PROJECT_DIR$/model/visitor.php" />
+        <option value="$PROJECT_DIR$/model/user.php" />
+        <option value="$PROJECT_DIR$/model/admin.php" />
+        <option value="$PROJECT_DIR$/vu/connexion.php" />
+        <option value="$PROJECT_DIR$/test/visitorTest.php" />
       </list>
     </option>
   </component>
@@ -246,7 +201,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -262,22 +216,18 @@
             <path>
               <item name="projet_site_de_rencontre" type="b2602c69:ProjectViewProjectNode" />
               <item name="projet_site_de_rencontre" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projet_site_de_rencontre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projet_site_de_rencontre" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projet_site_de_rencontre" type="b2602c69:ProjectViewProjectNode" />
               <item name="projet_site_de_rencontre" type="462c0819:PsiDirectoryNode" />
-              <item name="vu" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -317,6 +267,17 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="VisitorTests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\test\VisitorTests" file="$PROJECT_DIR$/test/visitorTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.VisitorTests" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -355,7 +316,8 @@
       <workItem from="1556874326888" duration="13538000" />
       <workItem from="1556996185177" duration="10664000" />
       <workItem from="1557063005894" duration="8332000" />
-      <workItem from="1557127367491" duration="18025000" />
+      <workItem from="1557127367491" duration="18050000" />
+      <workItem from="1557213956628" duration="12797000" />
     </task>
     <task id="LOCAL-00001" summary="commit initial&#10;&#10;login/logout/users/inscription">
       <created>1555010910606</created>
@@ -546,26 +508,38 @@
       <option name="project" value="LOCAL" />
       <updated>1557071448753</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="commentaires">
+      <created>1557154795637</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1557154795637</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="VisitorTests - 2019.05.07 at 11h 14m 18s.xml">
+      <configuration name="VisitorTests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="367892000" />
+    <option name="totallyTimeSpent" value="380714000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.47986576" />
+      <window_info id="Favorites" order="0" sideWeight="0.5021097" side_tool="true" weight="0.2885906" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4978903" visible="true" weight="0.13959731" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.15722379" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -628,7 +602,8 @@
     <MESSAGE value="moitié du css fait" />
     <MESSAGE value="fin css" />
     <MESSAGE value="responsive, reste a faire le menu hamburger" />
-    <option name="LAST_COMMIT_MESSAGE" value="responsive, reste a faire le menu hamburger" />
+    <MESSAGE value="commentaires" />
+    <option name="LAST_COMMIT_MESSAGE" value="commentaires" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -642,10 +617,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/GitHub/exoPHP/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vu/headerUser.php" />
     <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -663,13 +634,6 @@
     <entry file="file://$PROJECT_DIR$/vu/editComm.php" />
     <entry file="file://$PROJECT_DIR$/vu/validationPassword.php" />
     <entry file="file://$PROJECT_DIR$/vu/verifInscription.php" />
-    <entry file="file://$PROJECT_DIR$/model/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vu/editVosEvent.php" />
     <entry file="file://$PROJECT_DIR$/vu/editEvent.php" />
     <entry file="file://$PROJECT_DIR$/vu/editCommentaire.php" />
@@ -684,31 +648,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="e#31#45#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/visitor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="129" column="1" lean-forward="true" selection-start-line="129" selection-start-column="1" selection-end-line="129" selection-end-column="1" />
-          <folding>
-            <element signature="e#52#86#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -720,13 +661,7 @@
     <entry file="file://$PROJECT_DIR$/vu/header.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vu/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/vu/footer.php" />
     <entry file="file://$PROJECT_DIR$/script2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -737,13 +672,6 @@
           <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
           <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vu/connexion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -859,16 +787,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="123" column="26" lean-forward="true" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/ajaxController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
+        <state relative-caret-position="578">
           <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
         </state>
       </provider>
@@ -880,31 +801,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/userController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4590">
+          <caret line="270" selection-start-line="270" selection-end-line="270" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/visitorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="123" column="26" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/adminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1278">
+        <state relative-caret-position="697">
           <caret line="98" selection-start-line="98" selection-end-line="98" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="203" column="5" lean-forward="true" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
+        <state relative-caret-position="2465">
+          <caret line="145" column="68" lean-forward="true" selection-start-line="145" selection-start-column="68" selection-end-line="145" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/userController.php">
+    <entry file="file://$PROJECT_DIR$/model/model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2079">
-          <caret line="270" lean-forward="true" selection-start-line="270" selection-end-line="270" />
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#31#45#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/visitorController.php">
+    <entry file="file://$PROJECT_DIR$/model/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
+        <state relative-caret-position="242">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vu/connexion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/visitor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding>
+            <element signature="e#52#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/visitorTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+          <folding>
+            <element signature="e#60#82#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

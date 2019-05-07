@@ -16,8 +16,9 @@ class admin extends user
 
     public function setEditUser ($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank)
     {
+        $pass = sha1($password);
         $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `mail` = ?, `age` = ?, `city` = ?, `pseudo` = ?, `password` = ?, `about` = ?, `rank` = ?  WHERE id_user = ?";
-        $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $rank, $id]);
+        $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $pass, $about, $rank, $id]);
     }
 
     public function setEditEvent ($id, $title, $place, $city, $event_describe, $nbr, $date, $hours)

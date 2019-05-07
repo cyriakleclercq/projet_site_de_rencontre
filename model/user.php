@@ -138,8 +138,9 @@ class user extends visitor
 
     public function setEditProfil ($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about)
     {
+        $pass = sha1($password);
         $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `mail` = ?, `age` = ?, `city` = ?, `pseudo` = ?, `password` = ?, `about` = ?    WHERE id_user = ?";
-        $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about, $id]);
+        $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $pass, $about, $id]);
     }
 
     public function setEditComment ($id_user, $id_comment, $comment)
