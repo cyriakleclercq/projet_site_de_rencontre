@@ -28,7 +28,8 @@ class visitorTest extends TestCase
     public function testInscription ()
     {
         $test = $this->visitor->set_inscription("cyriak","leclercq","homme", "cyriakleclercq@gmail.com",27,"fourmies", "modjo", "rien", "test");
-        $this->assertEquals('"cyriak","leclercq","homme","cyriakleclercq@gmail.com",27,"fourmies","modjo","rien", "test"',$test);
+        $this->assertEquals('cyriak',$test['name']);
+        $this->assertEquals('leclercq',$test['surname']);
 
     }
 }

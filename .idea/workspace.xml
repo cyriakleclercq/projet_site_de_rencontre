@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2cf65c7-3c27-4592-932d-a2eabd8ba13b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/visitorTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/visitor.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/visitor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vu/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/vu/connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script2.js" beforeDir="false" afterPath="$PROJECT_DIR$/script2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/visitorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/visitorTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/visitorTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+            <state relative-caret-position="556">
+              <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
               <folding>
                 <element signature="e#60#82#0#PHP" expanded="true" />
               </folding>
@@ -36,10 +35,118 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="428">
+              <caret line="279" column="1" selection-start-line="279" selection-start-column="1" selection-end-line="279" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vu/homePage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="uml://PHP/\App\controller\adminController">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>PHP</ID>
+              <OriginalElement>\App\controller\adminController</OriginalElement>
+              <nodes>
+                <node x="0.0" y="503.0">\App\controller\ajaxController</node>
+                <node x="510.5" y="0.0">\App\model\ajax</node>
+                <node x="0.0" y="287.0">\App\model\user</node>
+                <node x="313.5" y="177.0">\App\Controller\visitorController</node>
+                <node x="160.0" y="310.0">\App\controller\adminController</node>
+                <node x="251.5" y="0.0">\App\controller\controller</node>
+                <node x="0.0" y="409.0">\App\model\admin</node>
+                <node x="0.0" y="188.0">\App\model\visitor</node>
+                <node x="163.5" y="166.0">\App\controller\userController</node>
+                <node x="0.0" y="0.0">\App\model\model</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="\App\model\visitor" target="\App\model\model">
+                  <point x="0.0" y="-24.5" />
+                  <point x="0.0" y="69.0" />
+                </edge>
+                <edge source="\App\controller\userController" target="\App\controller\controller">
+                  <point x="0.0" y="-47.0" />
+                  <point x="228.5" y="141.0" />
+                  <point x="280.25" y="141.0" />
+                  <point x="-28.75" y="58.0" />
+                </edge>
+                <edge source="\App\controller\adminController" target="\App\controller\userController">
+                  <point x="0.0" y="-36.0" />
+                  <point x="0.0" y="47.0" />
+                </edge>
+                <edge source="\App\Controller\visitorController" target="\App\controller\controller">
+                  <point x="0.0" y="-36.0" />
+                  <point x="389.5" y="141.0" />
+                  <point x="337.75" y="141.0" />
+                  <point x="28.75" y="58.0" />
+                </edge>
+                <edge source="\App\model\admin" target="\App\model\user">
+                  <point x="0.0" y="-24.5" />
+                  <point x="0.0" y="36.0" />
+                </edge>
+                <edge source="\App\model\user" target="\App\model\visitor">
+                  <point x="0.0" y="-36.0" />
+                  <point x="0.0" y="24.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.0" x="215.5" y="307.5" />
+              <SelectedNodes>
+                <node>\App\controller\adminController</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Constants</Category>
+                <Category>Constructors</Category>
+              </Categories>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vu/connexion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="391">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1615">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2657">
+              <caret line="104" column="26" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -47,8 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/visitor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+            <state relative-caret-position="323">
+              <caret line="40" column="57" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
               <folding>
                 <element signature="e#52#86#0#PHP" expanded="true" />
               </folding>
@@ -122,11 +229,8 @@
         <option value="$PROJECT_DIR$/vu/editCommentaire.php" />
         <option value="$PROJECT_DIR$/vu/editEvent.php" />
         <option value="$PROJECT_DIR$/model/ajax.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/vu/header.php" />
         <option value="$PROJECT_DIR$/vu/footer.php" />
-        <option value="$PROJECT_DIR$/script2.js" />
         <option value="$PROJECT_DIR$/vu/homePage.php" />
         <option value="$PROJECT_DIR$/vu/contact.php" />
         <option value="$PROJECT_DIR$/vu/create.php" />
@@ -148,11 +252,14 @@
         <option value="$PROJECT_DIR$/controller/controller.php" />
         <option value="$PROJECT_DIR$/controller/userController.php" />
         <option value="$PROJECT_DIR$/controller/visitorController.php" />
-        <option value="$PROJECT_DIR$/model/visitor.php" />
         <option value="$PROJECT_DIR$/model/user.php" />
         <option value="$PROJECT_DIR$/model/admin.php" />
         <option value="$PROJECT_DIR$/vu/connexion.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/script2.js" />
+        <option value="$PROJECT_DIR$/model/visitor.php" />
         <option value="$PROJECT_DIR$/test/visitorTest.php" />
+        <option value="$PROJECT_DIR$/script.js" />
       </list>
     </option>
   </component>
@@ -191,9 +298,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -201,6 +308,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -216,6 +324,11 @@
             <path>
               <item name="projet_site_de_rencontre" type="b2602c69:ProjectViewProjectNode" />
               <item name="projet_site_de_rencontre" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projet_site_de_rencontre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet_site_de_rencontre" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -223,11 +336,15 @@
               <item name="projet_site_de_rencontre" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="projet_site_de_rencontre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet_site_de_rencontre" type="462c0819:PsiDirectoryNode" />
+              <item name="vu" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -317,7 +434,8 @@
       <workItem from="1556996185177" duration="10664000" />
       <workItem from="1557063005894" duration="8332000" />
       <workItem from="1557127367491" duration="18050000" />
-      <workItem from="1557213956628" duration="12797000" />
+      <workItem from="1557213956628" duration="12817000" />
+      <workItem from="1557386625848" duration="8857000" />
     </task>
     <task id="LOCAL-00001" summary="commit initial&#10;&#10;login/logout/users/inscription">
       <created>1555010910606</created>
@@ -515,7 +633,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557154795637</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="test unitaire">
+      <created>1557241163564</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1557241163564</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -524,17 +649,17 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="380714000" />
+    <option name="totallyTimeSpent" value="389591000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5021097" side_tool="true" weight="0.2885906" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4978903" visible="true" weight="0.13959731" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4978903" visible="true" weight="0.14161074" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.15722379" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.15722379" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3286119" />
@@ -603,23 +728,21 @@
     <MESSAGE value="fin css" />
     <MESSAGE value="responsive, reste a faire le menu hamburger" />
     <MESSAGE value="commentaires" />
-    <option name="LAST_COMMIT_MESSAGE" value="commentaires" />
+    <MESSAGE value="test unitaire" />
+    <option name="LAST_COMMIT_MESSAGE" value="test unitaire" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/script.js</url>
-          <line>74</line>
+          <line>97</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/vu/affichageUser.php" />
     <entry file="file://$PROJECT_DIR$/vu/test.html" />
     <entry file="file://$PROJECT_DIR$/angular-route.min.js" />
@@ -651,30 +774,10 @@
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vu/header.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/vu/footer.php" />
-    <entry file="file://$PROJECT_DIR$/script2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vu/contact.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -700,13 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vu/homePage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -780,13 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="104" column="26" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/ajaxController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -812,13 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="123" column="26" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -859,17 +941,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vu/connexion.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="428">
+          <caret line="279" column="1" selection-start-line="279" selection-start-column="1" selection-end-line="279" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/visitor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        <state relative-caret-position="323">
+          <caret line="40" column="57" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
           <folding>
             <element signature="e#52#86#0#PHP" expanded="true" />
           </folding>
@@ -878,11 +960,107 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/visitorTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        <state relative-caret-position="556">
+          <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
           <folding>
             <element signature="e#60#82#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vu/connexion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2657">
+          <caret line="104" column="26" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vu/homePage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\App\controller\adminController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\App\controller\adminController</OriginalElement>
+          <nodes>
+            <node x="0.0" y="503.0">\App\controller\ajaxController</node>
+            <node x="510.5" y="0.0">\App\model\ajax</node>
+            <node x="0.0" y="287.0">\App\model\user</node>
+            <node x="313.5" y="177.0">\App\Controller\visitorController</node>
+            <node x="160.0" y="310.0">\App\controller\adminController</node>
+            <node x="251.5" y="0.0">\App\controller\controller</node>
+            <node x="0.0" y="409.0">\App\model\admin</node>
+            <node x="0.0" y="188.0">\App\model\visitor</node>
+            <node x="163.5" y="166.0">\App\controller\userController</node>
+            <node x="0.0" y="0.0">\App\model\model</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="\App\model\visitor" target="\App\model\model">
+              <point x="0.0" y="-24.5" />
+              <point x="0.0" y="69.0" />
+            </edge>
+            <edge source="\App\controller\userController" target="\App\controller\controller">
+              <point x="0.0" y="-47.0" />
+              <point x="228.5" y="141.0" />
+              <point x="280.25" y="141.0" />
+              <point x="-28.75" y="58.0" />
+            </edge>
+            <edge source="\App\controller\adminController" target="\App\controller\userController">
+              <point x="0.0" y="-36.0" />
+              <point x="0.0" y="47.0" />
+            </edge>
+            <edge source="\App\Controller\visitorController" target="\App\controller\controller">
+              <point x="0.0" y="-36.0" />
+              <point x="389.5" y="141.0" />
+              <point x="337.75" y="141.0" />
+              <point x="28.75" y="58.0" />
+            </edge>
+            <edge source="\App\model\admin" target="\App\model\user">
+              <point x="0.0" y="-24.5" />
+              <point x="0.0" y="36.0" />
+            </edge>
+            <edge source="\App\model\user" target="\App\model\visitor">
+              <point x="0.0" y="-36.0" />
+              <point x="0.0" y="24.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="215.5" y="307.5" />
+          <SelectedNodes>
+            <node>\App\controller\adminController</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+          </Categories>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>

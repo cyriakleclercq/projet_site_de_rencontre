@@ -38,6 +38,7 @@ class visitor extends model
         $this->sql->bindParam(8, $about);
         $this->sql->bindParam(9, $pass);
         $this->sql->execute();
+        return array('name'=>$name, 'surname'=>$surname);
     }
 
     public function check_inscription ($pseudo, $mail)
