@@ -73,13 +73,15 @@
                 <div class="crudUser about perso">
 
                     <a href="../index.php?controller=user&action=deleteProfil" onclick="return confirm('êtes vous sûr de vouloir supprimer votre compte ?');"> delete </a>
-                    <a href="../index.php?controller=user&action=edit&name=<?=$i->name ?>&sexe=<?=$i->sexe ?>&surname=<?=$i->surname ?>&age=<?=$i->age ?>&mail=<?=$i->mail ?>&city=<?=$i->city ?>&pseudo=<?=$i->pseudo ?>&password=<?=$i->password ?>&about=<?=$i->about ?>"> edit </a>
+                    <a href="../index.php?controller=user&action=edit&name=<?=$i->name ?>&sexe=<?=$i->sexe ?>&surname=<?=$i->surname ?>&age=<?=$i->age ?>&city=<?=$i->city ?>&password=<?=$i->password ?>&about=<?=$i->about ?>"> edit </a>
 
                 </div>
 
             <?php } ?>
 
         </div>
+
+        <?= $alert1 ?>
 
         <div class="formG">
 

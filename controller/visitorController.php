@@ -146,7 +146,12 @@ class visitorController extends controller
 
         if ($check == 1)
         {
-            $this->model->envoiemail($this->mail,$mail);
+            $token = md5(time()."abcde012345".mt_rand(1,9999));
+
+            $this->model->updateToken($mail,$token);
+
+
+            $this->model->envoiemail($this->mail,$mail, $token);
 
             $reponse = "Un lien pour modifier votre mot de passe a été envoyé sur votre boite mail";
 
@@ -163,13 +168,13 @@ class visitorController extends controller
     public function newPassword ()
     {
 
-        $mail = $_REQUEST['mail'];
-        filter_var($mail,FILTER_SANITIZE_EMAIL);
+        $token = $_REQUEST['token'];
+        filter_var($token,FILTER_SANITIZE_STRING);
 
         $password = $_REQUEST['password'];
         filter_var($password,FILTER_SANITIZE_STRING);
 
-        $this->model->newPassword($password, $mail);
+        $this->model->newPassword($password, $token);
 
         $validationPassword = "Vous avez bien changé votre mot de passe";
 

@@ -109,9 +109,16 @@ class visitor extends model
         }
     }
 
-    public function envoiemail ($by, $mail)
+    public function updateToken ($mail, $token)
     {
-        $message= '<a href="http://localhost:8000/index.php?controller=visitor&action=modifPassword&mail="'.$mail.'> cliquez sur ce lien pour créer un nouveau mot de passe </a>';
+        $this->sql = "UPDATE `users` SET `token` = ? WHERE `mail` = ?";
+        $this->bdd->prepare($this->sql)->execute([$token, $mail]);
+    }
+
+    public function envoiemail ($by, $mail, $token)
+    {
+
+        $message= '<a href="http://localhost:8000/index.php?controller=visitor&action=modifPassword&token='.$token.'"> modifier votre mot de passe </a>';
 
         $titre= "modification de mot de passe";
 
@@ -119,16 +126,18 @@ class visitor extends model
 
         $headers = 'From:'.$by . "\r\n" .
             'Reply-To:'.$by . "\r\n" .
+            'MIME-Version: 1.0' . "\r\n" .
+            'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
         mail($recepteur,$titre, $message, $headers);
 
     }
 
-    public function newPassword ($password, $mail)
+    public function newPassword ($password, $token)
     {
         $pass = sha1($password);
-        $this->sql = "UPDATE `users` SET `password` = ? WHERE `mail` = ?";
-        $this->bdd->prepare($this->sql)->execute([$pass, $mail]);
+        $this->sql = "UPDATE `users` SET `password` = ?, `token` = null WHERE `token` = ?";
+        $this->bdd->prepare($this->sql)->execute([$pass, $token]);
     }
 }

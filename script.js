@@ -40,6 +40,7 @@ function ajaxRequest()
             $('#commentaire > span').remove();
             $('#commentaire > h4').remove();
 
+
             // récupère les données
 
             var objQuete = this.responseText;
@@ -49,7 +50,6 @@ function ajaxRequest()
         // parse les données pour une récupération en objet
 
         let commentaire = JSON.parse(objQuete);
-        console.log(commentaire);
 
         // crée les éléments html comportant la valeur des données
 

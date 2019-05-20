@@ -136,11 +136,11 @@ class user extends visitor
         $this->bdd->prepare($this->sql)->execute([$title, $place, $city, $event_describe, $nbr, $date, $hours, $id_event, $id_user]);
     }
 
-    public function setEditProfil ($id, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about)
+    public function setEditProfil ($id, $name, $surname, $sexe, $age, $city, $password, $about)
     {
         $pass = sha1($password);
-        $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `mail` = ?, `age` = ?, `city` = ?, `pseudo` = ?, `password` = ?, `about` = ?    WHERE id_user = ?";
-        $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $mail, $age, $city, $pseudo, $pass, $about, $id]);
+        $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `age` = ?, `city` = ?, `password` = ?, `about` = ?    WHERE id_user = ?";
+        $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $age, $city, $pass, $about, $id]);
     }
 
     public function setEditComment ($id_user, $id_comment, $comment)

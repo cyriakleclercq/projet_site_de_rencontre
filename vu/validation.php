@@ -41,15 +41,6 @@
 
         <?php }
 
-        if ($validationPassword) { ?>
-
-            <p> <?php $validationPassword ?> </p>
-
-
-            <a href="../index.php"> retour </a>
-
-        <?php }
-
         if ($editEvent) { ?>
 
             <p> <?= $editEvent ?> </p>
@@ -58,6 +49,15 @@
             <a href="../index.php?controller=user&action=vosEvent"> retour </a>
 
         <?php }
+
+        if ($error) { ?>
+
+            <p> <?= $error ?> </p>
+
+
+            <a href="../index.php?controller=user&action=profil"> retour </a>
+
+            <?php }
 
         if ($profil) { ?>
 
@@ -77,21 +77,27 @@
 
         <?php }
 
-        } elseif ($logout)
+        } elseif ($inscription) { ?>
 
-        { ?>
+        <p> <?= $inscription ?> </p>
+
+        <a href="../index.php?controller=visitor&action=connexionPage"> retour </a>
+
+        <?php } elseif ($validationPassword) { ?>
+
+        <p> <?= $validationPassword ?> </p>
+
+
+    <a href="../index.php"> retour </a>
+
+<?php }
+        if ($logout) { ?>
 
         <p> <?= $logout ?> </p>
 
 
         <a href="../index.php"> retour </a>
 
-
-        <?php } elseif ($inscription) { ?>
-
-        <p> <?= $inscription ?> </p>
-
-        <a href="../index.php?controller=visitor&action=connexionPage"> retour </a>
 
         <?php } else { ?>
 

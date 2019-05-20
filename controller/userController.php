@@ -293,17 +293,11 @@ class userController extends controller
         $sexe = $_REQUEST['sexe'];
         filter_var($sexe,FILTER_SANITIZE_STRING);
 
-        $mail = $_REQUEST['mail'];
-        filter_var($mail, FILTER_SANITIZE_EMAIL);
-
         $age = $_REQUEST['age'];
         filter_var($age, FILTER_SANITIZE_NUMBER_INT);
 
         $city = $_REQUEST['city'];
         filter_var($city, FILTER_SANITIZE_STRING);
-
-        $pseudo = $_REQUEST['pseudo'];
-        filter_var($pseudo, FILTER_SANITIZE_STRING);
 
         $password = $_REQUEST['password'];
         filter_var($password, FILTER_SANITIZE_STRING);
@@ -311,13 +305,15 @@ class userController extends controller
         $about = $_REQUEST['about'];
         filter_var($about, FILTER_SANITIZE_STRING);
 
-        if (!empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password)) {
 
-            $edit_profil = $this->model->setEditProfil($this->id_user, $name, $surname, $sexe, $mail, $age, $city, $pseudo, $password, $about);
+        if (!empty($name) && !empty($surname) && !empty($sexe) && !empty($age) && !empty($city) && !empty($password))
+        {
+
+            $edit_profil = $this->model->setEditProfil($this->id_user, $name, $surname, $sexe, $age, $city, $password, $about);
 
             $profil = "Votre profil a bien été édité";
 
-        } else {
+        } else  {
 
             $profil = "veuillez remplir tous les champs";
         }

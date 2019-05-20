@@ -23,7 +23,7 @@
 
         <form action="../index.php?controller=visitor&action=newPassword" method="post" class="form">
 
-            <input type="text" style="display: none" id="inp_mail" required name="mail" value="<?= $_GET['mail']?>">
+            <input type="text" style="display: none" id="inp_mail" required name="token" value="<?= $_GET['token']?>">
 
             <label for="inp_password"> new password : </label>
             <input type="password" id="inp_password" required name="password">

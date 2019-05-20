@@ -81,7 +81,7 @@ if ($_SESSION['rank'])
         if (isset($_GET['id_event']) && isset($_GET['id_comment']) && isset($_GET['comment']))
         {?>
 
-        <h1> Editer le commentaire "<?= $_GET['titre']  ?>" : </h1>
+        <h1> Editez votre commentaire : </h1>
 
         <section>
 
@@ -126,9 +126,6 @@ if ($_SESSION['rank'])
                                 <option value="homme"> homme </option>
                             </select>
 
-                            <label for="inp_mail"> adresse mail : </label>
-                            <input type="email" id="inp_mail" required name="mail" value="<?= $_GET['mail'] ?>">
-
                         </div>
 
                         <div class="formD flex">
@@ -138,9 +135,6 @@ if ($_SESSION['rank'])
 
                             <label for="inp_city"> ville : </label>
                             <input type="text" id="inp_city" required name="city" value="<?= $_GET['city'] ?>">
-
-                            <label for="inp_pseudo"> pseudo : </label>
-                            <input type="text" id="inp_pseudo" required name="pseudo" value="<?= $_GET['pseudo'] ?>">
 
                             <label for="inp_password"> password : </label>
                             <input type="text" id="inp_password" required name="password" value="<?= $_GET['password'] ?>">
