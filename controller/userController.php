@@ -305,15 +305,26 @@ class userController extends controller
         $about = $_REQUEST['about'];
         filter_var($about, FILTER_SANITIZE_STRING);
 
+        $checkMDP = $this->model->check_MDP($this->pseudo, $password);
+        var_dump($checkMDP);
 
-        if (!empty($name) && !empty($surname) && !empty($sexe) && !empty($age) && !empty($city) && !empty($password))
-        {
 
-            $edit_profil = $this->model->setEditProfil($this->id_user, $name, $surname, $sexe, $age, $city, $password, $about);
 
-            $profil = "Votre profil a bien été édité";
+            if ($checkMDP == 0 && !empty($name) && !empty($surname) && !empty($sexe) && !empty($age) && !empty($city) && !empty($password)) {
 
-        } else  {
+                $this->model->setEditProfil($this->id_user, $name, $surname, $sexe, $age, $city, $password, $about);
+                $profil = "Votre profil a bien été édité";
+
+            }
+
+            elseif ($checkMDP == 1 && !empty($name) && !empty($surname) && !empty($sexe) && !empty($age) && !empty($city)) {
+
+               $this->model->setEditProfil2($this->id_user, $name, $surname, $sexe, $age, $city, $about);
+                $profil = "Votre profil a bien été édité";
+
+            }
+
+             else  {
 
             $profil = "veuillez remplir tous les champs";
         }

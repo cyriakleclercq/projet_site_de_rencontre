@@ -90,9 +90,17 @@ class visitorController extends controller
             if (!empty($name) && !empty($surname) && !empty($sexe) && !empty($mail) && !empty($age) && !empty($city) && !empty($pseudo) && !empty($password))
             {
 
-                $add_user = $this->model->set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password);
+                $token = md5(time()."abcde012345".mt_rand(1,9999));
 
-                $inscription = "Votre inscription a bien été prise en compte";
+
+                $this->model->set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password, $token);
+
+
+                $this->model->validationMail($this->Sitemail, $mail, $token);
+
+
+
+                $inscription = "Votre inscription a bien été prise en compte. veuillez la valider en cliquant sur le lien dans votre boite mail";
 
             } else {
 
@@ -103,6 +111,18 @@ class visitorController extends controller
 
         }
 
+    }
+
+    public function validation ()
+    {
+        $token = $_REQUEST['token'];
+        filter_var($token, FILTER_SANITIZE_STRING);
+
+        $this->model->validation($token);
+
+        $valide = "vous pouvez désormais vous connecter";
+
+        include "vu/validation.php";
     }
 
     // permet à l'utilisateur de se logger
@@ -120,7 +140,7 @@ class visitorController extends controller
 
         if ($check_user == 1) {
 
-            $alert = 'login incorrect';
+            $alert = 'login incorrect ou non validé';
             include "vu/connexion.php";
         }
 
@@ -151,7 +171,7 @@ class visitorController extends controller
             $this->model->updateToken($mail,$token);
 
 
-            $this->model->envoiemail($this->mail,$mail, $token);
+            $this->model->envoiemail($this->Sitemail,$mail, $token);
 
             $reponse = "Un lien pour modifier votre mot de passe a été envoyé sur votre boite mail";
 

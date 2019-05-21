@@ -44,7 +44,7 @@
             <div class="flex formD">
 
                 <label for="inp_number_of_places"> Nombre de participant désiré </label>
-                <input type="number" name="number_of_places" required id="inp_number_of_places">
+                <input type="number" min="2" name="number_of_places" required id="inp_number_of_places">
 
                 <label for="inp_date"> Date de votre event </label>
                 <input type="date" name="date" required id="inp_date">

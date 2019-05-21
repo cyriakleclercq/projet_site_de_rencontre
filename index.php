@@ -18,6 +18,11 @@ if (isset($_GET['controller'])) {
                     $inscriptionPage->inscriptionPage();
                     break;
 
+                case "validationMail":
+                    $validation = new \App\Controller\visitorController();
+                    $validation->validation();
+                    break;
+
                 case "connexionPage":
 
                     $connexionPage = new \App\Controller\visitorController();

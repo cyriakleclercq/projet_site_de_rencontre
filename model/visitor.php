@@ -23,11 +23,11 @@ class visitor extends model
     }
 
 
-    public function set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password)
+    public function set_inscription($name, $surname, $sexe, $mail, $age, $city, $pseudo, $about, $password, $token)
     {
         $pass = sha1($password);
 
-        $this->sql = $this->bdd->prepare("INSERT INTO `users` (`name`,`surname`,`sexe`,`mail`,`age`,`city`,`pseudo`,`about`,`password`) VALUE (?,?,?,?,?,?,?,?,?)");
+        $this->sql = $this->bdd->prepare("INSERT INTO `users` (`name`,`surname`,`sexe`,`mail`,`age`,`city`,`pseudo`,`about`,`password`,`token`) VALUE (?,?,?,?,?,?,?,?,?,?)");
         $this->sql->bindParam(1, $name);
         $this->sql->bindParam(2, $surname);
         $this->sql->bindParam(3,$sexe);
@@ -37,8 +37,8 @@ class visitor extends model
         $this->sql->bindParam(7, $pseudo);
         $this->sql->bindParam(8, $about);
         $this->sql->bindParam(9, $pass);
+        $this->sql->bindParam(10,$token);
         $this->sql->execute();
-        return array('name'=>$name, 'surname'=>$surname);
     }
 
     public function check_inscription ($pseudo, $mail)
@@ -63,6 +63,31 @@ class visitor extends model
 
     }
 
+    public function validationMail ($by, $mail, $token)
+    {
+
+        $message= '<a href="http://localhost:8000/index.php?controller=visitor&action=validationMail&token='.$token.'"> valider votre inscription </a>';
+
+        $titre= "validation de votre inscription";
+
+        $recepteur = $mail;
+
+        $headers = 'From:'.$by . "\r\n" .
+            'Reply-To:'.$by . "\r\n" .
+            'MIME-Version: 1.0' . "\r\n" .
+            'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        mail($recepteur,$titre, $message, $headers);
+
+    }
+
+    public function validation ($token)
+    {
+        $this->sql = "UPDATE `users` SET `validite` = ?, `token` = ? WHERE `token` = ?";
+        $this->bdd->prepare($this->sql)->execute([1, null, $token]);
+    }
+
 
 
     public function check_login ($pseudo, $password)
@@ -70,7 +95,7 @@ class visitor extends model
         $this->sql = $this->bdd->query("SELECT * from users where `pseudo` = '$pseudo' and `password` = '$password'");
         $this->sql = $this->sql->fetch();
 
-        if ($pseudo == $this->sql['pseudo'] and $password == $this->sql['password'])
+        if ($pseudo == $this->sql['pseudo'] and $password == $this->sql['password'] and $this->sql['validite'] == 1)
         {
             session_start();
 
@@ -92,7 +117,7 @@ class visitor extends model
 
     }
 
-    public function checkmail ($mail)
+    public function checkemail ($mail)
     {
         $this->sql = $this->bdd->query("SELECT * from users WHERE `mail` = '$mail'");
         $this->sql = $this->sql->fetch();

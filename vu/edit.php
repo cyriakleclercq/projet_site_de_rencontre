@@ -50,7 +50,7 @@ if ($_SESSION['rank'])
                 <div class="formD flex">
 
                     <label for="inp_number_of_places"> Nombre de participant désiré </label>
-                    <input type="number" name="number_of_places" id="inp_number_of_places" required value="<?= $_GET['nbr'] ?>">
+                    <input type="number" min="2" name="number_of_places" id="inp_number_of_places" required value="<?= $_GET['nbr'] ?>">
 
                     <label for="inp_date"> Date de l'event </label>
                     <input type="date" name="date" id="inp_date" required value="<?= $_GET['date'] ?>">
@@ -131,7 +131,7 @@ if ($_SESSION['rank'])
                         <div class="formD flex">
 
                             <label for="inp_age"> age : </label>
-                            <input type="number" id="inp_age" required name="age" value="<?= $_GET['age'] ?>">
+                            <input type="number" min="0" id="inp_age" required name="age" value="<?= $_GET['age'] ?>">
 
                             <label for="inp_city"> ville : </label>
                             <input type="text" id="inp_city" required name="city" value="<?= $_GET['city'] ?>">

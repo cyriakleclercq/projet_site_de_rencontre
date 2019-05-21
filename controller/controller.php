@@ -11,6 +11,8 @@ class controller
     protected $model;
     protected $id_user;
     protected $mail;
+    protected $Sitemail;
+    protected $pseudo;
 
     public function __construct()
     {
@@ -21,7 +23,13 @@ class controller
         $this->id_user = $_SESSION['id_user'];
         filter_var($this->id_user,FILTER_SANITIZE_NUMBER_INT);
 
-        $this->mail = "Render@gmail.com";
+        $this->Sitemail = "Render@gmail.com";
+
+        $this->mail = $_SESSION['mail'];
+        filter_var($this->mail,FILTER_SANITIZE_EMAIL);
+
+        $this->pseudo = $_SESSION['pseudo'];
+        filter_var($this->pseudo,FILTER_SANITIZE_STRING);
 
     }
 

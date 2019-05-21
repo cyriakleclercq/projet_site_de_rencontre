@@ -45,7 +45,7 @@
 
                 <div class="flex formD">
                 <label for="inp_age"> age : </label>
-                <input type="number" id="inp_age" required name="age">
+                <input type="number" min="0" id="inp_age" required name="age">
 
                 <label for="inp_city"> ville : </label>
                 <input type="text" id="inp_city" required name="city">

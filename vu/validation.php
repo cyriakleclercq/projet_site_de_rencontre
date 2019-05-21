@@ -77,33 +77,46 @@
 
         <?php }
 
-        } elseif ($inscription) { ?>
-
-        <p> <?= $inscription ?> </p>
-
-        <a href="../index.php?controller=visitor&action=connexionPage"> retour </a>
-
-        <?php } elseif ($validationPassword) { ?>
-
-        <p> <?= $validationPassword ?> </p>
+        }
 
 
-    <a href="../index.php"> retour </a>
+        if (!$_SESSION['rank']) {
 
-<?php }
-        if ($logout) { ?>
+            if ($inscription) { ?>
 
-        <p> <?= $logout ?> </p>
+                <p> <?= $inscription ?> </p>
+
+                <a href="../index.php?controller=visitor&action=connexionPage"> retour </a>
+
+            <?php } elseif ($validationPassword) { ?>
+
+                <p> <?= $validationPassword ?> </p>
 
 
-        <a href="../index.php"> retour </a>
+                <a href="../index.php"> retour </a>
+
+            <?php } elseif ($logout) { ?>
+
+                <p> <?= $logout ?> </p>
 
 
-        <?php } else { ?>
+                <a href="../index.php"> retour </a>
 
-            <p> Veuillez vous connecter </p>
 
-        <?php } ?>
+            <?php } elseif ($valide) { ?>
+
+                <p> <?= $valide ?> </p>
+
+
+                <a href="../index.php"> retour </a>
+
+
+            <?php } else { ?>
+
+                <p> Veuillez vous connecter </p>
+
+            <?php }
+        }?>
 
 
     </div>

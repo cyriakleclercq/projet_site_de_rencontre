@@ -139,8 +139,14 @@ class user extends visitor
     public function setEditProfil ($id, $name, $surname, $sexe, $age, $city, $password, $about)
     {
         $pass = sha1($password);
-        $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `age` = ?, `city` = ?, `password` = ?, `about` = ?    WHERE id_user = ?";
+        $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `age` = ?, `city` = ?, `password` = ?, `about` = ? WHERE id_user = ?";
         $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $age, $city, $pass, $about, $id]);
+    }
+
+    public function setEditProfil2 ($id, $name, $surname, $sexe, $age, $city, $about)
+    {
+        $this->sql = "UPDATE `users` SET `name` = ?,`surname` = ?, `sexe` = ?, `age` = ?, `city` = ?, `about` = ? WHERE id_user = ?";
+        $this->bdd->prepare($this->sql)->execute([$name, $surname, $sexe, $age, $city, $about, $id]);
     }
 
     public function setEditComment ($id_user, $id_comment, $comment)
@@ -248,4 +254,22 @@ class user extends visitor
         $this->sql = $this->bdd->query("delete from `friends` where (id_receive = '$id_user'  and id_request = '$id_friend' and `validation` = '1') or (id_request = '$id_user' and id_receive = '$id_friend' and `validation` = '1')");
         $this->sql->execute();
     }
+
+    public function check_MDP ($pseudo, $password)
+    {
+        $this->sql = $this->bdd->query("SELECT * from users WHERE `pseudo` = '$pseudo'");
+        $this->sql = $this->sql->fetch();
+
+        if ($password == $this->sql['password'])
+        {
+            return 1;
+
+        } else {
+
+            return 0;
+        }
+
+    }
+
+
 }

@@ -120,8 +120,6 @@
 
     </section>
 
-    <footer> </footer>
-
 
 
 
